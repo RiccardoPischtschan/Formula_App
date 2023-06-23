@@ -42,7 +42,7 @@ class FormulaViewModel: ObservableObject {
         
         func create_raw_url( _ season : String) -> String {
             
-            _ = "2023"
+            var jahr = "2023"
             let base_url = "https://ergast.com/api/f1/\(season).json"
             return base_url
         }
