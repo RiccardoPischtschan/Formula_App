@@ -11,6 +11,7 @@ struct ContentView: View {
     @ObservedObject var viewModel = FormulaViewModel()
     @State private var selectedOption = 0
     private let jahr = ["2010","2015","2023","2024"]
+    var rennen = 1
     var body: some View {
         VStack {
             
@@ -28,11 +29,18 @@ struct ContentView: View {
                }
             List{
                 ForEach(viewModel.formulaDaten){ data in
-                    Text(data.constructorName ?? "")
+                    
+                    if rennen <= 22 {
+                        let currentRennen = rennen
+                        viewModel.fetchApiResponse("2022/\(currentRennen)")
+                        Text(data.circuitName ?? "")
+                        rennen += 1
+                        
+                    }
                 }
             }
             Button("LoadData"){
-                viewModel.fetchApiResponse("2023")
+                viewModel.fetchApiResponse("2022/1")
             }
          }
      }

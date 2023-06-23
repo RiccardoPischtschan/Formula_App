@@ -16,6 +16,6 @@ struct Race: Codable {
     let Circuit: Circuit
     let date: String
     let time: String
-//    let Results: [Result]?
+    let Results: [Result]
 }
 

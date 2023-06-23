@@ -36,22 +36,20 @@ class FormulaViewModel: ObservableObject {
         }
     }
     
-    
-    
-    func fetchApiResponse( _ season : String) {
+    func fetchApiResponse( _ apiCall : String) {
         
-        func create_raw_url( _ season : String) -> String {
+        func create_raw_url( _ apiCall : String) -> String {
             
 //            var jahr = "2023"
-            let base_url = "https://ergast.com/api/f1/2023/1.json"
+            let base_url = "https://ergast.com/api/f1/\(apiCall)/results.json"
             return base_url
         }
         
-        let raw_url = create_raw_url(season)
+        let raw_url = create_raw_url(apiCall)
         let encoded_url = raw_url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         guard encoded_url != nil, let url = URL(string: encoded_url!) else {
-            print("Fehler beim Erstellen der URL von \(season)")
+            print("Fehler beim Erstellen der URL von \(apiCall)")
             return
         }
         
@@ -61,12 +59,13 @@ class FormulaViewModel: ObservableObject {
                     print(data)
                     let raceResponse = try JSONDecoder().decode(RaceResultsResponse.self, from: data)
                     
-                    print(data)
+                    print(raceResponse)
+                    print("test")
                     let formula = Formula.fromRaceResultsResponse(raceResponse)
                     
                     DispatchQueue.main.async {
                         
-                        self.createOrUpdateFormulaDaten(season, formula)
+                        self.createOrUpdateFormulaDaten(apiCall, formula)
                         
                        
                     }
@@ -74,7 +73,7 @@ class FormulaViewModel: ObservableObject {
                     print("Fehler beim Decodieren der FormulaResponse: \(error.localizedDescription)")
                 }
             } else if let error = error {
-                print("Fehler beim Fetchen der Formula daten für \(season): \(error.localizedDescription)")
+                print("Fehler beim Fetchen der Formula daten für \(apiCall): \(error.localizedDescription)")
             }
         }
         
@@ -88,7 +87,7 @@ class FormulaViewModel: ObservableObject {
         formulaDaten.offset = formula.offset
         formulaDaten.total = formula.total
         formulaDaten.raceTableSeason = formula.raceTableSeason
-       formulaDaten.raceTableRound = formula.raceTableRound
+        formulaDaten.raceTableRound = formula.raceTableRound
         formulaDaten.season = formula.season
         formulaDaten.round = formula.round
         formulaDaten.url = formula.url
@@ -131,25 +130,26 @@ class FormulaViewModel: ObservableObject {
         
         saveAndReadFormulaDaten()
     }
-    func createFormulaDaten(_ formula: Formula, _ season: String) {
+    func createFormulaDaten(_ formula: Formula, _ apiCall: String) {
         let formulaDaten = FormulaDaten(context: persistentContainer.viewContext)
        
-        formulaDaten.season = season
+        formulaDaten.season = apiCall
         
         updateFormulaDaten(formulaDaten, formula)
     }
 
     
-    func createOrUpdateFormulaDaten(_ season: String, _ formula: Formula) {
-        if let existingFormulaDaten = find(season) {
+    func createOrUpdateFormulaDaten(_ apiCall: String, _ formula: Formula) {
+        if let existingFormulaDaten = find(apiCall) {
             updateFormulaDaten(existingFormulaDaten, formula)
         } else {
-            createFormulaDaten(formula, season)
+            createFormulaDaten(formula, apiCall)
         }
+      
     }
-    func find(_ season: String) -> FormulaDaten? {
+    func find(_ apiCall: String) -> FormulaDaten? {
         let request = NSFetchRequest<FormulaDaten>(entityName: String(describing: FormulaDaten.self))
-        request.predicate = NSPredicate(format: "season == %@", season)
+        request.predicate = NSPredicate(format: "season == %@", apiCall)
         
         do {
             let results = try persistentContainer.viewContext.fetch(request)

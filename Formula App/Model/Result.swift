@@ -20,8 +20,8 @@ struct Result: Codable{
     let grid: String
     let laps: String
     let status: String
-    let Time: Time
-    let FastestLap: FastestLap
+    let Time: Time?
+    let FastestLap: FastestLap?
     
     
 }
