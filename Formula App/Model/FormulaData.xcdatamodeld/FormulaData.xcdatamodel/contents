@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F66" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FormulaDaten" representedClassName="FormulaDaten" syncable="YES" codeGenerationType="class">
+        <attribute name="circuitId" optional="YES" attributeType="String"/>
+        <attribute name="circuitName" optional="YES" attributeType="String"/>
+        <attribute name="circuitUrl" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="constructorId" optional="YES" attributeType="String"/>
+        <attribute name="constructorName" optional="YES" attributeType="String"/>
+        <attribute name="constructorNationality" optional="YES" attributeType="String"/>
+        <attribute name="constructorUrl" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="dateOfBirth" optional="YES" attributeType="String"/>
+        <attribute name="driverId" optional="YES" attributeType="String"/>
+        <attribute name="driverUrl" optional="YES" attributeType="String"/>
+        <attribute name="familyName" optional="YES" attributeType="String"/>
+        <attribute name="givenName" optional="YES" attributeType="String"/>
+        <attribute name="grid" optional="YES" attributeType="String"/>
+        <attribute name="lap" optional="YES" attributeType="String"/>
+        <attribute name="laps" optional="YES" attributeType="String"/>
+        <attribute name="lapTimeTime" optional="YES" attributeType="String"/>
+        <attribute name="lat" optional="YES" attributeType="String"/>
+        <attribute name="limit" optional="YES" attributeType="String"/>
+        <attribute name="locality" optional="YES" attributeType="String"/>
+        <attribute name="long" optional="YES" attributeType="String"/>
+        <attribute name="millis" optional="YES" attributeType="String"/>
+        <attribute name="nationality" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="String"/>
+        <attribute name="offset" optional="YES" attributeType="String"/>
+        <attribute name="permanentNumber" optional="YES" attributeType="String"/>
+        <attribute name="points" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <attribute name="positionText" optional="YES" attributeType="String"/>
+        <attribute name="raceName" optional="YES" attributeType="String"/>
+        <attribute name="raceTableRound" optional="YES" attributeType="String"/>
+        <attribute name="raceTableSeason" optional="YES" attributeType="String"/>
+        <attribute name="rank" optional="YES" attributeType="String"/>
+        <attribute name="round" optional="YES" attributeType="String"/>
+        <attribute name="season" optional="YES" attributeType="String"/>
+        <attribute name="series" optional="YES" attributeType="String"/>
+        <attribute name="speed" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+        <attribute name="timeTime" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="String"/>
+        <attribute name="units" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="xmlns" optional="YES" attributeType="String"/>
+    </entity>
+</model>
