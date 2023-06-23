@@ -28,11 +28,11 @@ struct ContentView: View {
                }
             List{
                 ForEach(viewModel.formulaDaten){ data in
-                    Text(data.circuitName ?? "")
+                    Text(data.constructorName ?? "")
                 }
             }
             Button("LoadData"){
-                viewModel.fetchApiResponse("2000")
+                viewModel.fetchApiResponse("2023")
             }
          }
      }
