@@ -175,12 +175,23 @@
 		991B91A72A42DFFD002367E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				99B976622A4979BB00491F25 /* RaceQualiModel */,
+				99B976612A49798400491F25 /* RaceResultsModel */,
+				99B976602A49794500491F25 /* RaceModel */,
+				991B91C42A433372002367E8 /* FormulaData.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99B976602A49794500491F25 /* RaceModel */ = {
+			isa = PBXGroup;
+			children = (
+				991B91B22A42ED29002367E8 /* RaceResultsResponse.swift */,
 				991B91A82A42E1E5002367E8 /* Races.swift */,
 				991B91AA2A42E226002367E8 /* Circuit.swift */,
 				991B91AC2A42E24C002367E8 /* Location.swift */,
 				991B91AE2A42E269002367E8 /* Result.swift */,
 				991B91B02A42E2A1002367E8 /* Driver.swift */,
-				991B91B22A42ED29002367E8 /* RaceResultsResponse.swift */,
 				991B91B42A42ED87002367E8 /* MRData.swift */,
 				991B91B62A42EDC7002367E8 /* RaceTable.swift */,
 				991B91B82A42EF19002367E8 /* Constructor.swift */,
@@ -189,9 +200,22 @@
 				991B91BE2A42EF88002367E8 /* LapTime.swift */,
 				991B91C02A42EFD4002367E8 /* AverageSpeed.swift */,
 				991B91C22A4332F6002367E8 /* Formula.swift */,
-				991B91C42A433372002367E8 /* FormulaData.xcdatamodeld */,
 			);
-			path = Model;
+			path = RaceModel;
+			sourceTree = "<group>";
+		};
+		99B976612A49798400491F25 /* RaceResultsModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RaceResultsModel;
+			sourceTree = "<group>";
+		};
+		99B976622A4979BB00491F25 /* RaceQualiModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RaceQualiModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -41,7 +41,7 @@ class FormulaViewModel: ObservableObject {
         func create_raw_url( _ apiCall : String) -> String {
             
 //            var jahr = "2023"
-            let base_url = "https://ergast.com/api/f1/\(apiCall)/results.json"
+            let base_url = "https://ergast.com/api/f1/\(apiCall).json"
             return base_url
         }
         
@@ -57,7 +57,7 @@ class FormulaViewModel: ObservableObject {
             if let data = data {
                 do {
                     print(data)
-                    let raceResponse = try JSONDecoder().decode(RaceResultsResponse.self, from: data)
+                    let raceResponse = try JSONDecoder().decode(RaceResponse.self, from: data)
                     
                     print(raceResponse)
                     print("test")
@@ -81,26 +81,26 @@ class FormulaViewModel: ObservableObject {
     }
     
     func updateFormulaDaten(_ formulaDaten: FormulaDaten, _ formula: Formula) {
-        formulaDaten.xmlns = formula.xmlns
-        formulaDaten.series = formula.series
-        formulaDaten.limit = formula.limit
-        formulaDaten.offset = formula.offset
+//        formulaDaten.xmlns = formula.xmlns
+//        formulaDaten.series = formula.series
+//        formulaDaten.limit = formula.limit
+//        formulaDaten.offset = formula.offset
         formulaDaten.total = formula.total
-        formulaDaten.raceTableSeason = formula.raceTableSeason
-        formulaDaten.raceTableRound = formula.raceTableRound
+//        formulaDaten.raceTableSeason = formula.raceTableSeason
+//        formulaDaten.raceTableRound = formula.raceTableRound
         formulaDaten.season = formula.season
-        formulaDaten.round = formula.round
-        formulaDaten.url = formula.url
-        formulaDaten.raceName = formula.raceName
-        formulaDaten.date = formula.date
-        formulaDaten.time = formula.time
-        formulaDaten.circuitId = formula.circuitId
-        formulaDaten.circuitUrl = formula.circuitUrl
-        formulaDaten.circuitName = formula.circuitName
-        formulaDaten.lat = formula.lat
-        formulaDaten.long = formula.long
-        formulaDaten.locality = formula.locality
-        formulaDaten.country = formula.country
+//        formulaDaten.round = formula.round
+//        formulaDaten.url = formula.url
+//        formulaDaten.raceName = formula.raceName
+//        formulaDaten.date = formula.date
+//        formulaDaten.time = formula.time
+//        formulaDaten.circuitId = formula.circuitId
+//        formulaDaten.circuitUrl = formula.circuitUrl
+//        formulaDaten.circuitName = formula.circuitName
+//        formulaDaten.lat = formula.lat
+//        formulaDaten.long = formula.long
+//        formulaDaten.locality = formula.locality
+//        formulaDaten.country = formula.country
 //        formulaDaten.number = formula.number
 //        formulaDaten.position = formula.position
 //        formulaDaten.positionText = formula.positionText

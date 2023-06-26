@@ -8,10 +8,10 @@
 import Foundation
 
 struct MRData: Codable {
-let xmlns: String
-    let series: String
-    let limit: String
-    let offset: String
+//    let xmlns: String
+//    let series: String
+//    let limit: String
+//    let offset: String
     let total: String
     let RaceTable: RaceTable
 }
