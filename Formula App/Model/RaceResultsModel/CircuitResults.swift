@@ -1,14 +1,12 @@
 //
-//  Circuit.swift
+//  CircuitResults.swift
 //  Formula App
 //
-//  Created by Riccardo Pischtschan on 21.06.23.
+//  Created by Riccardo Pischtschan on 27.06.23.
 //
 
 import Foundation
-
-
-struct Circuit: Codable {
+struct CircuitResults: Codable {
     let circuitId: String
 //    let url: String
     let circuitName: String

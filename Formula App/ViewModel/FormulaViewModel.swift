@@ -41,7 +41,7 @@ class FormulaViewModel: ObservableObject {
         func create_raw_url( _ apiCall : String) -> String {
             
 //            var jahr = "2023"
-            let base_url = "https://ergast.com/api/f1/\(apiCall).json"
+            let base_url = "https://ergast.com/api/f1/2022/3/results.json"
             return base_url
         }
         
@@ -57,11 +57,11 @@ class FormulaViewModel: ObservableObject {
             if let data = data {
                 do {
                     print(data)
-                    let raceResponse = try JSONDecoder().decode(RaceResponse.self, from: data)
+                    let raceResponse = try JSONDecoder().decode(RaceResultsResponse.self, from: data)
                     
                     print(raceResponse)
                     print("test")
-                    let formula = Formula.fromRaceResultsResponse(raceResponse)
+                    let formula = FormulaResults.fromRaceResultsResponse(raceResponse)
                     
                     DispatchQueue.main.async {
                         
@@ -80,7 +80,7 @@ class FormulaViewModel: ObservableObject {
         task.resume()
     }
     
-    func updateFormulaDaten(_ formulaDaten: FormulaDaten, _ formula: Formula) {
+    func updateFormulaDaten(_ formulaDaten: FormulaDaten, _ formula: FormulaResults) {
 //        formulaDaten.xmlns = formula.xmlns
 //        formulaDaten.series = formula.series
 //        formulaDaten.limit = formula.limit
@@ -89,18 +89,18 @@ class FormulaViewModel: ObservableObject {
 //        formulaDaten.raceTableSeason = formula.raceTableSeason
 //        formulaDaten.raceTableRound = formula.raceTableRound
         formulaDaten.season = formula.season
-//        formulaDaten.round = formula.round
+        formulaDaten.round = formula.round
 //        formulaDaten.url = formula.url
-//        formulaDaten.raceName = formula.raceName
+        formulaDaten.raceName = formula.raceName
 //        formulaDaten.date = formula.date
 //        formulaDaten.time = formula.time
-//        formulaDaten.circuitId = formula.circuitId
+        formulaDaten.circuitId = formula.circuitId
 //        formulaDaten.circuitUrl = formula.circuitUrl
-//        formulaDaten.circuitName = formula.circuitName
-//        formulaDaten.lat = formula.lat
-//        formulaDaten.long = formula.long
-//        formulaDaten.locality = formula.locality
-//        formulaDaten.country = formula.country
+        formulaDaten.circuitName = formula.circuitName
+        formulaDaten.lat = formula.lat
+        formulaDaten.long = formula.long
+        formulaDaten.locality = formula.locality
+        formulaDaten.country = formula.country
 //        formulaDaten.number = formula.number
 //        formulaDaten.position = formula.position
 //        formulaDaten.positionText = formula.positionText
@@ -130,7 +130,7 @@ class FormulaViewModel: ObservableObject {
         
         saveAndReadFormulaDaten()
     }
-    func createFormulaDaten(_ formula: Formula, _ apiCall: String) {
+    func createFormulaDaten(_ formula: FormulaResults, _ apiCall: String) {
         let formulaDaten = FormulaDaten(context: persistentContainer.viewContext)
        
         formulaDaten.season = apiCall
@@ -139,7 +139,7 @@ class FormulaViewModel: ObservableObject {
     }
 
     
-    func createOrUpdateFormulaDaten(_ apiCall: String, _ formula: Formula) {
+    func createOrUpdateFormulaDaten(_ apiCall: String, _ formula: FormulaResults) {
         if let existingFormulaDaten = find(apiCall) {
             updateFormulaDaten(existingFormulaDaten, formula)
         } else {

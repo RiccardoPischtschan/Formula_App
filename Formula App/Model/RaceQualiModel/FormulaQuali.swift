@@ -1,13 +1,15 @@
 //
-//  Formula.swift
+//  FormulaQuali.swift
 //  Formula App
 //
-//  Created by Riccardo Pischtschan on 21.06.23.
+//  Created by Riccardo Pischtschan on 27.06.23.
 //
+
+import Foundation
 
 import CoreData
 
-struct Formula{
+struct FormulaQuali{
     
 //        let xmlns: String
 //        let series: String
@@ -68,7 +70,7 @@ struct Formula{
 //        let units: String
 //        let speed: String
     
-    static func fromRaceResponse (_ raceResponse: RaceResponse) -> Formula {
+    static func fromRaceQualiResponse (_ raceResponse: RaceQualiResponse) -> FormulaQuali {
         
 //        let xmlns = raceResponse.MRData.xmlns
 //        let series = raceResponse.MRData.series
@@ -128,7 +130,7 @@ struct Formula{
 //        let units = raceResponse.MRData.RaceTable.Races.first?.Results.first?.FastestLap?.AverageSpeed.units
 //        let speed = raceResponse.MRData.RaceTable.Races.first?.Results.first?.FastestLap?.AverageSpeed.speed
 //
-        return Formula(
+    return FormulaQuali(
 //            xmlns: xmlns,
 //            series: series,
 //            limit: limit,
@@ -178,3 +180,5 @@ struct Formula{
         )
     }
 }
+
+
