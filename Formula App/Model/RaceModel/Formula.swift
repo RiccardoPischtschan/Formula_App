@@ -24,7 +24,7 @@ struct Formula{
         let raceName: String
 //        let date: String
 //        let time: String
-//
+
         let circuitId: String
 //        let circuitUrl: String
         let circuitName: String

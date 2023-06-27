@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var homeViewModel = FormulaViewModel()
-    var raceInfo = RaceResponse(MRData: MRData(total: "", RaceTable: RaceTable(season: "", Races: [Race(season: "", round: "", raceName: "", Circuit: Circuit(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")))])))
+    
     @State private var selectedOption = 0
     private let jahr = ["2023", "2022", "2021",  "2020", "2019", "2018", "2017",
                         "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009",
@@ -31,38 +31,39 @@ struct HomeView: View {
            }
        }
     var body: some View {
-        VStack {
-            VStack {
-                HStack {
-                    Text("Season Info")
-                        .font(.title)
-                        .bold()
-                    
-                    Picker("Options", selection: $selectedOption) {
-                        ForEach(0 ..< jahr.count) { index in
-                            Text(jahr[index])
-                        }
-                    }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(width: 100, height: 100)
-                    .padding()
-                }
+        
+            
+        VStack{
+            HStack {
+                Text("Season Info")
+                    .font(.title)
+                    .bold()
                 
-                List {
-                    ForEach(homeViewModel.formulaDaten) { data in
-//                        SeasonRow(raceInfo: data)
-                        Text(data.round ?? "" )
+                Picker("Options", selection: $selectedOption) {
+                    ForEach(0 ..< jahr.count) { index in
+                        Text(jahr[index])
                     }
+                }
+                .pickerStyle(WheelPickerStyle())
+                .frame(width: 100, height: 100)
+                .padding()
+            }
+            
+            List {
+                ForEach(homeViewModel.formulaDaten) { data in
+                  
+                        Text(data.round ?? "")
                 }
             }
-        }
-        .onAppear {
-            let selectedYear = jahr[selectedOption]
-            homeViewModel.fetchApiResponse(selectedYear)
-        }
-        .onChange(of: selectedOption) { newValue in
-            let selectedYear = jahr[newValue]
-           homeViewModel.fetchApiResponse(selectedYear)
+            
+            .onAppear {
+                let selectedYear = jahr[selectedOption]
+                homeViewModel.fetchApiResponse(selectedYear, "race")
+            }
+            .onChange(of: selectedOption) { newValue in
+                let selectedYear = jahr[newValue]
+                homeViewModel.fetchApiResponse(selectedYear,"race")
+            }
         }
     }
 }
