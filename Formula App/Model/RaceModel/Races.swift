@@ -9,13 +9,14 @@ import Foundation
 
 
 struct Race: Codable {
+   
     let season: String
     let round: String
 //    let url: String
     let raceName: String
     let Circuit: Circuit
-//    let date: String
-//    let time: String
+    let date: String
+    let time: String
 
 }
 

@@ -8,7 +8,8 @@
 import Foundation
 
 struct RaceTable: Codable {
+    
     let season: String
-//    let round: String
+//    let round: String?
     let Races: [Race]
 }

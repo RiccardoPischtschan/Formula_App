@@ -22,14 +22,14 @@ struct HomeView: View {
                         "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953",
                         "1952", "1951", "1950"]
     
-    var filteredData: [FormulaDaten] {
-          homeViewModel.formulaDaten.filter { data in
-               // Überprüfe, ob das Jahr mit dem ausgewählten Jahr übereinstimmt
-               guard let selectedYear = Int(jahr[selectedOption]) else { return false }
-               guard let dataYearString = data.round, let dataYear = Int(dataYearString) else { return false }
-               return dataYear == selectedYear
-           }
-       }
+//    var filteredData: [FormulaDaten] {
+//          homeViewModel.formulaDaten.filter { data in
+//
+//               guard let selectedYear = Int(jahr[selectedOption]) else { return false }
+//               guard let dataYearString = data.round, let dataYear = Int(dataYearString) else { return false }
+//               return dataYear == selectedYear
+//           }
+//       }
     var body: some View {
         
             
@@ -51,19 +51,25 @@ struct HomeView: View {
             
             List {
                 ForEach(homeViewModel.formulaDaten) { data in
-                  
-                        Text(data.round ?? "")
+                         SeasonRow(formula: data )
+//                    HStack{
+//                        Text(data.round ?? "")
+//                        VStack{
+//                            Text(data.circuitName ?? "")
+//                            Text(data.familyName ?? "")
+//                        }
+//                    }
                 }
-            }
-            
-            .onAppear {
-                let selectedYear = jahr[selectedOption]
-                homeViewModel.fetchApiResponse(selectedYear, "race")
             }
             .onChange(of: selectedOption) { newValue in
                 let selectedYear = jahr[newValue]
                 homeViewModel.fetchApiResponse(selectedYear,"race")
             }
+            .onAppear {
+                let selectedYear = jahr[selectedOption]
+                homeViewModel.fetchApiResponse(selectedYear, "race")
+            }
+            
         }
     }
 }

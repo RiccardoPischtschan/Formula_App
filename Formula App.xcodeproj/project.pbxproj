@@ -28,7 +28,7 @@
 		991B91BD2A42EF65002367E8 /* FastestLap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991B91BC2A42EF65002367E8 /* FastestLap.swift */; };
 		991B91BF2A42EF88002367E8 /* LapTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991B91BE2A42EF88002367E8 /* LapTime.swift */; };
 		991B91C12A42EFD4002367E8 /* AverageSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991B91C02A42EFD4002367E8 /* AverageSpeed.swift */; };
-		991B91C32A4332F6002367E8 /* Formula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991B91C22A4332F6002367E8 /* Formula.swift */; };
+		991B91C32A4332F6002367E8 /* FormulaDaten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991B91C22A4332F6002367E8 /* FormulaDaten.swift */; };
 		991B91C62A433372002367E8 /* FormulaData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 991B91C42A433372002367E8 /* FormulaData.xcdatamodeld */; };
 		99A9876D2A4AAFB5004B3650 /* RaceResultsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9876C2A4AAFB5004B3650 /* RaceResultsResponse.swift */; };
 		99A9876F2A4AB014004B3650 /* MRResultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9876E2A4AB014004B3650 /* MRResultsData.swift */; };
@@ -45,7 +45,6 @@
 		99A987862A4AC658004B3650 /* ConstructorQuali.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987852A4AC658004B3650 /* ConstructorQuali.swift */; };
 		99A987882A4AC7AA004B3650 /* FormulaQuali.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987872A4AC7AA004B3650 /* FormulaQuali.swift */; };
 		99A9878A2A4AC83C004B3650 /* RaceQualiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987892A4AC83C004B3650 /* RaceQualiResponse.swift */; };
-		99A9878C2A4AD6A5004B3650 /* ModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9878B2A4AD6A5004B3650 /* ModelWrapper.swift */; };
 		99B976642A49963A00491F25 /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B976632A49963A00491F25 /* SeasonRow.swift */; };
 		99B976672A49AC9E00491F25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B976662A49AC9E00491F25 /* ContentView.swift */; };
 		99BFFB552A45A1DE001554BB /* Pflichtenheft Batch005.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 99BFFB542A45A1DE001554BB /* Pflichtenheft Batch005.pdf */; };
@@ -93,7 +92,7 @@
 		991B91BC2A42EF65002367E8 /* FastestLap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastestLap.swift; sourceTree = "<group>"; };
 		991B91BE2A42EF88002367E8 /* LapTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LapTime.swift; sourceTree = "<group>"; };
 		991B91C02A42EFD4002367E8 /* AverageSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageSpeed.swift; sourceTree = "<group>"; };
-		991B91C22A4332F6002367E8 /* Formula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formula.swift; sourceTree = "<group>"; };
+		991B91C22A4332F6002367E8 /* FormulaDaten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaDaten.swift; sourceTree = "<group>"; };
 		991B91C52A433372002367E8 /* FormulaData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FormulaData.xcdatamodel; sourceTree = "<group>"; };
 		99A9876C2A4AAFB5004B3650 /* RaceResultsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsResponse.swift; sourceTree = "<group>"; };
 		99A9876E2A4AB014004B3650 /* MRResultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRResultsData.swift; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 		99A987852A4AC658004B3650 /* ConstructorQuali.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorQuali.swift; sourceTree = "<group>"; };
 		99A987872A4AC7AA004B3650 /* FormulaQuali.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaQuali.swift; sourceTree = "<group>"; };
 		99A987892A4AC83C004B3650 /* RaceQualiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceQualiResponse.swift; sourceTree = "<group>"; };
-		99A9878B2A4AD6A5004B3650 /* ModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWrapper.swift; sourceTree = "<group>"; };
 		99B976632A49963A00491F25 /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
 		99B976662A49AC9E00491F25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		99BFFB542A45A1DE001554BB /* Pflichtenheft Batch005.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Pflichtenheft Batch005.pdf"; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				991B91A52A42DDF5002367E8 /* FormulaViewModel.swift */,
-				99A9878B2A4AD6A5004B3650 /* ModelWrapper.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -228,7 +225,7 @@
 				991B91AC2A42E24C002367E8 /* Location.swift */,
 				991B91B42A42ED87002367E8 /* MRData.swift */,
 				991B91B62A42EDC7002367E8 /* RaceTable.swift */,
-				991B91C22A4332F6002367E8 /* Formula.swift */,
+				991B91C22A4332F6002367E8 /* FormulaDaten.swift */,
 			);
 			path = RaceModel;
 			sourceTree = "<group>";
@@ -422,11 +419,10 @@
 				99A987822A4AC005004B3650 /* QualiResults.swift in Sources */,
 				99A9877E2A4ABDF9004B3650 /* RaceQualiTable.swift in Sources */,
 				991B91B12A42E2A1002367E8 /* Driver.swift in Sources */,
-				991B91C32A4332F6002367E8 /* Formula.swift in Sources */,
+				991B91C32A4332F6002367E8 /* FormulaDaten.swift in Sources */,
 				99B976672A49AC9E00491F25 /* ContentView.swift in Sources */,
 				991B91B52A42ED87002367E8 /* MRData.swift in Sources */,
 				991B91BB2A42EF38002367E8 /* Time.swift in Sources */,
-				99A9878C2A4AD6A5004B3650 /* ModelWrapper.swift in Sources */,
 				991B91BF2A42EF88002367E8 /* LapTime.swift in Sources */,
 				99B976642A49963A00491F25 /* SeasonRow.swift in Sources */,
 				991B91A92A42E1E5002367E8 /* Races.swift in Sources */,

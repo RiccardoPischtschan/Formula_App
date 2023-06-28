@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SeasonRow: View {
     
-    var raceInfo : Formula
+    var formula : Race
     var body: some View {
         ZStack{
             Rectangle()
@@ -17,15 +17,14 @@ struct SeasonRow: View {
                 .frame(width: 300,height: 50)
                 .foregroundColor(.gray)
             HStack(spacing: 40){
-                Text(raceInfo.round)
+                Text(formula.round)
                     .font(.title)
                     .bold()
                 
                 VStack{
-                    Text(raceInfo.raceName)
-                        .font(.title3)
+                    Text(formula.raceName)
                         .bold()
-                    Text(raceInfo.locality)
+                    Text(formula.date)
                         .bold()
                 }
             }
@@ -35,6 +34,6 @@ struct SeasonRow: View {
 
 struct SeasonRow_Previews: PreviewProvider {
     static var previews: some View {
-        SeasonRow(raceInfo: Formula(total: "", season: "", round: "1", raceName: "Bahrain", circuitId: "", circuitName: "", lat: "", long: "", locality: "", country: ""))
+        SeasonRow(formula: Race(season: "", round: "", raceName: "", Circuit: Circuit(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), date: "", time: ""))
     }
 }

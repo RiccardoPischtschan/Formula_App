@@ -12,7 +12,7 @@ import CoreData
 class FormulaViewModel: ObservableObject {
     
     let persistentContainer: NSPersistentContainer
-    @Published var formulaDaten: [FormulaDaten] = []
+    @Published var formulaDaten = [FormulaDaten]()
     
     init() {
         persistentContainer = NSPersistentContainer(name: "FormulaData")
@@ -77,7 +77,7 @@ class FormulaViewModel: ObservableObject {
                         let formula = Formula.fromRaceResponse(raceResponse)
                         
                         DispatchQueue.main.async {
-                            
+                          
                             self.createOrUpdateFormulaDaten(season, formula)
                         }
                     } else if modelTyp == "results"{
@@ -114,7 +114,7 @@ class FormulaViewModel: ObservableObject {
         task.resume()
     }
 //    RaceModel
-    func updateFormulaDaten(_ formulaDaten: FormulaDaten, _ formula: Formula) {
+    func updateFormulaDaten(_ formulaDaten: FormulaDaten, _ formula: FormulaDaten) {
 //        formulaDaten.xmlns = formula.xmlns
 //        formulaDaten.series = formula.series
 //        formulaDaten.limit = formula.limit
@@ -126,8 +126,8 @@ class FormulaViewModel: ObservableObject {
         formulaDaten.round = formula.round
 //        formulaDaten.url = formula.url
         formulaDaten.raceName = formula.raceName
-//        formulaDaten.date = formula.date
-//        formulaDaten.time = formula.time
+        formulaDaten.date = formula.date
+        formulaDaten.time = formula.time
         formulaDaten.circuitId = formula.circuitId
 //        formulaDaten.circuitUrl = formula.circuitUrl
         formulaDaten.circuitName = formula.circuitName
@@ -135,36 +135,11 @@ class FormulaViewModel: ObservableObject {
         formulaDaten.long = formula.long
         formulaDaten.locality = formula.locality
         formulaDaten.country = formula.country
-//        formulaDaten.number = formula.number
-//        formulaDaten.position = formula.position
-//        formulaDaten.positionText = formula.positionText
-//        formulaDaten.points = formula.points
-//        formulaDaten.grid = formula.grid
-//        formulaDaten.laps = formula.laps
-//        formulaDaten.status = formula.status
-//        formulaDaten.driverId = formula.driverId
-//        formulaDaten.permanentNumber = formula.permanentNumber
-//        formulaDaten.code = formula.code
-//        formulaDaten.driverUrl = formula.driverUrl
-//        formulaDaten.givenName = formula.givenName
-//        formulaDaten.familyName = formula.familyName
-//        formulaDaten.dateOfBirth = formula.dateOfBirth
-//        formulaDaten.nationality = formula.nationality
-//        formulaDaten.constructorId = formula.constructorId
-//        formulaDaten.constructorUrl = formula.constructorUrl
-//        formulaDaten.constructorName = formula.constructorName
-//        formulaDaten.constructorNationality = formula.constructorNationality
-//        formulaDaten.millis = formula.millis
-//        formulaDaten.timeTime = formula.timeTime
-//        formulaDaten.rank = formula.rank
-//        formulaDaten.lap = formula.lap
-//        formulaDaten.lapTimeTime = formula.lapTime
-//        formulaDaten.units = formula.units
-//        formulaDaten.speed = formula.speed
+
         
         saveAndReadFormulaDaten()
     }
-    func createFormulaDaten(_ formula: Formula, _ apiCall: String) {
+    func createFormulaDaten(_ formula: FormulaDaten, _ apiCall: String) {
         let formulaDaten = FormulaDaten(context: persistentContainer.viewContext)
        
         formulaDaten.season = apiCall
@@ -173,7 +148,7 @@ class FormulaViewModel: ObservableObject {
     }
 
     
-    func createOrUpdateFormulaDaten(_ apiCall: String, _ formula: Formula) {
+    func createOrUpdateFormulaDaten(_ apiCall: String, _ formula: FormulaDaten) {
         if let existingFormulaDaten = find(apiCall) {
             updateFormulaDaten(existingFormulaDaten, formula)
         } else {
@@ -363,6 +338,4 @@ func findResults(_ apiCall: String) -> FormulaDaten? {
             return nil
         }
     }
-   
 }
-
