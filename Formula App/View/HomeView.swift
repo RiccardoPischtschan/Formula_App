@@ -35,7 +35,7 @@ struct HomeView: View {
                         .background(Color.red)
                         .frame(height: 5)
                     HStack {
-                        Text("Season Info")
+                        Text("Race Info")
                             .font(.title)
                             .bold()
                             .foregroundColor(.white)
@@ -54,14 +54,22 @@ struct HomeView: View {
                     Divider()
                         .background(Color.red)
                         .frame(height: 5)
+                    
+                    ZStack{
+                        
+                        Image("rennstrecke")
+                            .resizable()
+                            .frame(height: 510)
+                            .cornerRadius(50)
                     VStack{
                         
                         ScrollView{
                             
                             
+                            
                             ForEach(homeViewModel.races, id: \.self) { race in
-                               
-                                    SeasonRow(formula: race)
+                                
+                                SeasonRow(formula: race)
                                 
                             }
                             
@@ -75,8 +83,10 @@ struct HomeView: View {
                                 homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
                             }
                         }
+                        .background(.clear)
                     }
                     .frame(height: 500)
+                }
                 }
             }
             .frame(height: 900)

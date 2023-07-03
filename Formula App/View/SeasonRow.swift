@@ -11,11 +11,13 @@ struct SeasonRow: View {
     
     var formula : Race
     @State var bindingText: String = ""
+    
+   
     var body: some View {
         
             VStack{
 
-                    let text = formula.Circuit.circuitId
+                   
                     
                    
                         ZStack {
@@ -43,7 +45,7 @@ struct SeasonRow: View {
                                             .frame(width: 200)
                                         
                                         
-                                        Text(formula.date ?? "")
+                                        Text(reformatDate(_: formula.date))
                                             .bold()
                                             .frame(width: 200)
                                     }
