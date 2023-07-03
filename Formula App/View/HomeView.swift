@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var homeViewModel = FormulaViewModel()
-    
+    @State private var text = ""
     @State private var selectedOption = 0
     private let jahr = ["2023", "2022", "2021",  "2020", "2019", "2018", "2017",
                         "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009",
@@ -22,7 +22,12 @@ struct HomeView: View {
                         "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953",
                         "1952", "1951", "1950"]
     
-   
+    @State private var selectedCircuitID: String?
+    @State private var selectedCircuitIDBinding: Binding<String>?
+    @State private var selectedJahr: String?
+    @State private var selectedJahrBinding: Binding<String>?
+        
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -61,17 +66,27 @@ struct HomeView: View {
                             .resizable()
                             .frame(height: 510)
                             .cornerRadius(50)
-                    VStack{
-                        
+                    
                         ScrollView{
                             
                             
                             
                             ForEach(homeViewModel.races, id: \.self) { race in
+                                let circuitID = race.Circuit.circuitId
+                                let jahrId = race.season
                                 
-                                SeasonRow(formula: race)
-                                
-                            }
+                                    NavigationLink(
+                                        destination: CircuitDetails(viewModel: FormulaViewModel(),race: RaceResults(season: "", round: "", raceName: "", Circuit: CircuitResults(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), Results: [Result]()), circuitID: selectedCircuitIDBinding ?? .constant(circuitID),selectedOption: selectedJahrBinding ?? .constant(jahrId)),
+                                        label: {
+                                            SeasonRow(formula: race)
+                                        })
+                                        .onTapGesture {
+                                        selectedCircuitID = circuitID
+                                        selectedCircuitIDBinding = Binding<String>(get: { circuitID }, set: { _ in })
+                                        selectedJahr = jahrId
+                                        selectedJahrBinding = Binding<String>(get: { circuitID }, set: { _ in })
+                                        }
+                                }
                             
                             
                             .onChange(of: selectedOption) { newValue in
@@ -83,9 +98,9 @@ struct HomeView: View {
                                 homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
                             }
                         }
+                        .foregroundColor(.black)
                         .background(.clear)
-                    }
-                    .frame(height: 500)
+                        .frame(height: 510)
                 }
                 }
             }

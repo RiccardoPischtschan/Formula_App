@@ -12,8 +12,10 @@ struct RaceResults: Codable {
     let round: String
 //    let url: String
     let raceName: String
-    let Circuit: Circuit
+    let Circuit: CircuitResults
 //    let date: String
 //    let time: String
     let Results: [Result]
+    
+    static var raceResultsCheat = RaceResults(season: "", round: "", raceName: "", Circuit: CircuitResults(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")),Results: [Result]())
 }

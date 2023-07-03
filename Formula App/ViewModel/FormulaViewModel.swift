@@ -12,8 +12,8 @@ class FormulaViewModel: ObservableObject{
    
     
     @Published var races = [Race]()
-    @Published var results = [MRResultsData]()
-    @Published var quali = [MRQualiData]()
+    @Published var results = [RaceResults]()
+    @Published var quali = [RaceQuali]()
     @Published var race = [MRData]()
     
     
@@ -79,7 +79,7 @@ class FormulaViewModel: ObservableObject{
                      
                 
                     DispatchQueue.main.async {
-                        self.results = [raceResponse.MRData]
+                        self.results = raceResponse.MRData.RaceTable.Races
                     }
                     
                 } else if modelTyp == "qualifying"{
@@ -88,7 +88,7 @@ class FormulaViewModel: ObservableObject{
                      print("test")
                     
                     DispatchQueue.main.async {
-                        self.quali = [raceResponse.MRData]
+                        self.quali = raceResponse.MRData.RaceTable.Races
                     }
                 }
             } catch {

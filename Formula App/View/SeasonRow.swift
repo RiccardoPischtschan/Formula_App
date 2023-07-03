@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct SeasonRow: View {
-    
     var formula : Race
-    @State var bindingText: String = ""
-    
-   
     var body: some View {
         
             VStack{
@@ -42,12 +38,12 @@ struct SeasonRow: View {
                                         
                                         Text(formula.raceName)
                                             .bold()
-                                            .frame(width: 200)
+                                            .frame(width: 220)
                                         
                                         
                                         Text(reformatDate(_: formula.date))
                                             .bold()
-                                            .frame(width: 200)
+                                            .frame(width: 220)
                                     }
                                     
                                 }
@@ -63,6 +59,6 @@ struct SeasonRow: View {
 
 struct SeasonRow_Previews: PreviewProvider {
     static var previews: some View {
-        SeasonRow(formula: Race(season: "", round: "", raceName: "", Circuit: Circuit(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), date: "", time: ""))
+        SeasonRow(formula: Race(season: "", round: "3", raceName: "Emilia Romagna Grand Prix", Circuit: Circuit(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), date: "", time: ""))
     }
 }
