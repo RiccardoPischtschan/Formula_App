@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct RaceResponse: Codable {
+struct RaceResponse: Codable, Hashable {
     let MRData: MRData
 }

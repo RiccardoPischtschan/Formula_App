@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MRData: Codable {
+struct MRData: Codable, Hashable {
     
 //    let xmlns: String
 //    let series: String

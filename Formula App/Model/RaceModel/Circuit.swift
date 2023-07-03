@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Circuit: Codable {
+struct Circuit: Codable, Hashable {
     let circuitId: String
 //    let url: String
     let circuitName: String

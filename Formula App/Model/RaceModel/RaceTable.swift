@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct RaceTable: Codable {
+struct RaceTable: Codable ,Hashable{
     
     let season: String
-//    let round: String?
+    let round: String?
     let Races: [Race]
 }

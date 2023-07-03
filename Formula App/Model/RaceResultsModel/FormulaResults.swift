@@ -81,7 +81,7 @@ struct FormulaResults{
 //        let raceTableSeason = raceResponse.MRData.RaceTable.season
 //        let raceTableRound  = raceResponse.MRData.RaceTable.round
         
-        let season = raceResponse.MRData.RaceTable.Races.season
+        let season = raceResponse.MRData.RaceTable.Races.first?.season
         let round = raceResponse.MRData.RaceTable.Races.first?.round
 //        let url = raceResponse.MRData.RaceTable.Races.first?.url
         let raceName = raceResponse.MRData.RaceTable.Races.first?.raceName

@@ -22,54 +22,65 @@ struct HomeView: View {
                         "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953",
                         "1952", "1951", "1950"]
     
-//    var filteredData: [FormulaDaten] {
-//          homeViewModel.formulaDaten.filter { data in
-//
-//               guard let selectedYear = Int(jahr[selectedOption]) else { return false }
-//               guard let dataYearString = data.round, let dataYear = Int(dataYearString) else { return false }
-//               return dataYear == selectedYear
-//           }
-//       }
+   
     var body: some View {
-        
-            
-        VStack{
-            HStack {
-                Text("Season Info")
-                    .font(.title)
-                    .bold()
-                
-                Picker("Options", selection: $selectedOption) {
-                    ForEach(0 ..< jahr.count) { index in
-                        Text(jahr[index])
+        NavigationStack{
+            ZStack{
+                Color(.black)
+                VStack{
+                    Image("f1logo")
+                        .resizable()
+                        .frame(width: 250, height: 100)
+                    Divider()
+                        .background(Color.red)
+                        .frame(height: 5)
+                    HStack {
+                        Text("Season Info")
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.white)
+                        
+                        Picker("Options", selection: $selectedOption) {
+                            ForEach(0 ..< jahr.count) { index in
+                                Text(jahr[index])
+                                .foregroundColor(Color(hue: 1.0, saturation: 0.878, brightness: 0.988, opacity: 0.949))                        }
+                        }
+                        
+                        .pickerStyle(WheelPickerStyle())
+                        .frame(width: 100, height: 100)
+                        .padding()
+                        
                     }
+                    Divider()
+                        .background(Color.red)
+                        .frame(height: 5)
+                    VStack{
+                        
+                        ScrollView{
+                            
+                            
+                            ForEach(homeViewModel.races, id: \.self) { race in
+                               
+                                    SeasonRow(formula: race)
+                                
+                            }
+                            
+                            
+                            .onChange(of: selectedOption) { newValue in
+                                let selectedYear = jahr[newValue]
+                                homeViewModel.fetchFormulaApiResponse(selectedYear,"race")
+                            }
+                            .onAppear {
+                                let selectedYear = jahr[selectedOption]
+                                homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
+                            }
+                        }
+                    }
+                    .frame(height: 500)
                 }
-                .pickerStyle(WheelPickerStyle())
-                .frame(width: 100, height: 100)
-                .padding()
             }
-            
-            List {
-                ForEach(homeViewModel.formulaDaten) { data in
-                         SeasonRow(formula: data )
-//                    HStack{
-//                        Text(data.round ?? "")
-//                        VStack{
-//                            Text(data.circuitName ?? "")
-//                            Text(data.familyName ?? "")
-//                        }
-//                    }
-                }
-            }
-            .onChange(of: selectedOption) { newValue in
-                let selectedYear = jahr[newValue]
-                homeViewModel.fetchApiResponse(selectedYear,"race")
-            }
-            .onAppear {
-                let selectedYear = jahr[selectedOption]
-                homeViewModel.fetchApiResponse(selectedYear, "race")
-            }
-            
+            .frame(height: 900)
+            .ignoresSafeArea()
         }
     }
 }
