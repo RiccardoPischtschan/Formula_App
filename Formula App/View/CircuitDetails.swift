@@ -18,7 +18,7 @@ struct CircuitDetails: View {
             
     
             Text(circuitID.uppercased())
-            
+            Text(selectedOption)
                 .onAppear{
                     viewModel.fetchFormulaApiResponse("\(selectedOption)/circuits/\(circuitID)/results", "results")
                 }

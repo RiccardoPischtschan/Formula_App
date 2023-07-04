@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("uid") var userID: String = ""
     var body: some View {
-       HomeView()
+       
+//        if userID == "" {
+//            AuthView()
+//        } else {
+//            Text("Logged In! \nYour user id is \(userID)")
+            HomeView()
+//        }
     }
 }
 
@@ -18,3 +25,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
