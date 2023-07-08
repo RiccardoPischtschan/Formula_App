@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
-import FirebaseCore
+import Firebase
 
 @main
 struct Formula_AppApp: App {
-    
+  
     init(){
         FirebaseApp.configure()
     }
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(FirebaseAuthService())
         }
     }
 }

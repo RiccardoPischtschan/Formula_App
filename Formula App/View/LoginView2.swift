@@ -1,17 +1,19 @@
 //
-//  SignUpView.swift
+//  LoginView2.swift
 //  Formula App
 //
-//  Created by Riccardo Pischtschan on 07.07.23.
+//  Created by Riccardo Pischtschan on 06.07.23.
 //
 
 import SwiftUI
+import Firebase
 
-struct SignUpView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @Binding var currentShowingView : String
+struct LoginView: View {
     
+    @State private var email = ""
+    @State private var password = ""
+    @State private var userIsloggedIn = false
+    @Binding var currentShowingView : String
     @EnvironmentObject var authService: FirebaseAuthService
    
     
@@ -20,7 +22,7 @@ struct SignUpView: View {
             Color.black
             
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .foregroundStyle(.linearGradient(colors: [.black, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .foregroundStyle(.linearGradient(colors: [.pink, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
                 .frame(width:1000, height: 400)
                 .rotationEffect(.degrees(135))
                 .offset(y: -350)
@@ -91,20 +93,19 @@ struct SignUpView: View {
                 
                 Button(action: {
                     withAnimation{
-                        self.currentShowingView = "login"
+                        self.currentShowingView = "signup"
                     }
                 }) {
-                    Text("Already have an account?")
+                    Text("Don´t have an account?")
                         .foregroundColor(.white.opacity(0.7))
                 }
                 
                 
                 Button{
-                    
-                        authService.register(email:email,password:password)
-                   
+
+                    authService.login(email: email, password: password)
                 } label: {
-                    Text("Sign Up")
+                    Text("Login")
                         .bold()
                         .frame(width: 200,height: 40)
                         .background(
@@ -121,7 +122,7 @@ struct SignUpView: View {
                 
             }
             .frame(width: 350)
-           
+            
             
         }
         .ignoresSafeArea()
@@ -131,9 +132,8 @@ struct SignUpView: View {
    
 }
 
-
-struct SignUpView_Previews: PreviewProvider {
+struct LoginView2_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView(currentShowingView: .constant(""))
+        LoginView(currentShowingView: .constant(""))
     }
 }

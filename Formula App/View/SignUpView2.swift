@@ -1,5 +1,5 @@
 //
-//  SignUpView.swift
+//  SignUpView2.swift
 //  Formula App
 //
 //  Created by Riccardo Pischtschan on 07.07.23.
@@ -11,7 +11,7 @@ struct SignUpView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @Binding var currentShowingView : String
-    
+    @State private var userIsloggedIn = false
     @EnvironmentObject var authService: FirebaseAuthService
    
     
@@ -101,8 +101,7 @@ struct SignUpView: View {
                 
                 Button{
                     
-                        authService.register(email:email,password:password)
-                   
+                    authService.register(email:email,password:password)
                 } label: {
                     Text("Sign Up")
                         .bold()
@@ -132,7 +131,7 @@ struct SignUpView: View {
 }
 
 
-struct SignUpView_Previews: PreviewProvider {
+struct SignUpView2_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView(currentShowingView: .constant(""))
     }

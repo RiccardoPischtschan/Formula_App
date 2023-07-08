@@ -26,7 +26,9 @@ struct HomeView: View {
     @State private var selectedCircuitIDBinding: Binding<String>?
     @State private var selectedJahr: String?
     @State private var selectedJahrBinding: Binding<String>?
-        
+    @State private var isAccountViewPresented = false
+    @EnvironmentObject var firebaseAuth: FirebaseAuthService
+    
     
     var body: some View {
         NavigationStack{
@@ -39,6 +41,15 @@ struct HomeView: View {
                     Divider()
                         .background(Color.red)
                         .frame(height: 5)
+                    VStack(alignment: .leading){
+                       
+                        NavigationLink(destination: AccountView(), label: {
+                            Image(systemName: "person.and.background.dotted")
+                             .foregroundColor(.white)
+                     })
+                        
+                        .offset(y:25)
+                  
                     HStack {
                         Text("Race Info")
                             .font(.title)
@@ -56,6 +67,7 @@ struct HomeView: View {
                         .padding()
                         
                     }
+                }
                     Divider()
                         .background(Color.red)
                         .frame(height: 5)
@@ -103,10 +115,12 @@ struct HomeView: View {
                         .frame(height: 510)
                 }
                 }
+                
             }
             .frame(height: 900)
             .ignoresSafeArea()
         }
+        
     }
 }
 

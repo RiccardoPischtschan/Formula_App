@@ -7,15 +7,18 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 class FormulaViewModel: ObservableObject{
-   
+    
     
     @Published var races = [Race]()
     @Published var results = [RaceResults]()
     @Published var quali = [RaceQuali]()
     @Published var race = [MRData]()
     
+    
+
     
     
     
@@ -64,20 +67,20 @@ class FormulaViewModel: ObservableObject{
                     }
                     print(data)
                 } else if modelTyp == "total"{
-                        let raceResponse = try JSONDecoder().decode(RaceResponse.self, from: data)
-                        print(raceResponse)
-                        print("test")
-                       
-                        DispatchQueue.main.async {
-                            self.race = [raceResponse.MRData]
-                        }
+                    let raceResponse = try JSONDecoder().decode(RaceResponse.self, from: data)
+                    print(raceResponse)
+                    print("test")
+                    
+                    DispatchQueue.main.async {
+                        self.race = [raceResponse.MRData]
+                    }
                     
                 } else if modelTyp == "results"{
                     let raceResponse = try JSONDecoder().decode(RaceResultsResponse.self, from: data)
                     print(raceResponse)
-                     print("test")
-                     
-                
+                    print("test")
+                    
+                    
                     DispatchQueue.main.async {
                         self.results = raceResponse.MRData.RaceTable.Races
                     }
@@ -85,7 +88,7 @@ class FormulaViewModel: ObservableObject{
                 } else if modelTyp == "qualifying"{
                     let raceResponse = try JSONDecoder().decode(RaceQualiResponse.self, from: data)
                     print(raceResponse)
-                     print("test")
+                    print("test")
                     
                     DispatchQueue.main.async {
                         self.quali = raceResponse.MRData.RaceTable.Races
@@ -98,6 +101,4 @@ class FormulaViewModel: ObservableObject{
         task.resume()
         
     }
-    
 }
-

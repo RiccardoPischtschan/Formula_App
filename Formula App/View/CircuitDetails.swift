@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CircuitDetails: View {
     var viewModel : FormulaViewModel
-    
+    @EnvironmentObject var firebaseAuth: FirebaseAuthService
     var race : RaceResults
     @Binding var circuitID: String
     @Binding var selectedOption: String
@@ -23,6 +23,7 @@ struct CircuitDetails: View {
                     viewModel.fetchFormulaApiResponse("\(selectedOption)/circuits/\(circuitID)/results", "results")
                 }
             Text("\(circuitID)")
+           
         }
     }
 }

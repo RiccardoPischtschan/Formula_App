@@ -6,23 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
-    @AppStorage("uid") var userID: String = ""
+    @EnvironmentObject var authService: FirebaseAuthService
+
     var body: some View {
-       
-//        if userID == "" {
-//            AuthView()
-//        } else {
-//            Text("Logged In! \nYour user id is \(userID)")
+        if authService.user != nil {
             HomeView()
-//        }
+        } else {
+            AuthView()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(FirebaseAuthService())
     }
 }
 

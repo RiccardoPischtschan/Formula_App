@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F66" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FormulaDaten" representedClassName="FormulaDaten" syncable="YES" codeGenerationType="class">
-        <attribute name="circuitId" optional="YES" attributeType="String"/>
-        <attribute name="circuitName" optional="YES" attributeType="String"/>
-        <attribute name="circuitUrl" optional="YES" attributeType="String"/>
-        <attribute name="code" optional="YES" attributeType="String"/>
-        <attribute name="constructorId" optional="YES" attributeType="String"/>
-        <attribute name="constructorName" optional="YES" attributeType="String"/>
-        <attribute name="constructorNationality" optional="YES" attributeType="String"/>
-        <attribute name="constructorUrl" optional="YES" attributeType="String"/>
-        <attribute name="country" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="dateOfBirth" optional="YES" attributeType="String"/>
         <attribute name="driverId" optional="YES" attributeType="String"/>
@@ -44,8 +35,5 @@
         <attribute name="time" optional="YES" attributeType="String"/>
         <attribute name="timeTime" optional="YES" attributeType="String"/>
         <attribute name="total" optional="YES" attributeType="String"/>
-        <attribute name="units" optional="YES" attributeType="String"/>
-        <attribute name="url" optional="YES" attributeType="String"/>
-        <attribute name="xmlns" optional="YES" attributeType="String"/>
     </entity>
 </model>
