@@ -10,55 +10,58 @@ import SwiftUI
 struct SeasonRow: View {
     var formula : Race
     var body: some View {
-        
-            VStack{
-
-                   
+        VStack{
+            HStack{
+                ZStack{
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:40, height:40)
+                        .rotationEffect(.degrees(135))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 3)
+                                .foregroundColor(.black)
+                                .rotationEffect(.degrees(135))
+                        )
                     
-                   
-                        ZStack {
-                            Rectangle()
-                                .cornerRadius(20)
-                                .frame(width: 300, height: 50)
-                                .foregroundColor(Color(hue: 1.0, saturation: 0.878, brightness: 0.988, opacity: 0.949))
-                            
-                            ZStack {
-                                Ellipse()
-                                    .frame(width: 280)
-                                    .foregroundColor(.white)
-                                
-                                HStack(spacing: 10) {
-                                    Text(formula.round)
-                                        .font(.title)
-                                        .bold()
-                                        .frame(width: 40)
-                                        .font(.system(size: 28))
-                                    
-                                    VStack(alignment: .leading) {
-                                        
-                                        Text(formula.raceName)
-                                            .bold()
-                                            .frame(width: 220)
-                                        
-                                        
-                                        Text(reformatDate(_: formula.date))
-                                            .bold()
-                                            .frame(width: 220)
-                                    }
-                                    
-                                }
-                            }
-                            .padding()
+                    Text(formula.round)
+                        .bold()
+                        .font(.title)
+                        .foregroundColor(.white)
+                }
+                ZStack{
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [.black, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:230, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 3)
+                                .foregroundColor(.black)
+                        )
+                    VStack{
+                        Text(formula.raceName)
+                            .bold()
+                            .foregroundColor(.white)
+                            .offset(y:5)
+                        HStack{
+                            Image("\(formula.Circuit.Location.country) 1")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 20,height: 20)
+                                .offset(y: -5)
+                            Text(reformatDate(_: formula.date))
+                                .bold()
+                                .foregroundColor(.white)
+                                .offset(y:-5)
                         }
-
+                    }
                 }
             }
         }
-   
-
-
+    }
+}
 struct SeasonRow_Previews: PreviewProvider {
     static var previews: some View {
-        SeasonRow(formula: Race(season: "", round: "3", raceName: "Emilia Romagna Grand Prix", Circuit: Circuit(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), date: "", time: ""))
+        SeasonRow(formula: Race(season: "", round: "3", raceName: "Emilia Romagna Grand Prix", Circuit: Circuit(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), date: "2023-11-26", time: ""))
     }
 }

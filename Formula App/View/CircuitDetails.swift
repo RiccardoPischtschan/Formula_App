@@ -14,22 +14,60 @@ struct CircuitDetails: View {
     @Binding var circuitID: String
     @Binding var selectedOption: String
     var body: some View {
-        VStack{
-            
-    
-            Text(circuitID.uppercased())
-            Text(selectedOption)
-                .onAppear{
-                    viewModel.fetchFormulaApiResponse("\(selectedOption)/circuits/\(circuitID)/results", "results")
+        ZStack{
+           Color.black
+            VStack{
+                
+                HStack{
+                    Image("\(circuitID.prefix(1).capitalized + circuitID.dropFirst().lowercased()) 1")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50,height: 50)
+                    Text(circuitID.uppercased())
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.white)
                 }
-            Text("\(circuitID)")
-           
+                ZStack{
+                    
+                    RoundedRectangle(cornerRadius: 20)
+                        .frame(width: 350, height: 250)
+                        .foregroundColor(.gray)
+                    
+                    Image(circuitID)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(20)
+                        .frame(width: 350,height: 250)
+                        .overlay{
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(lineWidth: 3)
+                                .foregroundColor(.red)
+                            
+                        }
+                }
+                Text("Route Length: \(routeLength(for: circuitID) ?? "Not found")")
+                    .bold()
+                    .foregroundColor(.white)
+                Text("Track Record: \(trackRecord(for: circuitID) ?? "Not found")")
+                    .bold()
+                    .foregroundColor(.white)
+                
+                
+                Text(selectedOption)
+                    .onAppear{
+//                        viewModel.fetchFormulaApiResponse("/circuits/\(circuitID)", "race")
+                    }
+                Text("\(circuitID)")
+                
+            }
         }
+        .ignoresSafeArea()
     }
 }
 
 struct CircuitDetails_Previews: PreviewProvider {
     static var previews: some View {
-        CircuitDetails(viewModel: FormulaViewModel(),race: RaceResults(season: "", round: "", raceName: "", Circuit: CircuitResults(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), Results: [Result]()), circuitID: .constant(""),selectedOption: .constant(""))
+        CircuitDetails(viewModel: FormulaViewModel(),race: RaceResults(season: "", round: "", raceName: "", Circuit: CircuitResults(circuitId: "bahrain", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), Results: [Result]()), circuitID: .constant("bahrain"),selectedOption: .constant(""))
     }
 }

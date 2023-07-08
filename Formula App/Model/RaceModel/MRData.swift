@@ -8,7 +8,7 @@
 import Foundation
 
 struct MRData: Codable, Hashable {
-    
+  
 //    let xmlns: String
 //    let series: String
 //    let limit: String

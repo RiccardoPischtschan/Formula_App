@@ -34,20 +34,24 @@ struct HomeView: View {
         NavigationStack{
             ZStack{
                 Color(.black)
+                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                    .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .frame(width:1000, height: 100)
+                    .rotationEffect(.degrees(135))
+                    .offset(y: -250)
                 VStack{
-                    Image("f1logo")
+                    Image("F1LOGO 1")
                         .resizable()
-                        .frame(width: 250, height: 100)
-                    Divider()
-                        .background(Color.red)
-                        .frame(height: 5)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 250)
+                        .padding(-30)
+                    
                     VStack(alignment: .leading){
                        
                         NavigationLink(destination: AccountView(), label: {
                             Image(systemName: "person.and.background.dotted")
                              .foregroundColor(.white)
                      })
-                        
                         .offset(y:25)
                   
                     HStack {
@@ -55,7 +59,7 @@ struct HomeView: View {
                             .font(.title)
                             .bold()
                             .foregroundColor(.white)
-                        
+                            .padding()
                         Picker("Options", selection: $selectedOption) {
                             ForEach(0 ..< jahr.count) { index in
                                 Text(jahr[index])
@@ -67,17 +71,23 @@ struct HomeView: View {
                         .padding()
                         
                     }
+                      
                 }
-                    Divider()
-                        .background(Color.red)
-                        .frame(height: 5)
+                       
                     
                     ZStack{
-                        
+                     
                         Image("rennstrecke")
                             .resizable()
-                            .frame(height: 510)
-                            .cornerRadius(50)
+//                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 350, height: 510)
+                            .cornerRadius(40)
+                            .overlay{
+                                RoundedRectangle(cornerRadius: 40)
+                                    .stroke(lineWidth: 5)
+                                    .foregroundStyle(.linearGradient(colors: [.white, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                
+                            }
                     
                         ScrollView{
                             
@@ -91,6 +101,7 @@ struct HomeView: View {
                                         destination: CircuitDetails(viewModel: FormulaViewModel(),race: RaceResults(season: "", round: "", raceName: "", Circuit: CircuitResults(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), Results: [Result]()), circuitID: selectedCircuitIDBinding ?? .constant(circuitID),selectedOption: selectedJahrBinding ?? .constant(jahrId)),
                                         label: {
                                             SeasonRow(formula: race)
+                                                .frame(width: 300)
                                         })
                                         .onTapGesture {
                                         selectedCircuitID = circuitID
@@ -104,16 +115,20 @@ struct HomeView: View {
                             .onChange(of: selectedOption) { newValue in
                                 let selectedYear = jahr[newValue]
                                 homeViewModel.fetchFormulaApiResponse(selectedYear,"race")
+                                
                             }
                             .onAppear {
                                 let selectedYear = jahr[selectedOption]
                                 homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
+                                
                             }
                         }
                         .foregroundColor(.black)
                         .background(.clear)
-                        .frame(height: 510)
+                        .frame(width: 350 ,height: 506)
                 }
+                 
+                    
                 }
                 
             }

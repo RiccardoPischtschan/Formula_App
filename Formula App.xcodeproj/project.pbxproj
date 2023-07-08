@@ -192,11 +192,11 @@
 			children = (
 				99A82B212A544F6F00395DAD /* GoogleService-Info.plist */,
 				99A82B1A2A542E9900395DAD /* Extension */,
+				99AB7AA12A52C489001DBC27 /* Funktion */,
 				99A82B172A5403FF00395DAD /* Services */,
 				99B976652A4996CB00491F25 /* View */,
 				991B91A42A42DD85002367E8 /* ViewModel */,
 				991B91A72A42DFFD002367E8 /* Model */,
-				99AB7AA12A52C489001DBC27 /* Funktion */,
 				991B917D2A42D555002367E8 /* Assets.xcassets */,
 				991B917F2A42D555002367E8 /* Preview Content */,
 			);

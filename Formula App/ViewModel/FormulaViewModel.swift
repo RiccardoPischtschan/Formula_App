@@ -15,7 +15,7 @@ class FormulaViewModel: ObservableObject{
     @Published var races = [Race]()
     @Published var results = [RaceResults]()
     @Published var quali = [RaceQuali]()
-    @Published var race = [MRData]()
+    @Published var total = [MRData]()
     
     
 
@@ -72,7 +72,7 @@ class FormulaViewModel: ObservableObject{
                     print("test")
                     
                     DispatchQueue.main.async {
-                        self.race = [raceResponse.MRData]
+                        self.total = [raceResponse.MRData]
                     }
                     
                 } else if modelTyp == "results"{
