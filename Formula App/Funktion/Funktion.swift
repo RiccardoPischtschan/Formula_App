@@ -134,3 +134,62 @@ func trackRecord(for string: String) -> String? {
 
     return file
 }
+func driverPic(for string: String) -> String? {
+    let file: String?
+
+    switch string {
+    case "ALB":
+        file = "albon"
+    case "ALO":
+        file = "alonso"
+    case "BOT":
+        file = "bottas"
+    case "DEV":
+        file = "de vries"
+    case "GAS":
+        file = "gasly"
+    case "HAM":
+        file = "hamilton"
+    case "HUL":
+        file = "hulkenberg"
+    case "MAG":
+        file = "magnussen"
+    case "LAT":
+        file = "latifi"
+    case "LEC":
+        file = "leclerc"
+    case "VER":
+        file = "verstappen"
+    case "VET":
+        file = "vettel"
+    case "MSC":
+        file = "schumacher"
+    case "NOR":
+        file = "norris"
+    case "OCO":
+        file = "ocon"
+    case "PER":
+        file = "perez"
+    case "PIA":
+        file = "piastri"
+    case "RIC":
+        file = "ricciardo"
+    case "RUS":
+        file = "russell"
+    case "SAI":
+        file = "sainz"
+    case "SAR":
+        file = "sargeant"
+    case "STR":
+        file = "stroll"
+    case "TSU":
+        file = "tsunoda"
+    case "ZHO":
+        file = "zhou"
+  
+    default:
+        file = nil
+    }
+
+    return file
+}

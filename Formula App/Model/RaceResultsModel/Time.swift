@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Time: Codable {
+struct Time: Codable,Hashable {
     let millis: String
     let time: String
 }

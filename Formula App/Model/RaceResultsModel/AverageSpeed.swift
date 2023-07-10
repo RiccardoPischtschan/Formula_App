@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AverageSpeed: Codable {
+struct AverageSpeed: Codable,Hashable {
     let units: String
     let speed: String
 }

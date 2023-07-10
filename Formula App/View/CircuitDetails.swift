@@ -8,59 +8,91 @@
 import SwiftUI
 
 struct CircuitDetails: View {
-    var viewModel : FormulaViewModel
+    var circuitViewModel : FormulaViewModel
     @EnvironmentObject var firebaseAuth: FirebaseAuthService
-    var race : RaceResults
+  
     @Binding var circuitID: String
-    @Binding var selectedOption: String
+    @Binding var selectedYear: String
+    @Binding var selectedCountry: String
+    @Binding var selectedRound: String
     var body: some View {
         ZStack{
-           Color.black
+            Color.black
             VStack{
-                
-                HStack{
-                    Image("\(circuitID.prefix(1).capitalized + circuitID.dropFirst().lowercased()) 1")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 50,height: 50)
-                    Text(circuitID.uppercased())
-                        .font(.largeTitle)
+            ScrollView{
+                VStack{
+                    
+                    HStack{
+                        Image("\(selectedCountry) 1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 40,height: 40)
+                            .padding()
+                        Text(selectedCountry.uppercased())
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(.white)
+                    }
+                    .offset(y:30)
+                    ZStack{
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 350, height: 250)
+                            .foregroundColor(.gray)
+                        
+                        Image(circuitID)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(20)
+                            .frame(width: 350,height: 250)
+                            .overlay{
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(lineWidth: 3)
+                                    .foregroundColor(.red)
+                                
+                            }
+                    }
+                    Text("Route Length: \(routeLength(for: circuitID) ?? "Not found")")
                         .bold()
                         .foregroundColor(.white)
-                }
-                ZStack{
+                    Text("Track Record: \(trackRecord(for: circuitID) ?? "Not found")")
+                        .bold()
+                        .foregroundColor(.white)
                     
-                    RoundedRectangle(cornerRadius: 20)
-                        .frame(width: 350, height: 250)
-                        .foregroundColor(.gray)
+                    Divider()
+                        .frame(width: 350, height: 3)
+                        .overlay(.red)
                     
-                    Image(circuitID)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(20)
-                        .frame(width: 350,height: 250)
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(lineWidth: 3)
-                                .foregroundColor(.red)
-                            
-                        }
-                }
-                Text("Route Length: \(routeLength(for: circuitID) ?? "Not found")")
-                    .bold()
-                    .foregroundColor(.white)
-                Text("Track Record: \(trackRecord(for: circuitID) ?? "Not found")")
-                    .bold()
-                    .foregroundColor(.white)
-                
-                
-                Text(selectedOption)
-                    .onAppear{
-//                        viewModel.fetchFormulaApiResponse("/circuits/\(circuitID)", "race")
+                    Text("Race Results \(selectedYear)")
+                        .bold()
+                        .font(.title2)
+                        .foregroundColor(.white)
+                    
+                    ForEach(circuitViewModel.results, id: \.self){ result in
+                        RaceRow(race: result)
+                        
                     }
-                Text("\(circuitID)")
+                    //                .onAppear{
+                    //                    circuitViewModel.fetchFormulaApiResponse("\(selectedYear)/5","results")
+                    //                }
+                    //                Button("Test"){
+                    //                    circuitViewModel.fetchFormulaApiResponse("\(selectedYear)/5","results")
+                    //                }
+                    
+                    
+                }
+                .frame(width: 360)
+                .onAppear{
+                    circuitViewModel.fetchFormulaApiResponse("\(selectedYear)/\(selectedRound)","results")
+                }
+                
+                
+                
                 
             }
+        }
+            .frame(height: 700)
+            .offset(y: 30)
         }
         .ignoresSafeArea()
     }
@@ -68,6 +100,6 @@ struct CircuitDetails: View {
 
 struct CircuitDetails_Previews: PreviewProvider {
     static var previews: some View {
-        CircuitDetails(viewModel: FormulaViewModel(),race: RaceResults(season: "", round: "", raceName: "", Circuit: CircuitResults(circuitId: "bahrain", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), Results: [Result]()), circuitID: .constant("bahrain"),selectedOption: .constant(""))
+        CircuitDetails(circuitViewModel: FormulaViewModel(), circuitID: .constant("bahrain"),selectedYear: .constant("2023"),selectedCountry: .constant("Bahrain"), selectedRound: .constant(""))
     }
 }

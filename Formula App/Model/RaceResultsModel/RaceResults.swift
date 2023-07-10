@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct RaceResults: Codable {
+struct RaceResults: Codable, Hashable {
+    
+    
     let season: String
     let round: String
 //    let url: String
@@ -17,5 +19,5 @@ struct RaceResults: Codable {
 //    let time: String
     let Results: [Result]
     
-    static var raceResultsCheat = RaceResults(season: "", round: "", raceName: "", Circuit: CircuitResults(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")),Results: [Result]())
+    static var raceResultsCheat = RaceResults(season: "", round: "", raceName: "", Circuit: CircuitResults(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), Results: [Result]())
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct LapTime: Codable {
+struct LapTime: Codable,Hashable {
     let time: String
 }

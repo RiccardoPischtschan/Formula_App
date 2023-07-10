@@ -36,6 +36,7 @@
 		99A82B222A544F6F00395DAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99A82B212A544F6F00395DAD /* GoogleService-Info.plist */; };
 		99A82B252A54506E00395DAD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99A82B242A54506E00395DAD /* FirebaseAuth */; };
 		99A82B272A54506E00395DAD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 99A82B262A54506E00395DAD /* FirebaseFirestore */; };
+		99A8DCCF2A5BE1DE004E681F /* RaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A8DCCE2A5BE1DE004E681F /* RaceRow.swift */; };
 		99A9876D2A4AAFB5004B3650 /* RaceResultsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9876C2A4AAFB5004B3650 /* RaceResultsResponse.swift */; };
 		99A9876F2A4AB014004B3650 /* MRResultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9876E2A4AB014004B3650 /* MRResultsData.swift */; };
 		99A987712A4AB12B004B3650 /* RaceResultsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987702A4AB12B004B3650 /* RaceResultsTable.swift */; };
@@ -108,6 +109,7 @@
 		99A82B1B2A542EC600395DAD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		99A82B1F2A54432D00395DAD /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		99A82B212A544F6F00395DAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99A8DCCE2A5BE1DE004E681F /* RaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceRow.swift; sourceTree = "<group>"; };
 		99A9876C2A4AAFB5004B3650 /* RaceResultsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsResponse.swift; sourceTree = "<group>"; };
 		99A9876E2A4AB014004B3650 /* MRResultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRResultsData.swift; sourceTree = "<group>"; };
 		99A987702A4AB12B004B3650 /* RaceResultsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RaceResultsTable.swift; path = ../../../../../../../Applications/RaceResultsTable.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				9918523F2A5560EB00C175F4 /* AccountView.swift */,
 				991B917B2A42D554002367E8 /* HomeView.swift */,
 				99B976632A49963A00491F25 /* SeasonRow.swift */,
+				99A8DCCE2A5BE1DE004E681F /* RaceRow.swift */,
 				99AB7A9F2A52B5CC001DBC27 /* CircuitDetails.swift */,
 				99B976662A49AC9E00491F25 /* ContentView.swift */,
 				991B91792A42D554002367E8 /* Formula_AppApp.swift */,
@@ -476,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99A8DCCF2A5BE1DE004E681F /* RaceRow.swift in Sources */,
 				991852422A558D2000C175F4 /* FirebaseAuthService.swift in Sources */,
 				99A987712A4AB12B004B3650 /* RaceResultsTable.swift in Sources */,
 				99A987802A4ABF64004B3650 /* RaceQuali.swift in Sources */,

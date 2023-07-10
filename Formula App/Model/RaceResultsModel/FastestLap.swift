@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FastestLap: Codable {
+struct FastestLap: Codable,Hashable {
     let rank: String
     let lap: String
     let Time: LapTime

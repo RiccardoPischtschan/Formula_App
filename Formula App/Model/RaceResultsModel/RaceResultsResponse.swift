@@ -6,6 +6,6 @@
 //
 
 import Foundation
-struct RaceResultsResponse: Codable {
+struct RaceResultsResponse: Codable,Hashable {
     let MRData: MRResultsData
 }

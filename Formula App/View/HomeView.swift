@@ -11,7 +11,7 @@ struct HomeView: View {
     @ObservedObject var homeViewModel = FormulaViewModel()
     @State private var text = ""
     @State private var selectedOption = 0
-    private let jahr = ["2023", "2022", "2021",  "2020", "2019", "2018", "2017",
+    private let year = ["2023", "2022", "2021",  "2020", "2019", "2018", "2017",
                         "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009",
                         "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001",
                         "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993",
@@ -24,8 +24,12 @@ struct HomeView: View {
     
     @State private var selectedCircuitID: String?
     @State private var selectedCircuitIDBinding: Binding<String>?
-    @State private var selectedJahr: String?
-    @State private var selectedJahrBinding: Binding<String>?
+    @State private var selectedYear: String?
+    @State private var selectedYearBinding: Binding<String>?
+    @State private var selectedCountry: String?
+    @State private var selectedCountryBinding: Binding<String>?
+    @State private var selectedRound: String?
+    @State private var selectedRoundBinding: Binding<String>?
     @State private var isAccountViewPresented = false
     @EnvironmentObject var firebaseAuth: FirebaseAuthService
     
@@ -61,8 +65,8 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .padding()
                         Picker("Options", selection: $selectedOption) {
-                            ForEach(0 ..< jahr.count) { index in
-                                Text(jahr[index])
+                            ForEach(0 ..< year.count) { index in
+                                Text(year[index])
                                 .foregroundColor(Color(hue: 1.0, saturation: 0.878, brightness: 0.988, opacity: 0.949))                        }
                         }
                         
@@ -79,7 +83,6 @@ struct HomeView: View {
                      
                         Image("rennstrecke")
                             .resizable()
-//                            .aspectRatio(contentMode: .fit)
                             .frame(width: 350, height: 510)
                             .cornerRadius(40)
                             .overlay{
@@ -95,10 +98,12 @@ struct HomeView: View {
                             
                             ForEach(homeViewModel.races, id: \.self) { race in
                                 let circuitID = race.Circuit.circuitId
-                                let jahrId = race.season
+                                let yearId = race.season
+                                let country = race.Circuit.Location.country
+                                let round = race.round
                                 
                                     NavigationLink(
-                                        destination: CircuitDetails(viewModel: FormulaViewModel(),race: RaceResults(season: "", round: "", raceName: "", Circuit: CircuitResults(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), Results: [Result]()), circuitID: selectedCircuitIDBinding ?? .constant(circuitID),selectedOption: selectedJahrBinding ?? .constant(jahrId)),
+                                        destination: CircuitDetails(circuitViewModel: FormulaViewModel(), circuitID: selectedCircuitIDBinding ?? .constant(circuitID),selectedYear: selectedYearBinding ?? .constant(yearId), selectedCountry: selectedCountryBinding ?? .constant(country), selectedRound: selectedRoundBinding ?? .constant(round)),
                                         label: {
                                             SeasonRow(formula: race)
                                                 .frame(width: 300)
@@ -106,19 +111,23 @@ struct HomeView: View {
                                         .onTapGesture {
                                         selectedCircuitID = circuitID
                                         selectedCircuitIDBinding = Binding<String>(get: { circuitID }, set: { _ in })
-                                        selectedJahr = jahrId
-                                        selectedJahrBinding = Binding<String>(get: { circuitID }, set: { _ in })
+                                        selectedYear = yearId
+                                        selectedYearBinding = Binding<String>(get: { yearId }, set: { _ in })
+                                        selectedCountry = country
+                                        selectedCountryBinding = Binding<String>(get: { country }, set: { _ in })
+                                        selectedRound = round
+                                        selectedRoundBinding = Binding<String>(get: { round }, set: { _ in })
                                         }
                                 }
                             
                             
                             .onChange(of: selectedOption) { newValue in
-                                let selectedYear = jahr[newValue]
+                                let selectedYear = year[newValue]
                                 homeViewModel.fetchFormulaApiResponse(selectedYear,"race")
                                 
                             }
                             .onAppear {
-                                let selectedYear = jahr[selectedOption]
+                                let selectedYear = year[selectedOption]
                                 homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
                                 
                             }

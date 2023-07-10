@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct LocationResults: Codable {
+struct LocationResults: Codable,Hashable {
     let lat: String
     let long: String
     let locality: String
