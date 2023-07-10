@@ -36,7 +36,7 @@ struct SeasonRow: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(lineWidth: 3)
-                                .foregroundColor(.black)
+                                
                         )
                     VStack{
                         Text(formula.raceName)
