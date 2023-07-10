@@ -20,7 +20,7 @@ struct SeasonRow: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(lineWidth: 3)
-                                .foregroundColor(.black)
+                                .foregroundStyle(.linearGradient(colors: [.black, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
                                 .rotationEffect(.degrees(135))
                         )
                     
@@ -28,7 +28,9 @@ struct SeasonRow: View {
                         .bold()
                         .font(.title)
                         .foregroundColor(.white)
+                        .rotationEffect(.degrees(-45))
                 }
+                .padding(3)
                 ZStack{
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                         .foregroundStyle(.linearGradient(colors: [.black, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
@@ -36,7 +38,7 @@ struct SeasonRow: View {
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(lineWidth: 3)
-                                
+                                .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                         )
                     VStack{
                         Text(formula.raceName)
