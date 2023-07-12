@@ -13,7 +13,7 @@ struct ContentView: View {
 
     var body: some View {
         if authService.user != nil {
-            HomeView()
+            MainView()
         } else {
             AuthView()
         }

@@ -10,6 +10,7 @@ import SwiftUI
 struct SignUpView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var passwordCheck: String = ""
     @Binding var currentShowingView : String
     
     @EnvironmentObject var authService: FirebaseAuthService
@@ -26,21 +27,23 @@ struct SignUpView: View {
                 .offset(y: -350)
             
             VStack(spacing: 20) {
-                Text("Welcome")
-                    .foregroundColor(.white)
-                    .font(.system(size: 40,weight: .bold,design: .rounded))
-                    .offset(x: -100, y: -100)
-                
-                Text("to")
-                    .foregroundColor(.white)
-                    .font(.system(size: 40,weight: .bold,design: .rounded))
-                    .offset( y: -100)
-                
-                Text("Formel 1")
-                    .foregroundColor(.white)
-                    .font(.system(size: 40,weight: .bold,design: .rounded))
-                    .offset(x: +100, y: -100)
-                
+                VStack{
+                    Text("Welcome")
+                        .foregroundColor(.white)
+                        .font(.system(size: 40,weight: .bold,design: .rounded))
+                        .offset(x: -100, y: -100)
+                    
+                    Text("to")
+                        .foregroundColor(.white)
+                        .font(.system(size: 40,weight: .bold,design: .rounded))
+                        .offset( y: -100)
+                    
+                    Text("Formel 1")
+                        .foregroundColor(.white)
+                        .font(.system(size: 40,weight: .bold,design: .rounded))
+                        .offset(x: +100, y: -100)
+                }
+                .offset(y: 60)
                 HStack{
                     Image(systemName: "mail")
                         .foregroundColor(.white)
@@ -88,6 +91,28 @@ struct SignUpView: View {
                 )
                 .frame(width: 350)
                 .padding()
+                HStack{
+                    Image(systemName: "lock")
+                        .foregroundColor(.white)
+                    SecureField("", text: $passwordCheck, prompt: Text("Password Check").foregroundColor(.white))
+                        .foregroundColor(.white)
+                    Spacer()
+                    
+                    if(passwordCheck.count != 0) {
+                        Image(systemName: isValidPassword(passwordCheck) ? "checkmark" : "xmark")
+                            .fontWeight(.bold)
+                            .foregroundColor(isValidPassword(passwordCheck) ? .green : .red)
+                    }
+                }
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 2)
+                        .foregroundColor(.white)
+                )
+                .frame(width: 350)
+                .padding()
+                .offset(y: -30)
                 
                 Button(action: {
                     withAnimation{
@@ -97,21 +122,22 @@ struct SignUpView: View {
                     Text("Already have an account?")
                         .foregroundColor(.white.opacity(0.7))
                 }
+                .offset(y: -50)
                 
                 
                 Button{
-                    
+                    if password == passwordCheck {
                         authService.register(email:email,password:password)
-                   
+                    }
                 } label: {
                     Text("Sign Up")
                         .bold()
                         .frame(width: 200,height: 40)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(.linearGradient(colors: [.green,.blue], startPoint: .top, endPoint: .bottomTrailing ))
+                                .fill(.linearGradient(colors: [.red,.white], startPoint: .top, endPoint: .bottomTrailing ))
                         )
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }
                 .padding(.top)
                 .offset(y: 100)
@@ -121,6 +147,7 @@ struct SignUpView: View {
                 
             }
             .frame(width: 350)
+        
            
             
         }

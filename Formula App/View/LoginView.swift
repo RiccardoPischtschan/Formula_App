@@ -112,9 +112,9 @@ struct LoginView: View {
                         .frame(width: 200,height: 40)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(.linearGradient(colors: [.green,.blue], startPoint: .top, endPoint: .bottomTrailing ))
+                                .fill(.linearGradient(colors: [.white,.red], startPoint: .top, endPoint: .bottomTrailing ))
                         )
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                 }
                 .padding(.top)
                 .offset(y: 100)

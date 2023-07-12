@@ -19,6 +19,66 @@ func reformatDate(_ dateString: String) -> String {
     
     return ""
 }
+func istDatumVergangen(datumString: String) -> Bool {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    if let datum = dateFormatter.date(from: datumString) {
+        let heutigesDatum = Date()
+        
+        if datum < heutigesDatum {
+            return true // Das Datum ist vergangen
+        } else {
+            return false // Das Datum liegt in der Zukunft oder ist heute
+        }
+    } else {
+        return false // Fehler bei der Konvertierung des Datums
+    }
+}
+func berechneTageBisRennen(rennenDatumString: String) -> String {
+    let heutigesDatum = Date()
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    if let rennenDatum = dateFormatter.date(from: rennenDatumString) {
+        let kalender = Calendar.current
+        let komponenten = kalender.dateComponents([.day], from: heutigesDatum, to: rennenDatum)
+        
+        if let verbleibendeTage = komponenten.day {
+            return "\(verbleibendeTage) Tage noch bis zum Rennen."
+        }
+    }
+    
+    return ""
+}
+
+func berechneDifferenz(bestTime: String, andereZeit: String) -> String {
+    let bestTimeComponents = bestTime.components(separatedBy: ":")
+    let andereZeitComponents = andereZeit.components(separatedBy: ":")
+
+    guard bestTimeComponents.count == 2 && andereZeitComponents.count == 2,
+          let bestMinutes = Int(bestTimeComponents[0]),
+          let bestSeconds = Double(bestTimeComponents[1]),
+          let andereMinutes = Int(andereZeitComponents[0]),
+          let andereSeconds = Double(andereZeitComponents[1]) else {
+              return ""
+    }
+
+    let bestTotalSeconds = Double(bestMinutes * 60) + bestSeconds
+    let andereTotalSeconds = Double(andereMinutes * 60) + andereSeconds
+
+    let differenz = bestTotalSeconds - andereTotalSeconds
+
+    // Formatierung der Differenz für die Anzeige
+    let formatter = NumberFormatter()
+    formatter.minimumFractionDigits = 3
+    formatter.maximumFractionDigits = 3
+    let differenzString = formatter.string(from: NSNumber(value: differenz)) ?? ""
+
+    return differenzString
+}
+
 
 func routeLength(for string: String) -> String? {
     let file: String?

@@ -25,9 +25,10 @@ struct AccountView: View {
             Button("Log Out"){
                 firebaseAuth.signOut()
               
+               }
+            
             }
-            }
-            .navigationTitle("Profil")
+           
         }
     }
 }

@@ -30,6 +30,8 @@ struct HomeView: View {
     @State private var selectedCountryBinding: Binding<String>?
     @State private var selectedRound: String?
     @State private var selectedRoundBinding: Binding<String>?
+    @State private var selectedDate: String?
+    @State private var selectedDateBinding: Binding<String>?
     @State private var isAccountViewPresented = false
     @EnvironmentObject var firebaseAuth: FirebaseAuthService
     
@@ -50,13 +52,13 @@ struct HomeView: View {
                         .frame(width: 250)
                         .padding(-30)
                     
-                    VStack(alignment: .leading){
+//                    VStack(alignment: .leading){
                        
-                        NavigationLink(destination: AccountView(), label: {
-                            Image(systemName: "person.and.background.dotted")
-                             .foregroundColor(.white)
-                     })
-                        .offset(y:25)
+//                        NavigationLink(destination: AccountView(), label: {
+//                            Image(systemName: "person.and.background.dotted")
+//                             .foregroundColor(.white)
+//                     })
+//                        .offset(y:25)
                   
                     HStack {
                         Text("Race Info")
@@ -76,7 +78,7 @@ struct HomeView: View {
                         
                     }
                       
-                }
+//                }
                        
                     
                     ZStack{
@@ -101,9 +103,10 @@ struct HomeView: View {
                                 let yearId = race.season
                                 let country = race.Circuit.Location.country
                                 let round = race.round
+                                let raceDate = race.date
                                 
                                     NavigationLink(
-                                        destination: CircuitDetails(circuitViewModel: FormulaViewModel(), circuitID: selectedCircuitIDBinding ?? .constant(circuitID),selectedYear: selectedYearBinding ?? .constant(yearId), selectedCountry: selectedCountryBinding ?? .constant(country), selectedRound: selectedRoundBinding ?? .constant(round)),
+                                        destination: CircuitDetails(circuitViewModel: FormulaViewModel(), circuitID: selectedCircuitIDBinding ?? .constant(circuitID),selectedYear: selectedYearBinding ?? .constant(yearId), selectedCountry: selectedCountryBinding ?? .constant(country), selectedRound: selectedRoundBinding ?? .constant(round), selectedDate: selectedDateBinding ?? .constant(raceDate)),
                                         label: {
                                             SeasonRow(formula: race)
                                                 .frame(width: 300)
@@ -117,6 +120,8 @@ struct HomeView: View {
                                         selectedCountryBinding = Binding<String>(get: { country }, set: { _ in })
                                         selectedRound = round
                                         selectedRoundBinding = Binding<String>(get: { round }, set: { _ in })
+                                        selectedDate = raceDate
+                                        selectedDateBinding = Binding<String>(get: { raceDate }, set: { _ in })
                                         }
                                 }
                             
@@ -136,9 +141,18 @@ struct HomeView: View {
                         .background(.clear)
                         .frame(width: 350 ,height: 506)
                 }
-                 
-                    
+                    VStack{
+                        //                    NavigationLink(destination: AccountView(), label: {
+                        //                        Image(systemName: "person.and.background.dotted")
+                        //                          .resizable()
+                        //                          .frame(width: 30,height: 30)
+                        //                          .foregroundColor(.white)
+                        //                 })
+                        
+                    }
+                    .padding()
                 }
+                
                 
             }
             .frame(height: 900)

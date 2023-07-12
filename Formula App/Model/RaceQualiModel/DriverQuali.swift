@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DriverQuali: Codable {
+struct DriverQuali: Codable,Hashable {
     let driverId: String
     let code: String
 //    let url: String

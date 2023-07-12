@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ConstructorQuali: Codable {
+struct ConstructorQuali: Codable,Hashable {
     let constructorId: String
 //    let url: String
     let name: String

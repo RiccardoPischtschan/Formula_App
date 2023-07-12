@@ -14,7 +14,7 @@ class FormulaViewModel: ObservableObject{
     
     @Published var races = [Race]()
     @Published var results = [Result]()
-    @Published var quali = [RaceQuali]()
+    @Published var quali = [QualiResults]()
     @Published var total = [MRData]()
     
     
@@ -35,7 +35,7 @@ class FormulaViewModel: ObservableObject{
                 return base_url_results
             }
             else if modelTyp.contains("qualifying"){
-                let base_url_quali = "https://ergast.com/api/f1/\(apiCall)/\(modelTyp).json"
+                let base_url_quali = "https://ergast.com/api/f1/\(apiCall)/qualifying.json"
                 return base_url_quali
             }
             return ""
@@ -91,7 +91,8 @@ class FormulaViewModel: ObservableObject{
                     print("test")
                     
                     DispatchQueue.main.async {
-                        self.quali = raceResponse.MRData.RaceTable.Races
+                        self.quali = raceResponse.MRData.RaceTable.Races.flatMap{$0.QualifyingResults}
+                        
                     }
                 }
             } catch {

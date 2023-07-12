@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RaceQuali: Codable {
+struct RaceQuali: Codable,Hashable {
     let season: String
     let round: String
 //    let url: String

@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct QualiResults: Codable {
+struct QualiResults: Codable,Hashable {
     var number: String
     var position: String
     var Driver: DriverQuali
     var Constructor: ConstructorQuali
-    var Q1: String
-    var Q2: String
-    var Q3: String
+    var Q1: String?
+    var Q2: String?
+    var Q3: String?
 }
