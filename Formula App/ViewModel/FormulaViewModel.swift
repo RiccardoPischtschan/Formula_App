@@ -16,6 +16,7 @@ class FormulaViewModel: ObservableObject{
     @Published var results = [Result]()
     @Published var quali = [QualiResults]()
     @Published var total = [MRData]()
+    @Published var driver = [DriverStandings]()
     
     
 
@@ -36,6 +37,10 @@ class FormulaViewModel: ObservableObject{
             }
             else if modelTyp.contains("qualifying"){
                 let base_url_quali = "https://ergast.com/api/f1/\(apiCall)/qualifying.json"
+                return base_url_quali
+            }
+            else if modelTyp.contains("driver"){
+                let base_url_quali = "https://ergast.com/api/f1/\(apiCall).json"
                 return base_url_quali
             }
             return ""
@@ -94,7 +99,17 @@ class FormulaViewModel: ObservableObject{
                         self.quali = raceResponse.MRData.RaceTable.Races.flatMap{$0.QualifyingResults}
                         
                     }
-                }
+                
+               } else if modelTyp == "driver"{
+                   let raceResponse = try JSONDecoder().decode(DriverStandingResponse.self, from: data)
+                    print(raceResponse)
+                    print("test")
+                
+                    DispatchQueue.main.async {
+                        self.driver = raceResponse.MRData.StandingsTable!.StandingsLists[0].DriverStandings
+                    
+                 }
+               }
             } catch {
                 print("Error decoding JSON: \(error)")
             }

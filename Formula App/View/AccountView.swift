@@ -22,11 +22,24 @@ struct AccountView: View {
                 
                 
                 
-            Button("Log Out"){
+          
+            Button{
+                
                 firebaseAuth.signOut()
-              
-               }
-            
+                  
+                
+            } label: {
+                Text("Log Out")
+                    .bold()
+                    .frame(width: 200,height: 40)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(.linearGradient(colors: [.red,.black], startPoint: .top, endPoint: .bottomTrailing ))
+                    )
+                    .foregroundColor(.white)
+            }
+            .padding(.top)
+            .offset(y: 100)
             }
            
         }
