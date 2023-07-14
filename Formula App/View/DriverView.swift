@@ -49,6 +49,8 @@ struct DriverView: View {
                             ForEach(driverViewModel.driver, id: \.self){ driver in
                                 DriverRaw(driver: driver)
                             }
+                            .frame(width: 360)
+                            .offset(y:3)
                         }
                     }
                     .onAppear{
