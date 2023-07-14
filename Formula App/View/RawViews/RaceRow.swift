@@ -36,6 +36,7 @@ struct RaceRow: View {
                                 
                         } else {
                             Text(race.Driver.code)
+                                .foregroundColor(.white)
                                 
                         }
                             

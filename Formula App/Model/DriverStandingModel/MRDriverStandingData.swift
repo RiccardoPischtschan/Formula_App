@@ -9,5 +9,5 @@ import Foundation
 
 struct MRDriverStandingData: Codable,Hashable {
     let total: String?
-    let StandingsTable: StandingsTable?
+    let StandingsTable: StandingsTable
 }

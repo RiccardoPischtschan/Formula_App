@@ -22,7 +22,7 @@ struct LoginView: View {
             Color.black
             
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .foregroundStyle(.linearGradient(colors: [.pink, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .foregroundStyle(.linearGradient(colors: [.white, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                 .frame(width:1000, height: 400)
                 .rotationEffect(.degrees(135))
                 .offset(y: -350)
@@ -112,7 +112,7 @@ struct LoginView: View {
                         .frame(width: 200,height: 40)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(.linearGradient(colors: [.white,.red], startPoint: .top, endPoint: .bottomTrailing ))
+                                .fill(.linearGradient(colors: [.white,.black], startPoint: .top, endPoint: .bottomTrailing ))
                         )
                         .foregroundColor(.black)
                 }

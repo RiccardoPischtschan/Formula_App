@@ -33,7 +33,7 @@ struct DriverView: View {
                             .font(.subheadline)
                             .foregroundColor(.white)
                             .padding()
-                            .padding()
+                            
                         Text("Win´s")
                             .font(.subheadline)
                             .foregroundColor(.white)

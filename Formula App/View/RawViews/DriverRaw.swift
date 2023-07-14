@@ -29,15 +29,15 @@ struct DriverRaw: View {
                         .bold()
                         .foregroundColor(.white)
                         .frame(width: 45)
-                    Image(driverPic(for: (driver.Driver.code!) ?? "") ?? "")
+                    Image(driverPic(for: (driver.Driver.code!) ) ?? "")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30)
                     VStack{
-                        Text(driver.Driver.givenName! ?? "")
+                        Text(driver.Driver.givenName! )
                             .font(.subheadline)
                             .foregroundColor(.white)
-                        Text(driver.Driver.familyName! ?? "")
+                        Text(driver.Driver.familyName! )
                             .font(.subheadline)
                             .foregroundColor(.white)
                             .offset(y: -1)
@@ -64,8 +64,8 @@ struct DriverRaw: View {
     }
 }
 
-//struct DriverRaw_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DriverRaw(driver: StandingsLists(season: "", DriverStandings: DriverStandings(position: "1", points: "255", wins: "8", Driver: DriverInfo(driverId: "max_verstappen", permanentNumber: "33", code: "VER", givenName: "Max", familyName: "Verstappen", dateOfBirth: "", nationality: ""), Constructors: ConstructorList(constructorId: "red bull", name: "Red Bull", nationality: "Austrian"))))
-//    }
-//}
+struct DriverRaw_Previews: PreviewProvider {
+    static var previews: some View {
+        DriverRaw(driver: DriverStandings(position: "1", points: "255", wins: "8", Driver: DriverInfo(driverId: "VER", permanentNumber: "33", code: "VER", givenName: "Max", familyName: "Verstappen", dateOfBirth: "", nationality: ""), Constructors: [ConstructorList(constructorId: "Red Bull", name: "Red Bull", nationality: "")]))
+    }
+}

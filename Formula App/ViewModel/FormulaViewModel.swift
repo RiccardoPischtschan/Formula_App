@@ -17,6 +17,7 @@ class FormulaViewModel: ObservableObject{
     @Published var quali = [QualiResults]()
     @Published var total = [MRData]()
     @Published var driver = [DriverStandings]()
+    @Published var constructor = [ConstructorStandings]()
     
     
 
@@ -40,6 +41,10 @@ class FormulaViewModel: ObservableObject{
                 return base_url_quali
             }
             else if modelTyp.contains("driver"){
+                let base_url_quali = "https://ergast.com/api/f1/\(apiCall).json"
+                return base_url_quali
+            }
+            else if modelTyp.contains("constructor"){
                 let base_url_quali = "https://ergast.com/api/f1/\(apiCall).json"
                 return base_url_quali
             }
@@ -100,16 +105,25 @@ class FormulaViewModel: ObservableObject{
                         
                     }
                 
-               } else if modelTyp == "driver"{
-                   let raceResponse = try JSONDecoder().decode(DriverStandingResponse.self, from: data)
+                } else if modelTyp == "driver"{
+                    let raceResponse = try JSONDecoder().decode(DriverStandingResponse.self, from: data)
                     print(raceResponse)
                     print("test")
-                
-                    DispatchQueue.main.async {
-                        self.driver = raceResponse.MRData.StandingsTable!.StandingsLists[0].DriverStandings
                     
-                 }
-               }
+                    DispatchQueue.main.async {
+                        self.driver = raceResponse.MRData.StandingsTable.StandingsLists[0].DriverStandings
+                        
+                    }
+                } else if modelTyp == "constructor"{
+                    let raceResponse = try JSONDecoder().decode(ConstructorStandingResponse.self, from: data)
+                     print(raceResponse)
+                     print("test")
+                 
+                     DispatchQueue.main.async {
+                         self.constructor = raceResponse.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+                     
+                  }
+                }
             } catch {
                 print("Error decoding JSON: \(error)")
             }

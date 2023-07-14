@@ -38,6 +38,7 @@ struct QualiRow: View {
                         
                     } else {
                         Text(quali.Driver.code)
+                            .foregroundColor(.white)
                         
                     }
                     
@@ -79,6 +80,6 @@ struct QualiRow: View {
 
 struct QualiRow_Previews: PreviewProvider {
     static var previews: some View {
-        QualiRow(quali: QualiResults(number: "", position: "", Driver: DriverQuali(driverId: "", code: "", givenName: "", familyName: "", dateOfBirth: "", nationality: ""), Constructor: ConstructorQuali(constructorId: "", name: "", nationality: ""), Q1: "", Q2: "", Q3: ""))
+        QualiRow(quali: QualiResults(number: "", position: "1", Driver: DriverQuali(driverId: "", code: "VER", givenName: "Max", familyName: "Verstappen", dateOfBirth: "", nationality: ""), Constructor: ConstructorQuali(constructorId: "", name: "", nationality: ""), Q1: "1:24.634", Q2: "1:24.634", Q3: "1:24.634"))
     }
 }
