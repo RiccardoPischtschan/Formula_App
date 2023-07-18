@@ -8,8 +8,8 @@
 import Foundation
 
 struct FastestLap: Codable,Hashable {
-    let rank: String
-    let lap: String
+    let rank: String?
+    let lap: String?
     let Time: LapTime
     let AverageSpeed: AverageSpeed
 }

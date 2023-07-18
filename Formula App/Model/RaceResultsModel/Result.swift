@@ -11,15 +11,15 @@ import Foundation
 struct Result: Codable, Hashable{
     
     
-    let number: String
-    let position: String
-    let positionText: String
-    let points: String
+    let number: String?
+    let position: String?
+    let positionText: String?
+    let points: String?
     let Driver: Driver
     let Constructor: Constructor
-    let grid: String
-    let laps: String
-    let status: String
+    let grid: String?
+    let laps: String?
+    let status: String?
     let Time: Time?
     let FastestLap: FastestLap?
     

@@ -66,7 +66,7 @@ struct HomeView: View {
                             .bold()
                             .foregroundColor(.white)
                             .padding()
-                        Picker("Options", selection: $selectedOption) {
+                        Picker("", selection: $selectedOption) {
                             ForEach(0 ..< year.count) { index in
                                 Text(year[index])
                                 .foregroundColor(Color(hue: 1.0, saturation: 0.878, brightness: 0.988, opacity: 0.949))                        }

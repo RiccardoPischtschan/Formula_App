@@ -10,10 +10,10 @@ import Foundation
 struct RaceResults: Codable, Hashable {
     
     
-    let season: String
-    let round: String
+    let season: String?
+    let round: String?
 //    let url: String
-    let raceName: String
+    let raceName: String?
     let Circuit: CircuitResults
 //    let date: String
 //    let time: String

@@ -7,9 +7,9 @@
 
 import Foundation
 struct LocationResults: Codable,Hashable {
-    let lat: String
-    let long: String
-    let locality: String
-    let country: String
+    let lat: String?
+    let long: String?
+    let locality: String?
+    let country: String?
     
 }

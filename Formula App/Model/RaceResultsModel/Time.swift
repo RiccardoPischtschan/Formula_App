@@ -8,6 +8,6 @@
 import Foundation
 
 struct Time: Codable,Hashable {
-    let millis: String
-    let time: String
+    let millis: String?
+    let time: String?
 }

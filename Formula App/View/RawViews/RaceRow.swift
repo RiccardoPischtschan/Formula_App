@@ -23,28 +23,28 @@ struct RaceRow: View {
                 
                     HStack{
 
-                        Text(race.position)
+                        Text(race.position ?? "")
                             .bold()
                             .font(.largeTitle)
                            .foregroundColor(.white)
                            .frame(width: 45)
-                        if driverPic(for: race.Driver.code) != nil{
-                            Image(driverPic(for: race.Driver.code) ?? "")
+                        if driverPic(for: race.Driver.code ?? "") != nil{
+                            Image(driverPic(for: race.Driver.code ?? "") ?? "")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 30)
                                 
                         } else {
-                            Text(race.Driver.code)
+                            Text(race.Driver.code ?? "")
                                 .foregroundColor(.white)
                                 
                         }
                             
                         VStack{
-                            Text(race.Driver.givenName)
+                            Text(race.Driver.givenName ?? "")
                                 .foregroundColor(.white)
                                 
-                            Text(race.Driver.familyName)
+                            Text(race.Driver.familyName ?? "")
                                 .foregroundColor(.white)
                                 .offset(y: -3)
                         }
@@ -65,6 +65,6 @@ struct RaceRow: View {
 
 struct RaceRow_Previews: PreviewProvider {
     static var previews: some View {
-        RaceRow(race: Result(number: "", position: "1", positionText: "", points: "", Driver: Driver(driverId: "", permanentNumber: "", code: "VER", givenName: "Max", familyName: "Verstappen", dateOfBirth: "", nationality: ""), Constructor: Constructor(constructorId: "", url: "", name: "", nationality: ""), grid: "", laps: "", status: "", Time: Time(millis: "", time: "1:27:38.241"), FastestLap: FastestLap(rank: "", lap: "", Time: LapTime(time: ""), AverageSpeed: AverageSpeed(units: "", speed: ""))))
+        RaceRow(race: Result(number: "", position: "1", positionText: "", points: "", Driver: Driver(driverId: "", permanentNumber: "", code: "VER", givenName: "Max", familyName: "Verstappen", dateOfBirth: "", nationality: ""), Constructor: Constructor(constructorId: "", name: "", nationality: ""), grid: "", laps: "", status: "", Time: Time(millis: "", time: "1:27:38.241"), FastestLap: FastestLap(rank: "", lap: "", Time: LapTime(time: ""), AverageSpeed: AverageSpeed(units: "", speed: ""))))
     }
 }

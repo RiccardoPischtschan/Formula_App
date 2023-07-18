@@ -8,5 +8,5 @@
 import Foundation
 
 struct LapTime: Codable,Hashable {
-    let time: String
+    let time: String?
 }

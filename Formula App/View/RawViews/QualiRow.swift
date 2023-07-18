@@ -25,28 +25,28 @@ struct QualiRow: View {
                 
                 HStack{
                     
-                    Text(quali.position)
+                    Text(quali.position ?? "")
                         .bold()
                         .font(.largeTitle)
                         .foregroundColor(.white)
                         .frame(width: 45)
-                    if driverPic(for: quali.Driver.code) != nil{
-                        Image(driverPic(for: quali.Driver.code) ?? "")
+                    if driverPic(for: quali.Driver.code ?? "") != nil{
+                        Image(driverPic(for: quali.Driver.code ?? "") ?? "")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 30)
                         
                     } else {
-                        Text(quali.Driver.code)
+                        Text(quali.Driver.code ?? "")
                             .foregroundColor(.white)
                         
                     }
                     
                     VStack{
-                        Text(quali.Driver.givenName)
+                        Text(quali.Driver.givenName!)
                             .foregroundColor(.white)
                         
-                        Text(quali.Driver.familyName)
+                        Text(quali.Driver.familyName!)
                             .foregroundColor(.white)
                             .offset(y: -3)
                     }

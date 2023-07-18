@@ -7,8 +7,8 @@
 
 import Foundation
 struct CircuitResults: Codable, Hashable {
-    let circuitId: String
+    let circuitId: String?
 //    let url: String
-    let circuitName: String
+    let circuitName: String?
     let Location: Location
 }

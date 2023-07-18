@@ -8,8 +8,8 @@
 import Foundation
 
 struct QualiResults: Codable,Hashable {
-    var number: String
-    var position: String
+    var number: String?
+    var position: String?
     var Driver: DriverQuali
     var Constructor: ConstructorQuali
     var Q1: String?

@@ -12,6 +12,9 @@ struct AccountView: View {
     
     @EnvironmentObject var firebaseAuth: FirebaseAuthService
     @EnvironmentObject var dataManger: DataManager
+    @State private var selectedMode = 0
+    private let mode = ["F1","Light","Dark","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
+    @State private var name = ""
     var body: some View {
         NavigationView{
             ZStack{
@@ -22,12 +25,11 @@ struct AccountView: View {
                     .frame(width:1000, height: 100)
                     .rotationEffect(.degrees(135))
                     .offset(y: -250)
-                //            dataManager.addUserInfo(firebaseAuth.user.uid, name: $name, color: $color)
+                
                 VStack{
-                    
-                    
-                    
-                    
+                    AccountInfoView()
+                        .frame(height: 300)
+                                  
                     Button{
                         
                         firebaseAuth.signOut()
@@ -50,6 +52,7 @@ struct AccountView: View {
         }
     }
 }
+
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {

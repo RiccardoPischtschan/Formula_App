@@ -16,48 +16,48 @@ class DataManager: ObservableObject{
         fetchUser()
     }
     
-        func fetchUser(){
-             
-            guard let userId = Auth.auth().currentUser?.uid else {
+    func fetchUser(){
+        
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        // get a reference to the database
+        let db = Firestore.firestore()
+        
+        // Read the documents at a specific path
+        let ref = db.collection("userAcc").document(userId)
+        ref.getDocument{ snapshot, error in
+            
+            // Check for errors
+            guard error == nil else {
+                print(error!.localizedDescription)
                 return
             }
-            // get a reference to the database
-            let db = Firestore.firestore()
-    
-            // Read the documents at a specific path
-            let ref = db.collection("userAcc").document(userId)
-                   ref.getDocument{ snapshot, error in
-    
-                // Check for errors
-                       guard error == nil else {
-                           print(error!.localizedDescription)
-                           return
-                       }
-                    // No errors
-                    if let snapshot = snapshot {
-                        
-                            let data = snapshot.data()
-                            
-                        if let data = data {
-                            let name = data["name"] as? String ?? ""
-                            let color = data["color"] as? String ?? ""
-                            
-                            let userAc = UserAcc( name: name, color: color)
-                            print(userAc.name)
-                            self.user = userAc
-                          }
-                        }
+            // No errors
+            if let snapshot = snapshot {
+                
+                let data = snapshot.data()
+                
+                if let data = data {
+                    let name = data["name"] as? String ?? ""
+                    let color = data["color"] as? String ?? ""
+                    
+                    let userAc = UserAcc( name: name, color: color)
+                    print(userAc.name)
+                    self.user = userAc
                 }
             }
         }
-    func addUserInfo(userInfo: String){
+    }
+    
+    func addUserInfo(userInfo: String, name: String, color: String){
         let db = Firestore.firestore()
         let ref = db.collection("UserACC").document(userInfo)
-        ref.setData(["name": userInfo, "color": userInfo]) { error in
+        ref.setData(["name": name, "color": color]) { error in
             if let error = error {
                 print(error.localizedDescription)
             }
         }
         
     }
-
+}

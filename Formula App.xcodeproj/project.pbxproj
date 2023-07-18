@@ -77,6 +77,7 @@
 		99AA468B2A5D51DE001E3854 /* QualiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA468A2A5D51DE001E3854 /* QualiRow.swift */; };
 		99AB7AA02A52B5CC001DBC27 /* CircuitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB7A9F2A52B5CC001DBC27 /* CircuitDetails.swift */; };
 		99AB7AA32A52C4A9001DBC27 /* Funktion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB7AA22A52C4A9001DBC27 /* Funktion.swift */; };
+		99ABDE6A2A66935A0074F0A9 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ABDE692A66935A0074F0A9 /* AccountInfoView.swift */; };
 		99AD5FFA2A57FC170050648E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD5FF92A57FC170050648E /* LoginView.swift */; };
 		99AD5FFD2A57FC7F0050648E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD5FFC2A57FC7F0050648E /* SignUpView.swift */; };
 		99AD5FFF2A5811350050648E /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD5FFE2A5811350050648E /* AppStorageKeys.swift */; };
@@ -175,6 +176,7 @@
 		99AA468A2A5D51DE001E3854 /* QualiRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiRow.swift; sourceTree = "<group>"; };
 		99AB7A9F2A52B5CC001DBC27 /* CircuitDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitDetails.swift; sourceTree = "<group>"; };
 		99AB7AA22A52C4A9001DBC27 /* Funktion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funktion.swift; sourceTree = "<group>"; };
+		99ABDE692A66935A0074F0A9 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		99AD5FF92A57FC170050648E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		99AD5FFC2A57FC7F0050648E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		99AD5FFE2A5811350050648E /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				9955B6172A614CE200B489E6 /* RawViews */,
 				99A6C1242A60259B0061E6A9 /* Shapes */,
 				9918523F2A5560EB00C175F4 /* AccountView.swift */,
+				99ABDE692A66935A0074F0A9 /* AccountInfoView.swift */,
 				991B917B2A42D554002367E8 /* HomeView.swift */,
 				99A723622A5EB41700CDE13C /* DriverView.swift */,
 				99A723642A5EB43D00CDE13C /* ConstructorView.swift */,
@@ -647,6 +650,7 @@
 				991B91AD2A42E24C002367E8 /* Location.swift in Sources */,
 				99A9878A2A4AC83C004B3650 /* RaceQualiResponse.swift in Sources */,
 				9955B60E2A612CED00B489E6 /* StandingsConstructorTable.swift in Sources */,
+				99ABDE6A2A66935A0074F0A9 /* AccountInfoView.swift in Sources */,
 				991B91A62A42DDF5002367E8 /* FormulaViewModel.swift in Sources */,
 				99AA468B2A5D51DE001E3854 /* QualiRow.swift in Sources */,
 				9955B6122A612DE100B489E6 /* ConstructorStandings.swift in Sources */,

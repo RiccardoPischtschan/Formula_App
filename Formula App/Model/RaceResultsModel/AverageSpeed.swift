@@ -8,6 +8,6 @@
 import Foundation
 
 struct AverageSpeed: Codable,Hashable {
-    let units: String
-    let speed: String
+    let units: String?
+    let speed: String?
 }

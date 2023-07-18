@@ -8,8 +8,8 @@
 import Foundation
 
 struct ConstructorQuali: Codable,Hashable {
-    let constructorId: String
+    let constructorId: String?
 //    let url: String
-    let name: String
-    let nationality: String
+    let name: String?
+    let nationality: String?
 }
