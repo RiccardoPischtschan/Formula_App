@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var homeViewModel = FormulaViewModel()
+    @StateObject  var dataManager = DataManager()
     var body: some View {
         TabView {
             NavigationStack {
@@ -47,6 +49,8 @@ struct MainView: View {
         
         .frame(height: 810)
         .offset(y:25)
+        .environmentObject(FormulaViewModel())
+        .environmentObject(DataManager())
     }
 }
 struct MainView_Previews: PreviewProvider {

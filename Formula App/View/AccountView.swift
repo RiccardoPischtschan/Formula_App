@@ -11,7 +11,7 @@ import FirebaseAuth
 struct AccountView: View {
     
     @EnvironmentObject var firebaseAuth: FirebaseAuthService
-    @EnvironmentObject var dataManger: DataManager
+    @EnvironmentObject var dataManager : DataManager
     @State private var selectedMode = 0
     private let mode = ["F1","Light","Dark","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
     @State private var name = ""
@@ -29,6 +29,7 @@ struct AccountView: View {
                 VStack{
                     AccountInfoView()
                         .frame(height: 300)
+                        .environmentObject(dataManager)
                                   
                     Button{
                         

@@ -8,7 +8,7 @@
 import Foundation
 
 struct AppStorageKey{
-    static let LOGGED = "isLogged"
+    static let name = "name"
 }
 
 

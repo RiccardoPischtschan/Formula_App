@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AccountInfoView: View {
-    @EnvironmentObject var dataManger: DataManager
+    @EnvironmentObject var firebaseAuth: FirebaseAuthService
+    @EnvironmentObject var dataManager : DataManager
     @State private var selectedMode = 0
     private let mode = ["F1","Light","Dark","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
     @State private var name = ""
@@ -34,9 +35,11 @@ struct AccountInfoView: View {
                 HStack{
                     Image(systemName: "person.crop.rectangle")
                         .foregroundColor(.white)
-                    TextField("", text: $name, prompt: Text("Name").foregroundColor(.white))
-                        .foregroundColor(.white)
                     
+                    
+                        TextField("", text: $name, prompt: Text(dataManager.user.name).foregroundColor(.white))
+                            .foregroundColor(.white)
+                   
                 }
                 .foregroundColor(.white)
                 .padding()
@@ -52,8 +55,8 @@ struct AccountInfoView: View {
                 
                 Button{
                     let selectedModeText = mode[selectedMode]
-                    //                            DataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: name, color: selectedModeText)
-                    //
+                    dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: name, color: selectedModeText)
+                    
                     
                 } label: {
                     Text("Speichern")
@@ -76,5 +79,6 @@ struct AccountInfoView: View {
 struct AccountInfoView_Previews: PreviewProvider {
     static var previews: some View {
         AccountInfoView()
+            .environmentObject(DataManager())
     }
 }

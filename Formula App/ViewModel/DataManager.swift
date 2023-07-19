@@ -8,10 +8,11 @@
 import Foundation
 import Firebase
 
+
 class DataManager: ObservableObject{
     
     @Published var user : UserAcc = UserAcc(name: "", color: "")
-    
+    let db = Firestore.firestore()
     init(){
         fetchUser()
     }
@@ -22,10 +23,10 @@ class DataManager: ObservableObject{
             return
         }
         // get a reference to the database
-        let db = Firestore.firestore()
+        
         
         // Read the documents at a specific path
-        let ref = db.collection("userAcc").document(userId)
+        let ref = db.collection("UserACC").document(userId)
         ref.getDocument{ snapshot, error in
             
             // Check for errors
@@ -51,7 +52,7 @@ class DataManager: ObservableObject{
     }
     
     func addUserInfo(userInfo: String, name: String, color: String){
-        let db = Firestore.firestore()
+   
         let ref = db.collection("UserACC").document(userInfo)
         ref.setData(["name": name, "color": color]) { error in
             if let error = error {

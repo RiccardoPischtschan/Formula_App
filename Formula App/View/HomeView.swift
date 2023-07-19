@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var homeViewModel = FormulaViewModel()
+    @EnvironmentObject var homeViewModel : FormulaViewModel
+    @EnvironmentObject  var dataManager : DataManager
     @State private var text = ""
     @State private var selectedOption = 0
     private let year = ["2023", "2022", "2021",  "2020", "2019", "2018", "2017",
@@ -124,7 +125,7 @@ struct HomeView: View {
                                         selectedDateBinding = Binding<String>(get: { raceDate }, set: { _ in })
                                         }
                                 }
-                            
+                           
                             
                             .onChange(of: selectedOption) { newValue in
                                 let selectedYear = year[newValue]
@@ -134,7 +135,7 @@ struct HomeView: View {
                             .onAppear {
                                 let selectedYear = year[selectedOption]
                                 homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
-                                
+
                             }
                         }
                         .foregroundColor(.black)
@@ -152,18 +153,21 @@ struct HomeView: View {
                     }
                     .padding()
                 }
+               
+                
                 
                 
             }
             .frame(height: 900)
             .ignoresSafeArea()
+            
         }
-        
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(homeViewModel: FormulaViewModel())
+        HomeView()
+            .environmentObject(FormulaViewModel())
     }
 }
