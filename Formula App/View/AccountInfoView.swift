@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccountInfoView: View {
-    @EnvironmentObject var firebaseAuth: FirebaseAuthService
+//    @EnvironmentObject var firebaseAuth: FirebaseAuthService
     @EnvironmentObject var dataManager : DataManager
     @State private var selectedMode = 0
     private let mode = ["F1","Light","Dark","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
@@ -37,7 +37,7 @@ struct AccountInfoView: View {
                         .foregroundColor(.white)
                     
                     
-                        TextField("", text: $name, prompt: Text(dataManager.user.name).foregroundColor(.white))
+                        TextField("", text: $name, prompt: Text(dataManager.currentUser.name).foregroundColor(.white))
                             .foregroundColor(.white)
                    
                 }
@@ -55,7 +55,7 @@ struct AccountInfoView: View {
                 
                 Button{
                     let selectedModeText = mode[selectedMode]
-                    dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: name, color: selectedModeText)
+//                    dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: name, color: selectedModeText)
                     
                     
                 } label: {
@@ -79,6 +79,7 @@ struct AccountInfoView: View {
 struct AccountInfoView_Previews: PreviewProvider {
     static var previews: some View {
         AccountInfoView()
+//            .environmentObject(FirebaseAuthService())
             .environmentObject(DataManager())
     }
 }

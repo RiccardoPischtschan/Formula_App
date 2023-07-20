@@ -11,24 +11,23 @@ import Firebase
 
 class DataManager: ObservableObject{
     
-    @Published var user : UserAcc = UserAcc(name: "", color: "")
-    let db = Firestore.firestore()
-    init(){
-        fetchUser()
-    }
     
+    @Published var currentUser : UserAcc = UserAcc(name: "", color: "")
+    let db = Firestore.firestore()
+    
+   
     func fetchUser(){
         
         guard let userId = Auth.auth().currentUser?.uid else {
             return
         }
         // get a reference to the database
-        
-        
+
+
         // Read the documents at a specific path
         let ref = db.collection("UserACC").document(userId)
         ref.getDocument{ snapshot, error in
-            
+
             // Check for errors
             guard error == nil else {
                 print(error!.localizedDescription)
@@ -36,16 +35,16 @@ class DataManager: ObservableObject{
             }
             // No errors
             if let snapshot = snapshot {
-                
+
                 let data = snapshot.data()
-                
+
                 if let data = data {
                     let name = data["name"] as? String ?? ""
                     let color = data["color"] as? String ?? ""
-                    
+
                     let userAc = UserAcc( name: name, color: color)
-                    print(userAc.name)
-                    self.user = userAc
+//                    print(userAc.name)
+                    self.currentUser = userAc
                 }
             }
         }

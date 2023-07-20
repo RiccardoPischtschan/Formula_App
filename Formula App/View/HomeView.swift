@@ -4,7 +4,7 @@
 //
 //  Created by Riccardo Pischtschan on 21.06.23.
 //
-
+import FirebaseFirestore
 import SwiftUI
 
 struct HomeView: View {
@@ -134,8 +134,14 @@ struct HomeView: View {
                             }
                             .onAppear {
                                 let selectedYear = year[selectedOption]
-                                homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
-
+                                
+                                
+                                    homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
+                                    dataManager.fetchUser()
+                                   
+                            
+                        
+                                print(dataManager.currentUser.name)
                             }
                         }
                         .foregroundColor(.black)

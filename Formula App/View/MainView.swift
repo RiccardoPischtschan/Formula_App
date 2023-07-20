@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+   
     @StateObject var homeViewModel = FormulaViewModel()
     @StateObject  var dataManager = DataManager()
     var body: some View {
@@ -38,7 +39,7 @@ struct MainView: View {
                 AccountView()
             }
             .tabItem {
-                Label("Account", systemImage: "person.and.background.dotted")
+                Label("\(dataManager.currentUser.name)", systemImage: "person.and.background.dotted")
             }
         }
    

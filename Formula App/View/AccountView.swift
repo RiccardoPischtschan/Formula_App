@@ -60,5 +60,6 @@ struct AccountView_Previews: PreviewProvider {
         AccountView()
             
             .environmentObject(FirebaseAuthService())
+            .environmentObject(DataManager())
     }
 }
