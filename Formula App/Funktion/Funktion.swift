@@ -253,3 +253,40 @@ func driverPic(for string: String) -> String? {
 
     return file
 }
+//func appStyleColor(for color: String) -> String? {
+//    let file: String?
+//
+//    switch color {
+//    case "F1":
+//        file = "albon"
+//    case "Light":
+//        file = "red"
+//    case "Dark":
+//        file = "black"
+//    case "Red Bull":
+//        file = "de vries"
+//    case "Mercedes":
+//        file = "gasly"
+//    case "Aston Martin":
+//        file = "hamilton"
+//    case "Ferrari":
+//        file = "hulkenberg"
+//    case "McLaren":
+//        file = "magnussen"
+//    case "Alpine":
+//        file = "latifi"
+//    case "Williams":
+//        file = "leclerc"
+//    case "Haas":
+//        file = "verstappen"
+//    case "Alfa Romeo":
+//        file = "vettel"
+//    case "Alpha Tauri":
+//        file = "schumacher"
+//    
+//    default:
+//        file = nil
+//    }
+//
+//    return file
+//}

@@ -29,6 +29,10 @@ struct AccountView: View {
                     .offset(y: -250)
                 
                 VStack{
+                    Text("Your Settings")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .bold()
                     
                     HStack{
                         Text("App Style")
@@ -44,7 +48,7 @@ struct AccountView: View {
                         .frame(width: 140, height: 100)
                         .padding()
                     }
-                    .padding()
+                  
                     
                     HStack{
                         Image(systemName: "person.crop.rectangle")

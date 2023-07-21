@@ -22,10 +22,13 @@ struct AccountInfoView: View {
                 
                 
                 Button{
+                    
                     let selectedModeText = mode[selectedMode]
-                    dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: name, color: selectedModeText)
                     
-                    
+                    if name.count != 0 {
+                        dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: name, color: selectedModeText)
+                        dataManager.fetchUser()
+                    }
                 } label: {
                     Text("Speichern")
                         .bold()
