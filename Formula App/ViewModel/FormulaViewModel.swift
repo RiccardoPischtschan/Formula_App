@@ -18,6 +18,7 @@ class FormulaViewModel: ObservableObject{
     @Published var total = [MRData]()
     @Published var driver = [DriverStandings]()
     @Published var constructor = [ConstructorStandings]()
+    @Published var driverInfo = [Drivers]()
     
     
 
@@ -45,6 +46,10 @@ class FormulaViewModel: ObservableObject{
                 return base_url_quali
             }
             else if modelTyp.contains("constructor"){
+                let base_url_quali = "https://ergast.com/api/f1/\(apiCall).json"
+                return base_url_quali
+            }
+            else if modelTyp.contains("driverInfo"){
                 let base_url_quali = "https://ergast.com/api/f1/\(apiCall).json"
                 return base_url_quali
             }
@@ -114,6 +119,15 @@ class FormulaViewModel: ObservableObject{
                         self.driver = raceResponse.MRData.StandingsTable.StandingsLists[0].DriverStandings
                         
                     }
+                } else if modelTyp == "driverInfo"{
+                        let raceResponse = try JSONDecoder().decode(DriverResponse.self, from: data)
+                        print(raceResponse)
+                        print("test")
+                        
+                        DispatchQueue.main.async {
+                            self.driverInfo = raceResponse.MRData.DriverTable.Drivers
+                            
+                        }
                 } else if modelTyp == "constructor"{
                     let raceResponse = try JSONDecoder().decode(ConstructorStandingResponse.self, from: data)
                      print(raceResponse)

@@ -8,6 +8,6 @@
 import Foundation
 
 struct MRDriverData: Codable,Hashable {
-    let total: String
+    let total: String?
     let DriverTable : DriverTable
 }

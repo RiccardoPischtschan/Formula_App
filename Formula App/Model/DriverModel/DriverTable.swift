@@ -8,6 +8,6 @@
 import Foundation
 
 struct DriverTable: Codable,Hashable {
-    let season: String
-    let Drivers : Drivers
+    let season: String?
+    let Drivers : [Drivers]
 }

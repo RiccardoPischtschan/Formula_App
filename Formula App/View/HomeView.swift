@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var homeViewModel : FormulaViewModel
     @EnvironmentObject  var dataManager : DataManager
+    @EnvironmentObject var firebaseAuth: FirebaseAuthService
+    
     @State private var text = ""
     @State private var selectedOption = 0
     private let year = ["2023", "2022", "2021",  "2020", "2019", "2018", "2017",
@@ -34,7 +36,7 @@ struct HomeView: View {
     @State private var selectedDate: String?
     @State private var selectedDateBinding: Binding<String>?
     @State private var isAccountViewPresented = false
-    @EnvironmentObject var firebaseAuth: FirebaseAuthService
+    
     
     
     var body: some View {
@@ -175,5 +177,6 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .environmentObject(FormulaViewModel())
+            .environmentObject(DataManager())
     }
 }

@@ -78,6 +78,7 @@
 		99AB7AA02A52B5CC001DBC27 /* CircuitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB7A9F2A52B5CC001DBC27 /* CircuitDetails.swift */; };
 		99AB7AA32A52C4A9001DBC27 /* Funktion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB7AA22A52C4A9001DBC27 /* Funktion.swift */; };
 		99ABDE6A2A66935A0074F0A9 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ABDE692A66935A0074F0A9 /* AccountInfoView.swift */; };
+		99ACBD7A2A6E532300CF31C8 /* DriverDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ACBD792A6E532300CF31C8 /* DriverDetails.swift */; };
 		99AD5FFA2A57FC170050648E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD5FF92A57FC170050648E /* LoginView.swift */; };
 		99AD5FFD2A57FC7F0050648E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD5FFC2A57FC7F0050648E /* SignUpView.swift */; };
 		99AD5FFF2A5811350050648E /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD5FFE2A5811350050648E /* AppStorageKeys.swift */; };
@@ -177,6 +178,7 @@
 		99AB7A9F2A52B5CC001DBC27 /* CircuitDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitDetails.swift; sourceTree = "<group>"; };
 		99AB7AA22A52C4A9001DBC27 /* Funktion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funktion.swift; sourceTree = "<group>"; };
 		99ABDE692A66935A0074F0A9 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
+		99ACBD792A6E532300CF31C8 /* DriverDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetails.swift; sourceTree = "<group>"; };
 		99AD5FF92A57FC170050648E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		99AD5FFC2A57FC7F0050648E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		99AD5FFE2A5811350050648E /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				99ABDE692A66935A0074F0A9 /* AccountInfoView.swift */,
 				991B917B2A42D554002367E8 /* HomeView.swift */,
 				99A723622A5EB41700CDE13C /* DriverView.swift */,
+				99ACBD792A6E532300CF31C8 /* DriverDetails.swift */,
 				99A723642A5EB43D00CDE13C /* ConstructorView.swift */,
 				99AB7A9F2A52B5CC001DBC27 /* CircuitDetails.swift */,
 				99A82B1F2A54432D00395DAD /* AuthView.swift */,
@@ -623,6 +626,7 @@
 				99B976672A49AC9E00491F25 /* ContentView.swift in Sources */,
 				991B91B52A42ED87002367E8 /* MRData.swift in Sources */,
 				99AD5FFF2A5811350050648E /* AppStorageKeys.swift in Sources */,
+				99ACBD7A2A6E532300CF31C8 /* DriverDetails.swift in Sources */,
 				991B91BB2A42EF38002367E8 /* Time.swift in Sources */,
 				991B91BF2A42EF88002367E8 /* LapTime.swift in Sources */,
 				99A6C1212A600D560061E6A9 /* ConstructorList.swift in Sources */,

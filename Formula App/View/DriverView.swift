@@ -9,6 +9,11 @@ import SwiftUI
 
 struct DriverView: View {
     @ObservedObject var driverViewModel = FormulaViewModel()
+    
+    @State private var selectedDriverId: String?
+    @State private var selectedDriverIdBinding: Binding<String>?
+    @State private var selectedDriverCode: String?
+    @State private var selectedDriverCodeBinding: Binding<String>?
     var body: some View {
         NavigationStack{
             ZStack{
@@ -47,7 +52,21 @@ struct DriverView: View {
                     VStack{
                         ScrollView{
                             ForEach(driverViewModel.driver, id: \.self){ driver in
-                                DriverRaw(driver: driver)
+                                let driverId = driver.Driver.driverId
+                                let driverCode = driver.Driver.code
+                                NavigationLink(
+                                    destination:
+                                        DriverDetails(selectedDriverId: selectedDriverIdBinding ?? .constant(driverId!), selectedDriverCode: selectedDriverCodeBinding ?? .constant(driverCode!)),
+                                    label: {
+                                        DriverRaw(driver: driver)
+                                        
+                                    })
+                                .onTapGesture {
+                                    selectedDriverId = driverId
+                                    selectedDriverIdBinding = Binding<String>(get: { driverId! }, set: { _ in })
+                                    selectedDriverCode = driverCode
+                                    selectedDriverCodeBinding = Binding<String>(get: { driverCode! }, set: { _ in })
+                                }
                             }
                             .frame(width: 360)
                             .offset(y:3)

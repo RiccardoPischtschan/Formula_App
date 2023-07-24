@@ -50,10 +50,29 @@ struct RaceRow: View {
                         }
                         .frame(width: 120)
                         
-                        Text(race.Time?.time ?? "DNF")
-                            .foregroundColor(.white)
-                            .frame(width: 120)
-                        
+                        if race.status == "Finished" {
+                            Text(race.Time?.time ?? "DNF")
+                                .foregroundColor(.white)
+                                .frame(width: 120)
+                        } else if race.status == "+1 Lap"{
+                            Text("+1 Lap")
+                                .foregroundColor(.white)
+                                .frame(width: 120)
+                        } else if race.status == "+2 Laps"{
+                            Text("+2 Laps")
+                                .foregroundColor(.white)
+                                .frame(width: 120)
+                        }
+                        else if race.status == "Retired"{
+                            Text("+3 Laps")
+                                .foregroundColor(.white)
+                                .frame(width: 120)
+                        }
+                        else {
+                            Text("DNF")
+                                .foregroundColor(.white)
+                                .frame(width: 120)
+                        }
                     }
                 
             }
@@ -65,6 +84,6 @@ struct RaceRow: View {
 
 struct RaceRow_Previews: PreviewProvider {
     static var previews: some View {
-        RaceRow(race: Result(number: "", position: "1", positionText: "", points: "", Driver: Driver(driverId: "", permanentNumber: "", code: "VER", givenName: "Max", familyName: "Verstappen", dateOfBirth: "", nationality: ""), Constructor: Constructor(constructorId: "", name: "", nationality: ""), grid: "", laps: "", status: "", Time: Time(millis: "", time: "1:27:38.241"), FastestLap: FastestLap(rank: "", lap: "", Time: LapTime(time: ""), AverageSpeed: AverageSpeed(units: "", speed: ""))))
+        RaceRow(race: Result(number: "", position: "1", positionText: "", points: "", Driver: Driver(driverId: "", permanentNumber: "", code: "VER", givenName: "Max", familyName: "Verstappen", dateOfBirth: "", nationality: ""), Constructor: Constructor(constructorId: "", name: "", nationality: ""), grid: "", laps: "", status: "Finished", Time: Time(millis: "", time: "1:27:38.241"), FastestLap: FastestLap(rank: "", lap: "", Time: LapTime(time: ""), AverageSpeed: AverageSpeed(units: "", speed: ""))))
     }
 }
