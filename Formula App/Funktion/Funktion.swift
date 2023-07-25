@@ -253,6 +253,65 @@ func driverPic(for string: String) -> String? {
 
     return file
 }
+func constructorColor(for string: String) -> String? {
+    let file: String?
+
+    switch string {
+    case "ALB":
+        file = "Williams Color"
+    case "ALO":
+        file = "Aston Martin Color"
+    case "BOT":
+        file = "Alfa Romeo Color"
+    case "DEV":
+        file = "AlphaTauri Color"
+    case "GAS":
+        file = "Alpine F1 Team Color"
+    case "HAM":
+        file = "Mercedes Color"
+    case "HUL":
+        file = "Haas F1 Team Color"
+    case "MAG":
+        file = "Haas F1 Team Color"
+    case "LAT":
+        file = "Williams Color"
+    case "LEC":
+        file = "Ferrari Color"
+    case "VER":
+        file = "Red Bull Color"
+    case "VET":
+        file = "Aston Martin Color"
+    case "MSC":
+        file = "Haas F1 Team Color"
+    case "NOR":
+        file = "McLaren Color"
+    case "OCO":
+        file = "Alpine F1 Team Color"
+    case "PER":
+        file = "Red Bull Color"
+    case "PIA":
+        file = "McLaren Color"
+    case "RIC":
+        file = "AlphaTauri Color"
+    case "RUS":
+        file = "Mercedes Color"
+    case "SAI":
+        file = "Ferrari Color"
+    case "SAR":
+        file = "Williams Color"
+    case "STR":
+        file = "Aston Martin Color"
+    case "TSU":
+        file = "AlphaTauri Color"
+    case "ZHO":
+        file = "Alfa Romeo Color"
+  
+    default:
+        file = nil
+    }
+
+    return file
+}
 //func appStyleColor(for color: String) -> String? {
 //    let file: String?
 //

@@ -36,21 +36,110 @@ struct DriverDetails: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 200)
-                        ZStack{
-                            
-                            
-                          HStack{
-                           
-                                Text("Driver Code")
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .font(.subheadline)
-                                Text(driver.code)
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .font(.subheadline)
+                            .offset(y:5)
+                        
+                        
+                        HStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .foregroundStyle(.linearGradient(colors: [.black, Color(constructorColor(for: driver.code)!)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .frame(width:180, height: 50)
+                                //                                .offset(y: 60)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(lineWidth: 5)
+                                        //                                        .offset(y: 60)
+                                            .foregroundStyle(.linearGradient(colors: [ Color(constructorColor(for: driver.code)!), .black], startPoint: .leading, endPoint: .trailing))
+                                    )
+                                
+                                HStack{
+                                    
+                                    Text("Driver Code:")
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .font(.subheadline)
+                                    Text(driver.code)
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .font(.subheadline)
+                                }
+                            }
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .foregroundStyle(.linearGradient(colors: [ Color(constructorColor(for: driver.code)!), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .frame(width:180, height: 50)
+    //                                .offset(y: 60)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(lineWidth: 5)
+    //                                        .offset(y: 60)
+                                            .foregroundStyle(.linearGradient(colors: [.black, Color(constructorColor(for: driver.code)!)], startPoint: .leading, endPoint: .trailing))
+                                             )
+                                
+                              HStack{
+                               
+                                    Text("Driver Number:")
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .font(.subheadline)
+                                    Text(driver.permanentNumber)
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .font(.subheadline)
+                                }
                             }
                         }
+                        HStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .foregroundStyle(.linearGradient(colors: [.black, Color(constructorColor(for: driver.code)!)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .frame(width:180, height: 50)
+                                //                                .offset(y: 60)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(lineWidth: 5)
+                                        //                                        .offset(y: 60)
+                                            .foregroundStyle(.linearGradient(colors: [ Color(constructorColor(for: driver.code)!), .black], startPoint: .leading, endPoint: .trailing))
+                                    )
+                                
+                                VStack{
+                                    
+                                    Text("Date of Birth:")
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .font(.subheadline)
+                                    Text(reformatDate(_: driver.dateOfBirth))
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .font(.subheadline)
+                                }
+                            }
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .foregroundStyle(.linearGradient(colors: [ Color(constructorColor(for: driver.code)!), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .frame(width:180, height: 50)
+    //                                .offset(y: 60)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .stroke(lineWidth: 5)
+    //                                        .offset(y: 60)
+                                            .foregroundStyle(.linearGradient(colors: [.black, Color(constructorColor(for: driver.code)!)], startPoint: .leading, endPoint: .trailing))
+                                             )
+                                
+                              HStack{
+                               
+                                    Text("Nationality:")
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .font(.subheadline)
+                                    Text(driver.nationality)
+                                        .foregroundColor(.white)
+                                        .bold()
+                                        .font(.subheadline)
+                                }
+                            }
+                        }
+                        
                     }
                 }
             }

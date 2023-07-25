@@ -54,6 +54,7 @@ struct DriverView: View {
                             ForEach(driverViewModel.driver, id: \.self){ driver in
                                 let driverId = driver.Driver.driverId
                                 let driverCode = driver.Driver.code
+                            
                                 NavigationLink(
                                     destination:
                                         DriverDetails(selectedDriverId: selectedDriverIdBinding ?? .constant(driverId!), selectedDriverCode: selectedDriverCodeBinding ?? .constant(driverCode!)),
