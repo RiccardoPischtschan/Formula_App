@@ -85,6 +85,7 @@
 		99B976642A49963A00491F25 /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B976632A49963A00491F25 /* SeasonRow.swift */; };
 		99B976672A49AC9E00491F25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B976662A49AC9E00491F25 /* ContentView.swift */; };
 		99BFFB552A45A1DE001554BB /* Pflichtenheft Batch005.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 99BFFB542A45A1DE001554BB /* Pflichtenheft Batch005.pdf */; };
+		99C222E72A7100D900E036BB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C222E62A7100D900E036BB /* LoadingView.swift */; };
 		99C37E512A56D2BF00D91253 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C37E502A56D2BF00D91253 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +186,7 @@
 		99B976632A49963A00491F25 /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
 		99B976662A49AC9E00491F25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		99BFFB542A45A1DE001554BB /* Pflichtenheft Batch005.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Pflichtenheft Batch005.pdf"; sourceTree = "<group>"; };
+		99C222E62A7100D900E036BB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		99C37E502A56D2BF00D91253 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -457,6 +459,7 @@
 				99A723602A5E8AEE00CDE13C /* MainView.swift */,
 				99B976662A49AC9E00491F25 /* ContentView.swift */,
 				991B91792A42D554002367E8 /* Formula_AppApp.swift */,
+				99C222E62A7100D900E036BB /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				99A987742A4AB200004B3650 /* RaceResults.swift in Sources */,
 				991B91AD2A42E24C002367E8 /* Location.swift in Sources */,
 				99A9878A2A4AC83C004B3650 /* RaceQualiResponse.swift in Sources */,
+				99C222E72A7100D900E036BB /* LoadingView.swift in Sources */,
 				9955B60E2A612CED00B489E6 /* StandingsConstructorTable.swift in Sources */,
 				99ABDE6A2A66935A0074F0A9 /* AccountInfoView.swift in Sources */,
 				991B91A62A42DDF5002367E8 /* FormulaViewModel.swift in Sources */,

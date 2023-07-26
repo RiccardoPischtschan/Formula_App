@@ -23,7 +23,7 @@ struct AccountView: View {
                 Color.black.edgesIgnoringSafeArea(.all)
                 
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
-                    .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .frame(width:1000, height: 100)
                     .rotationEffect(.degrees(135))
                     .offset(y: -250)
@@ -34,21 +34,15 @@ struct AccountView: View {
                         .font(.largeTitle)
                         .bold()
                     
-                    HStack{
-                        Text("App Style")
-                            .foregroundColor(.red)
-                        
-                        Picker("", selection: $selectedMode) {
-                            ForEach(0 ..< mode.count) { index in
-                                Text(mode[index])
-                                    .foregroundColor(Color(hue: 1.0, saturation: 0.878, brightness: 0.988, opacity: 0.949))
-                            }
-                        }
-                        .pickerStyle(.wheel)
-                        .frame(width: 140, height: 100)
-                        .padding()
-                    }
+                   
                   
+                    
+                        Image("\(dataManager.currentUser.color) 1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame( width: 300 ,height: 130)
+                            .cornerRadius(20)
+                    
                     
                     HStack{
                         Image(systemName: "person.crop.rectangle")
@@ -70,6 +64,21 @@ struct AccountView: View {
                     .padding()
 //                    .offset(y: 30)
                     
+                    HStack{
+                        Text("App Style")
+                            .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
+                        
+                        Picker("", selection: $selectedMode) {
+                            ForEach(0 ..< mode.count) { index in
+                                Text(mode[index])
+                                    .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
+                            }
+                        }
+                        .pickerStyle(.wheel)
+                        .frame(width: 140, height: 100)
+                        .padding()
+                    }
+                    
                     
                     AccountInfoView(selectedMode: $selectedMode, name: $name)
                         .frame(height: 300)
@@ -85,8 +94,6 @@ struct AccountView: View {
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
-            
-          
             .environmentObject(DataManager())
     }
 }

@@ -44,24 +44,19 @@ struct HomeView: View {
             ZStack{
                 Color(.black)
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
-                    .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .frame(width:1000, height: 100)
                     .rotationEffect(.degrees(135))
                     .offset(y: -250)
                 VStack{
-                    Image("F1LOGO 1")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 250)
-                        .padding(-30)
+                   
+                        Image("F1LOGO 1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 250)
+                            .padding(-30)
+                        
                     
-//                    VStack(alignment: .leading){
-                       
-//                        NavigationLink(destination: AccountView(), label: {
-//                            Image(systemName: "person.and.background.dotted")
-//                             .foregroundColor(.white)
-//                     })
-//                        .offset(y:25)
                   
                     HStack {
                         Text("Race Info")
@@ -71,8 +66,14 @@ struct HomeView: View {
                             .padding()
                         Picker("", selection: $selectedOption) {
                             ForEach(0 ..< year.count) { index in
-                                Text(year[index])
-                                .foregroundColor(Color(hue: 1.0, saturation: 0.878, brightness: 0.988, opacity: 0.949))                        }
+                                if dataManager.currentUser.color == "Red Bull" {
+                                    Text(year[index])
+                                        .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color") 2"))
+                                } else {
+                                    Text(year[index])
+                                        .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
+                                }
+                            }
                         }
                         
                         .pickerStyle(WheelPickerStyle())
@@ -93,7 +94,7 @@ struct HomeView: View {
                             .overlay{
                                 RoundedRectangle(cornerRadius: 40)
                                     .stroke(lineWidth: 5)
-                                    .foregroundStyle(.linearGradient(colors: [.white, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    .foregroundStyle(.linearGradient(colors: [.white, Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")")], startPoint: .topLeading, endPoint: .bottomTrailing))
                                 
                             }
                     
@@ -151,12 +152,7 @@ struct HomeView: View {
                         .frame(width: 350 ,height: 506)
                 }
                     VStack{
-                        //                    NavigationLink(destination: AccountView(), label: {
-                        //                        Image(systemName: "person.and.background.dotted")
-                        //                          .resizable()
-                        //                          .frame(width: 30,height: 30)
-                        //                          .foregroundColor(.white)
-                        //                 })
+                    
                         
                     }
                     .padding()

@@ -10,11 +10,12 @@ import SwiftUI
 struct MainView: View {
    
     @StateObject var homeViewModel = FormulaViewModel()
-    @StateObject  var dataManager = DataManager()
+    @StateObject var dataManager = DataManager()
     var body: some View {
         TabView {
             NavigationStack {
                 HomeView()
+                    .preferredColorScheme(.dark)
                     
             }
             .tabItem {
@@ -40,18 +41,19 @@ struct MainView: View {
             }
             .tabItem {
                 Label("\(dataManager.currentUser.name)", systemImage: "person.and.background.dotted")
+                    
             }
         }
    
         
-         .accentColor(.red)
-//        .tint(.black)
+        .accentColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
+
         
         
         .frame(height: 810)
         .offset(y:25)
-        .environmentObject(FormulaViewModel())
-        .environmentObject(DataManager())
+        .environmentObject(homeViewModel)
+        .environmentObject(dataManager)
     }
 }
 struct MainView_Previews: PreviewProvider {

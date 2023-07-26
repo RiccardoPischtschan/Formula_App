@@ -28,14 +28,22 @@ struct AccountInfoView: View {
                     if name.count != 0 {
                         dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: name, color: selectedModeText)
                         dataManager.fetchUser()
+                    } else if name.count == 0 {
+                        var nameSave = dataManager.currentUser.name
+                        if nameSave.count != 0 {
+                            dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: nameSave, color: selectedModeText)
+                            dataManager.fetchUser()
+                        }
                     }
+                    
+                    
                 } label: {
                     Text("Speichern")
                         .bold()
                         .frame(width: 200,height: 40)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(.linearGradient(colors: [.red,.white], startPoint: .top, endPoint: .bottomTrailing ))
+                                .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"),.white], startPoint: .top, endPoint: .bottomTrailing ))
                         )
                         .foregroundColor(.black)
                 }
@@ -53,7 +61,7 @@ struct AccountInfoView: View {
                         .frame(width: 200,height: 40)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(.linearGradient(colors: [.red,.white], startPoint: .top, endPoint: .bottomTrailing ))
+                                .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"),.white], startPoint: .top, endPoint: .bottomTrailing ))
                         )
                         .foregroundColor(.black)
                 }

@@ -72,6 +72,7 @@ struct ConstructorStandingsRow: View {
                             
                         ZStack{
                             RoundedRectangle(cornerRadius: 5)
+                                .foregroundColor(.black)
                                 .frame(width: 70,height: 30)
                             Text("PTS")
                                 .foregroundColor(.white)

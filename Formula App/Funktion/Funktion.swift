@@ -312,40 +312,40 @@ func constructorColor(for string: String) -> String? {
 
     return file
 }
-//func appStyleColor(for color: String) -> String? {
-//    let file: String?
-//
-//    switch color {
-//    case "F1":
-//        file = "albon"
-//    case "Light":
-//        file = "red"
-//    case "Dark":
-//        file = "black"
-//    case "Red Bull":
-//        file = "de vries"
-//    case "Mercedes":
-//        file = "gasly"
-//    case "Aston Martin":
-//        file = "hamilton"
-//    case "Ferrari":
-//        file = "hulkenberg"
-//    case "McLaren":
-//        file = "magnussen"
-//    case "Alpine":
-//        file = "latifi"
-//    case "Williams":
-//        file = "leclerc"
-//    case "Haas":
-//        file = "verstappen"
-//    case "Alfa Romeo":
-//        file = "vettel"
-//    case "Alpha Tauri":
-//        file = "schumacher"
-//    
-//    default:
-//        file = nil
-//    }
-//
-//    return file
-//}
+func appColorStyle(for color: String) -> String? {
+    let file: String?
+
+    switch color {
+    case "F1":
+        file = "Red Color"
+    case "Light":
+        file = "Haas F1 Team Color"
+    case "Dark":
+        file = "Dunkelgrau Color"
+    case "Red Bull":
+        file = "Red Bull Color"
+    case "Mercedes":
+        file = "Mercedes Color"
+    case "Aston Martin":
+        file = "Aston Martin Color"
+    case "Ferrari":
+        file = "Ferrari Color"
+    case "McLaren":
+        file = "McLaren Color"
+    case "Alpine":
+        file = "Alpine F1 Team Color"
+    case "Williams":
+        file = "Williams Color"
+    case "Haas":
+        file = "Haas F1 Team Color"
+    case "Alfa Romeo":
+        file = "Alfa Romeo Color"
+    case "Alpha Tauri":
+        file = "AlphaTauri Color"
+    
+    default:
+        file = nil
+    }
+
+    return file
+}

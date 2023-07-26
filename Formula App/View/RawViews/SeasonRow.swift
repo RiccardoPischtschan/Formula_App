@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct SeasonRow: View {
+    @EnvironmentObject  var dataManager : DataManager
     var formula : Race
     var body: some View {
         VStack{
             HStack{
                 ZStack{
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                         .frame(width:40, height:40)
                         .rotationEffect(.degrees(135))
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(lineWidth: 3)
-                                .foregroundStyle(.linearGradient(colors: [.black, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .foregroundStyle(.linearGradient(colors: [.black, Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")")], startPoint: .topLeading, endPoint: .bottomTrailing))
                                 .rotationEffect(.degrees(135))
                         )
                     
@@ -33,12 +34,12 @@ struct SeasonRow: View {
                 .padding(3)
                 ZStack{
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .foregroundStyle(.linearGradient(colors: [.black, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .foregroundStyle(.linearGradient(colors: [.black, Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")")], startPoint: .topLeading, endPoint: .bottomTrailing))
                         .frame(width:230, height: 50)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(lineWidth: 3)
-                                .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                         )
                     VStack{
                         Text(formula.raceName)
@@ -65,5 +66,6 @@ struct SeasonRow: View {
 struct SeasonRow_Previews: PreviewProvider {
     static var previews: some View {
         SeasonRow(formula: Race(season: "", round: "3", raceName: "Emilia Romagna Grand Prix", Circuit: Circuit(circuitId: "", circuitName: "", Location: Location(lat: "", long: "", locality: "", country: "")), date: "2023-11-26", time: ""))
+            .environmentObject(DataManager())
     }
 }

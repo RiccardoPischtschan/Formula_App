@@ -10,12 +10,24 @@ import FirebaseAuth
 
 struct ContentView: View {
     @EnvironmentObject var authService: FirebaseAuthService
-
+    
+    @State private var isLoading = true
     var body: some View {
-        if authService.user != nil {
-            MainView()
-        } else {
-            AuthView()
+        ZStack{
+            if isLoading{
+                LoadingView()
+            }else {
+                if authService.user != nil {
+                    MainView()
+                } else {
+                    AuthView()
+                }
+            }
+        }
+        .onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                isLoading = false
+            }
         }
     }
 }
