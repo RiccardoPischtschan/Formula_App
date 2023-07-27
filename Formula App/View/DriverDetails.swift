@@ -15,7 +15,13 @@ struct DriverDetails: View {
     @Binding var selectedDriverCode: String
     var body: some View {
         ZStack{
-            Color.black.ignoresSafeArea()
+            if dataManager.currentUser.color == "Light"{
+                Color.white.edgesIgnoringSafeArea(.all)
+                
+            } else {
+                Color.black.edgesIgnoringSafeArea(.all)
+                
+            }
             VStack{
                 ForEach(driverViewModel.driverInfo, id: \.self) { driver in
                     VStack{

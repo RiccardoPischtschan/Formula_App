@@ -13,20 +13,34 @@ struct AccountView: View {
     
     @EnvironmentObject var dataManager : DataManager
     @State private var selectedMode = 0
-    private let mode = ["F1","Light","Dark","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
+    private let mode = ["F1","Light","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
     @State var name = ""
     
     
     var body: some View {
         NavigationView{
             ZStack{
-                Color.black.edgesIgnoringSafeArea(.all)
-                
-                RoundedRectangle(cornerRadius: 30, style: .continuous)
-                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .frame(width:1000, height: 100)
-                    .rotationEffect(.degrees(135))
-                    .offset(y: -250)
+             
+                if dataManager.currentUser.color == "Light"{
+                    Color.white.edgesIgnoringSafeArea(.all)
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:1000, height: 100)
+                        .rotationEffect(.degrees(135))
+                        .offset(y: -250)
+                } else {
+                    Color.black.edgesIgnoringSafeArea(.all)
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:1000, height: 100)
+                        .rotationEffect(.degrees(135))
+                        .offset(y: -250)
+                }
+//                RoundedRectangle(cornerRadius: 30, style: .continuous)
+//                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+//                    .frame(width:1000, height: 100)
+//                    .rotationEffect(.degrees(135))
+//                    .offset(y: -250)
                 
                 VStack{
                     Text("Your Settings")
@@ -70,8 +84,13 @@ struct AccountView: View {
                         
                         Picker("", selection: $selectedMode) {
                             ForEach(0 ..< mode.count) { index in
-                                Text(mode[index])
-                                    .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
+                                if dataManager.currentUser.color == "Red Bull" {
+                                    Text(mode[index])
+                                        .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color") 2"))
+                                } else {
+                                    Text(mode[index])
+                                        .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
+                                }
                             }
                         }
                         .pickerStyle(.wheel)

@@ -319,9 +319,7 @@ func appColorStyle(for color: String) -> String? {
     case "F1":
         file = "Red Color"
     case "Light":
-        file = "Haas F1 Team Color"
-    case "Dark":
-        file = "Dunkelgrau Color"
+        file = "Schwarz Color"
     case "Red Bull":
         file = "Red Bull Color"
     case "Mercedes":
@@ -349,3 +347,5 @@ func appColorStyle(for color: String) -> String? {
 
     return file
 }
+
+

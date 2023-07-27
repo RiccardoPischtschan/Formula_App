@@ -10,7 +10,7 @@ import SwiftUI
 struct CircuitDetails: View {
     var circuitViewModel : FormulaViewModel
     @EnvironmentObject var firebaseAuth: FirebaseAuthService
-  
+    @EnvironmentObject  var dataManager : DataManager
     @Binding var circuitID: String
     @Binding var selectedYear: String
     @Binding var selectedCountry: String
@@ -24,7 +24,13 @@ struct CircuitDetails: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                Color.black
+                if dataManager.currentUser.color == "Light"{
+                    Color.white.edgesIgnoringSafeArea(.all)
+                    
+                } else {
+                    Color.black.edgesIgnoringSafeArea(.all)
+                    
+                }
                 VStack{
                     VStack{
                         Spacer()
@@ -58,7 +64,7 @@ struct CircuitDetails: View {
                                     .overlay{
                                         RoundedRectangle(cornerRadius: 20)
                                             .stroke(lineWidth: 3)
-                                            .foregroundColor(.red)
+                                            .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"))
                                         
                                     }
                             }
@@ -71,7 +77,7 @@ struct CircuitDetails: View {
                             
                             Divider()
                                 .frame(width: 350, height: 3)
-                                .overlay(.red)
+                                .overlay(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"))
                             
                             //                    Text("Race Results \(selectedYear)")
                             //                        .bold()
@@ -137,7 +143,7 @@ struct CircuitDetails: View {
                    Spacer()
                 }
             }
-            .ignoresSafeArea()
+            
         }
     }
 }
@@ -145,5 +151,6 @@ struct CircuitDetails: View {
 struct CircuitDetails_Previews: PreviewProvider {
     static var previews: some View {
         CircuitDetails(circuitViewModel: FormulaViewModel(), circuitID: .constant("bahrain"),selectedYear: .constant("2023"),selectedCountry: .constant("Bahrain"), selectedRound: .constant(""), selectedDate: .constant(""))
+            .environmentObject(DataManager())
     }
 }

@@ -9,12 +9,19 @@ import SwiftUI
 
 struct ConstructorView: View {
     @ObservedObject var constructorViewModel = FormulaViewModel()
+    @EnvironmentObject  var dataManager : DataManager
     var body: some View {
         NavigationStack{
             ZStack{
-                Color.black.edgesIgnoringSafeArea(.all)
+                if dataManager.currentUser.color == "Light"{
+                    Color.white.edgesIgnoringSafeArea(.all)
+                    
+                } else {
+                    Color.black.edgesIgnoringSafeArea(.all)
+                    
+                }
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
-                    .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .frame(width:1000, height: 100)
                     .rotationEffect(.degrees(135))
                     .offset(y: -250)
@@ -56,5 +63,6 @@ struct ConstructorView: View {
 struct ConstructorView_Previews: PreviewProvider {
     static var previews: some View {
         ConstructorView()
+            .environmentObject(DataManager())
     }
 }

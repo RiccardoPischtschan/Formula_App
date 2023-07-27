@@ -42,9 +42,15 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                Color(.black)
+                if dataManager.currentUser.color == "Light"{
+                    Color.white.edgesIgnoringSafeArea(.all)
+                    
+                } else {
+                    Color.black.edgesIgnoringSafeArea(.all)
+                    
+                }
                 RoundedRectangle(cornerRadius: 30, style: .continuous)
-                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .frame(width:1000, height: 100)
                     .rotationEffect(.degrees(135))
                     .offset(y: -250)
@@ -163,7 +169,7 @@ struct HomeView: View {
                 
             }
             .frame(height: 900)
-            .ignoresSafeArea()
+            
             
         }
     }

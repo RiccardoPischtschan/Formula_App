@@ -14,9 +14,13 @@ struct MainView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                HomeView()
-                    .preferredColorScheme(.dark)
-                    
+                if dataManager.currentUser.color == "Light"{
+                    HomeView()
+                        .preferredColorScheme(.light)
+                } else {
+                    HomeView()
+                        .preferredColorScheme(.dark)
+                }
             }
             .tabItem {
                 Label("Home", systemImage: "flag.checkered")

@@ -12,7 +12,7 @@ struct AccountInfoView: View {
     @EnvironmentObject var dataManager : DataManager
     @Binding var selectedMode : Int
     @Binding var name : String
-    private let mode = ["F1","Light","Dark","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
+    private let mode = ["F1","Light","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
     var body: some View {
         ZStack{
             Color.clear.edgesIgnoringSafeArea(.all)
@@ -29,7 +29,7 @@ struct AccountInfoView: View {
                         dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: name, color: selectedModeText)
                         dataManager.fetchUser()
                     } else if name.count == 0 {
-                        var nameSave = dataManager.currentUser.name
+                        let nameSave = dataManager.currentUser.name
                         if nameSave.count != 0 {
                             dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: nameSave, color: selectedModeText)
                             dataManager.fetchUser()
@@ -38,14 +38,29 @@ struct AccountInfoView: View {
                     
                     
                 } label: {
-                    Text("Speichern")
-                        .bold()
-                        .frame(width: 200,height: 40)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"),.white], startPoint: .top, endPoint: .bottomTrailing ))
-                        )
-                        .foregroundColor(.black)
+                    if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "Haas"{
+                        Text("Speichern")
+                            .bold()
+                            .frame(width: 200,height: 40)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .fill(.linearGradient(colors: [.black,.black], startPoint: .top, endPoint: .bottomTrailing ))
+                            )
+                            .foregroundColor(.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 2)
+                                    .foregroundColor(.white))
+                    } else {
+                        Text("Speichern")
+                            .bold()
+                            .frame(width: 200,height: 40)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"),.white], startPoint: .top, endPoint: .bottomTrailing ))
+                            )
+                            .foregroundColor(.white)
+                    }
                 }
                 .padding(.top)
 //                .offset(y: 100)
@@ -56,14 +71,29 @@ struct AccountInfoView: View {
                     
                     
                 } label: {
-                    Text("Log Out")
-                        .bold()
-                        .frame(width: 200,height: 40)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"),.white], startPoint: .top, endPoint: .bottomTrailing ))
-                        )
-                        .foregroundColor(.black)
+                    if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "Haas"{
+                        Text("Log Out")
+                            .bold()
+                            .frame(width: 200,height: 40)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .fill(.linearGradient(colors: [.black,.black], startPoint: .top, endPoint: .bottomTrailing ))
+                            )
+                            .foregroundColor(.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 2)
+                                    .foregroundColor(.white))
+                    } else {
+                        Text("Log Out")
+                            .bold()
+                            .frame(width: 200,height: 40)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"),.white], startPoint: .top, endPoint: .bottomTrailing ))
+                            )
+                            .foregroundColor(.white)
+                    }
                 }
                 .padding(.top)
 //                    .offset(y: 100)
