@@ -36,11 +36,11 @@ struct AccountView: View {
                         .rotationEffect(.degrees(135))
                         .offset(y: -250)
                 }
-//                RoundedRectangle(cornerRadius: 30, style: .continuous)
-//                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
-//                    .frame(width:1000, height: 100)
-//                    .rotationEffect(.degrees(135))
-//                    .offset(y: -250)
+                RoundedRectangle(cornerRadius: 30, style: .continuous)
+                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .frame(width:1000, height: 100)
+                    .rotationEffect(.degrees(135))
+                    .offset(y: -250)
                 
                 VStack{
                     Text("Your Settings")
