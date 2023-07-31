@@ -8,19 +8,68 @@
 import SwiftUI
 
 struct RaceRow: View {
+
     var race : Result
     var body: some View {
         VStack{
             ZStack{
-                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .frame(width:350, height: 50)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 3)
-                            .foregroundStyle(.linearGradient(colors: [.black, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
-                    )
                 
+                if race.position == "1" {
+                    
+                 Image("Gold")
+                        .frame(width: 360, height: 60)
+                        .cornerRadius(15)
+                    
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [.clear, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:350, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 3)
+                                .foregroundStyle( Color(constructorColor(for: race.Driver.code ?? "") ?? ""))
+                        )
+                    
+                } else if race.position == "2" {
+                    
+                 Image("Silber")
+                        .frame(width: 360, height: 60)
+                        .cornerRadius(15)
+                    
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [.clear, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:350, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 3)
+                                .foregroundStyle( Color(constructorColor(for: race.Driver.code ?? "") ?? ""))
+                        )
+                    
+                } else if race.position == "3" {
+                    
+                 Image("Bronze")
+                        .frame(width: 360, height: 60)
+                        .cornerRadius(15)
+                    
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [.clear, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:350, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 3)
+                                .foregroundStyle( Color(constructorColor(for: race.Driver.code ?? "") ?? ""))
+                        )
+                    
+                } else {
+                    
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [.black, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:350, height: 50)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 3)
+                                .foregroundStyle(.linearGradient(colors: [ Color(constructorColor(for: race.Driver.code ?? "") ?? ""), .white], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        )
+                }
                     HStack{
 
                         Text(race.position ?? "")
@@ -85,5 +134,6 @@ struct RaceRow: View {
 struct RaceRow_Previews: PreviewProvider {
     static var previews: some View {
         RaceRow(race: Result(number: "", position: "1", positionText: "", points: "", Driver: Driver(driverId: "", permanentNumber: "", code: "VER", givenName: "Max", familyName: "Verstappen", dateOfBirth: "", nationality: ""), Constructor: Constructor(constructorId: "", name: "", nationality: ""), grid: "", laps: "", status: "Finished", Time: Time(millis: "", time: "1:27:38.241"), FastestLap: FastestLap(rank: "", lap: "", Time: LapTime(time: ""), AverageSpeed: AverageSpeed(units: "", speed: ""))))
+            .environmentObject(DataManager())
     }
 }

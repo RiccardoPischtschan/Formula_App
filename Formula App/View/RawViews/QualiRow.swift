@@ -15,12 +15,12 @@ struct QualiRow: View {
         VStack{
             ZStack{
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .foregroundStyle(.linearGradient(colors: [.red, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .foregroundStyle(.linearGradient(colors: [.black, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                     .frame(width:350, height: 50)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 3)
-                            .foregroundStyle(.linearGradient(colors: [.black, .red], startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .foregroundStyle(.linearGradient(colors: [ Color(constructorColor(for: quali.Driver.code ?? "") ?? ""), .white], startPoint: .topLeading, endPoint: .bottomTrailing))
                     )
                 
                 HStack{

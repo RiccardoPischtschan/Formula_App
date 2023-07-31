@@ -40,137 +40,274 @@ struct HomeView: View {
     
     
     var body: some View {
-        NavigationStack{
-            ZStack{
+
                 if dataManager.currentUser.color == "Light"{
+                    NavigationStack{
+                        ZStack{
                     Color.white.edgesIgnoringSafeArea(.all)
-                    
-                } else {
-                    Color.black.edgesIgnoringSafeArea(.all)
-                    
-                }
-                RoundedRectangle(cornerRadius: 30, style: .continuous)
-                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .frame(width:1000, height: 100)
-                    .rotationEffect(.degrees(135))
-                    .offset(y: -250)
-                VStack{
-                   
-                        Image("F1LOGO 1")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 250)
-                            .padding(-30)
-                        
-                    
-                  
-                    HStack {
-                        Text("Race Info")
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(.white)
-                            .padding()
-                        Picker("", selection: $selectedOption) {
-                            ForEach(0 ..< year.count) { index in
-                                if dataManager.currentUser.color == "Red Bull" {
-                                    Text(year[index])
-                                        .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color") 2"))
-                                } else {
-                                    Text(year[index])
-                                        .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
-                                }
-                            }
-                        }
-                        
-                        .pickerStyle(WheelPickerStyle())
-                        .frame(width: 100, height: 100)
-                        .padding()
-                        
-                    }
-                      
-//                }
-                       
-                    
-                    ZStack{
-                     
-                        Image("rennstrecke")
-                            .resizable()
-                            .frame(width: 350, height: 510)
-                            .cornerRadius(40)
-                            .overlay{
-                                RoundedRectangle(cornerRadius: 40)
-                                    .stroke(lineWidth: 5)
-                                    .foregroundStyle(.linearGradient(colors: [.white, Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")")], startPoint: .topLeading, endPoint: .bottomTrailing))
+//                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+//                        .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+//                        .frame(width:1000, height: 100)
+//                        .rotationEffect(.degrees(135))
+//                        .offset(y: -250)
+                            VStack{
+                             ZStack{
+                                Image("formula-1-logo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .cornerRadius(40)
+                                    .frame(width: 350)
+                                    .padding(-30)
+                                    .offset(y: 20)
+                                    .overlay{
+                                        RoundedRectangle(cornerRadius: 40)
+                                            .stroke(lineWidth: 5)
+                                            .foregroundStyle(Color("Red Color"))
+                                            .frame(width: 350, height: 220)
+                                            .offset(y:20)
+                                        
+                                    }
+                                    
+                                    
                                 
-                            }
-                    
-                        ScrollView{
-                            
-                            
-                            
-                            ForEach(homeViewModel.races, id: \.self) { race in
-                                let circuitID = race.Circuit.circuitId
-                                let yearId = race.season
-                                let country = race.Circuit.Location.country
-                                let round = race.round
-                                let raceDate = race.date
                                 
-                                    NavigationLink(
-                                        destination: CircuitDetails(circuitViewModel: FormulaViewModel(), circuitID: selectedCircuitIDBinding ?? .constant(circuitID),selectedYear: selectedYearBinding ?? .constant(yearId), selectedCountry: selectedCountryBinding ?? .constant(country), selectedRound: selectedRoundBinding ?? .constant(round), selectedDate: selectedDateBinding ?? .constant(raceDate)),
-                                        label: {
-                                            SeasonRow(formula: race)
-                                                .frame(width: 300)
-                                        })
-                                        .onTapGesture {
-                                        selectedCircuitID = circuitID
-                                        selectedCircuitIDBinding = Binding<String>(get: { circuitID }, set: { _ in })
-                                        selectedYear = yearId
-                                        selectedYearBinding = Binding<String>(get: { yearId }, set: { _ in })
-                                        selectedCountry = country
-                                        selectedCountryBinding = Binding<String>(get: { country }, set: { _ in })
-                                        selectedRound = round
-                                        selectedRoundBinding = Binding<String>(get: { round }, set: { _ in })
-                                        selectedDate = raceDate
-                                        selectedDateBinding = Binding<String>(get: { raceDate }, set: { _ in })
+                                
+                                HStack {
+                                    Text("Race Info")
+                                        .font(.title)
+                                        .bold()
+                                        .foregroundColor(.white)
+                                        .padding()
+                                    Picker("", selection: $selectedOption) {
+                                        ForEach(0 ..< year.count) { index in
+                                           
+                                                Text(year[index])
+                                                    .foregroundColor(.white)
+                                            
                                         }
+                                    }
+                                    
+                                    .pickerStyle(WheelPickerStyle())
+                                    .frame(width: 100, height: 100)
+                                    .padding()
+                                    
                                 }
-                           
-                            
-                            .onChange(of: selectedOption) { newValue in
-                                let selectedYear = year[newValue]
-                                homeViewModel.fetchFormulaApiResponse(selectedYear,"race")
-                                
+                                .offset(y: 80)
                             }
-                            .onAppear {
-                                let selectedYear = year[selectedOption]
+                        ZStack{
+                         
+                            Image("rennstrecke")
+                                .resizable()
+                                .frame(width: 350, height: 510)
+                                .cornerRadius(40)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 40)
+                                        .stroke(lineWidth: 5)
+                                        .foregroundStyle(.linearGradient(colors: [.white, Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")")], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    
+                                }
+                        
+                            ScrollView{
                                 
                                 
-                                    homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
-                                    dataManager.fetchUser()
-                                   
+                                
+                                ForEach(homeViewModel.races, id: \.self) { race in
+                                    let circuitID = race.Circuit.circuitId
+                                    let yearId = race.season
+                                    let country = race.Circuit.Location.country
+                                    let round = race.round
+                                    let raceDate = race.date
+                                    
+                                        NavigationLink(
+                                            destination: CircuitDetails(circuitViewModel: FormulaViewModel(), circuitID: selectedCircuitIDBinding ?? .constant(circuitID),selectedYear: selectedYearBinding ?? .constant(yearId), selectedCountry: selectedCountryBinding ?? .constant(country), selectedRound: selectedRoundBinding ?? .constant(round), selectedDate: selectedDateBinding ?? .constant(raceDate)),
+                                            label: {
+                                                SeasonRow(formula: race)
+                                                    .frame(width: 300)
+                                            })
+                                            .onTapGesture {
+                                            selectedCircuitID = circuitID
+                                            selectedCircuitIDBinding = Binding<String>(get: { circuitID }, set: { _ in })
+                                            selectedYear = yearId
+                                            selectedYearBinding = Binding<String>(get: { yearId }, set: { _ in })
+                                            selectedCountry = country
+                                            selectedCountryBinding = Binding<String>(get: { country }, set: { _ in })
+                                            selectedRound = round
+                                            selectedRoundBinding = Binding<String>(get: { round }, set: { _ in })
+                                            selectedDate = raceDate
+                                            selectedDateBinding = Binding<String>(get: { raceDate }, set: { _ in })
+                                            }
+                                    }
+                               
+                                
+                                .onChange(of: selectedOption) { newValue in
+                                    let selectedYear = year[newValue]
+                                    homeViewModel.fetchFormulaApiResponse(selectedYear,"race")
+                                    
+                                }
+                                .onAppear {
+                                    let selectedYear = year[selectedOption]
+                                    
+                                    
+                                        homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
+                                        dataManager.fetchUser()
+                                       
+                                
                             
-                        
-                                print(dataManager.currentUser.name)
+                                    print(dataManager.currentUser.name)
+                                }
                             }
-                        }
-                        .foregroundColor(.black)
-                        .background(.clear)
-                        .frame(width: 350 ,height: 506)
-                }
-                    VStack{
-                    
-                        
+                            .foregroundColor(.black)
+                            .background(.clear)
+                            .frame(width: 350 ,height: 505)
+                            
                     }
-                    .padding()
+                        .offset(y: 40)
+                        VStack{
+
+
+                        }
+                        .padding()
+                    }
+                   
+                    
+                    
+                    
                 }
-               
-                
+                .frame(height: 900)
                 
                 
             }
-            .frame(height: 900)
-            
-            
+                    
+                } else {
+                    
+                    NavigationStack{
+                        ZStack{
+                    Color.black.edgesIgnoringSafeArea(.all)
+                            
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:1000, height: 100)
+                        .rotationEffect(.degrees(135))
+                        .offset(y: -250)
+                    VStack{
+                       
+                            Image("F1LOGO 1")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 250)
+                                .padding(-30)
+                                .offset(y: 20)
+                        
+                        
+                      
+                        HStack {
+                            Text("Race Info")
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(.white)
+                                .padding()
+                            Picker("", selection: $selectedOption) {
+                                ForEach(0 ..< year.count) { index in
+                                    if dataManager.currentUser.color == "Red Bull" {
+                                        Text(year[index])
+                                            .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color") 2"))
+                                    } else {
+                                        Text(year[index])
+                                            .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
+                                    }
+                                }
+                            }
+                            
+                            .pickerStyle(WheelPickerStyle())
+                            .frame(width: 100, height: 100)
+                            .padding()
+                            
+                        }
+                          
+   
+                           
+                        
+                        ZStack{
+                         
+                            Image("rennstrecke")
+                                .resizable()
+                                .frame(width: 350, height: 510)
+                                .cornerRadius(40)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 40)
+                                        .stroke(lineWidth: 5)
+                                        .foregroundStyle(.linearGradient(colors: [.white, Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")")], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                    
+                                }
+                        
+                            ScrollView{
+                                
+                                
+                                
+                                ForEach(homeViewModel.races, id: \.self) { race in
+                                    let circuitID = race.Circuit.circuitId
+                                    let yearId = race.season
+                                    let country = race.Circuit.Location.country
+                                    let round = race.round
+                                    let raceDate = race.date
+                                    
+                                        NavigationLink(
+                                            destination: CircuitDetails(circuitViewModel: FormulaViewModel(), circuitID: selectedCircuitIDBinding ?? .constant(circuitID),selectedYear: selectedYearBinding ?? .constant(yearId), selectedCountry: selectedCountryBinding ?? .constant(country), selectedRound: selectedRoundBinding ?? .constant(round), selectedDate: selectedDateBinding ?? .constant(raceDate)),
+                                            label: {
+                                                SeasonRow(formula: race)
+                                                    .frame(width: 300)
+                                            })
+                                            .onTapGesture {
+                                            selectedCircuitID = circuitID
+                                            selectedCircuitIDBinding = Binding<String>(get: { circuitID }, set: { _ in })
+                                            selectedYear = yearId
+                                            selectedYearBinding = Binding<String>(get: { yearId }, set: { _ in })
+                                            selectedCountry = country
+                                            selectedCountryBinding = Binding<String>(get: { country }, set: { _ in })
+                                            selectedRound = round
+                                            selectedRoundBinding = Binding<String>(get: { round }, set: { _ in })
+                                            selectedDate = raceDate
+                                            selectedDateBinding = Binding<String>(get: { raceDate }, set: { _ in })
+                                            }
+                                    }
+                               
+                                
+                                .onChange(of: selectedOption) { newValue in
+                                    let selectedYear = year[newValue]
+                                    homeViewModel.fetchFormulaApiResponse(selectedYear,"race")
+                                    
+                                }
+                                .onAppear {
+                                    let selectedYear = year[selectedOption]
+                                    
+                                    
+                                        homeViewModel.fetchFormulaApiResponse(selectedYear, "race")
+                                        dataManager.fetchUser()
+                                       
+                                
+                            
+                                    print(dataManager.currentUser.name)
+                                }
+                            }
+                            .foregroundColor(.black)
+                            .background(.clear)
+                            .frame(width: 350 ,height: 506)
+                    }
+                        VStack{
+
+
+                        }
+                        .padding()
+                    }
+                   
+                    
+                    
+                    
+                }
+                .frame(height: 900)
+                
+                
+            }
         }
     }
 }

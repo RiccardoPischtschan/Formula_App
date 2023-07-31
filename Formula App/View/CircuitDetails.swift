@@ -17,7 +17,7 @@ struct CircuitDetails: View {
     @Binding var selectedRound: String
     @Binding var selectedDate: String
     @State private var selectedTheme = "Race Result"
-    let theme = ["Race Result", "Qualifying Result"]
+    var theme = ["Race Result", "Qualifying Result"]
     
    
     
@@ -33,7 +33,12 @@ struct CircuitDetails: View {
                 }
                 VStack{
                     VStack{
-                        Spacer()
+                        Picker("",selection: $selectedTheme){
+                            ForEach(theme, id:\.self){
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(.segmented)
                     }
                     ScrollView{
                         VStack{
@@ -44,10 +49,18 @@ struct CircuitDetails: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 40,height: 40)
                                     .padding()
-                                Text(selectedCountry.uppercased())
-                                    .font(.largeTitle)
-                                    .bold()
-                                    .foregroundColor(.white)
+                                
+                                if dataManager.currentUser.color != "Light" {
+                                    Text(selectedCountry.uppercased())
+                                        .font(.largeTitle)
+                                        .bold()
+                                        .foregroundColor(.white)
+                                } else {
+                                    Text(selectedCountry.uppercased())
+                                        .font(.largeTitle)
+                                        .bold()
+                                        .foregroundColor(.black)
+                                }
                             }
                             .offset(y:30)
                             ZStack{
@@ -68,27 +81,27 @@ struct CircuitDetails: View {
                                         
                                     }
                             }
-                            Text("Route Length: \(routeLength(for: circuitID) ?? "Not found")")
-                                .bold()
-                                .foregroundColor(.white)
-                            Text("Track Record: \(trackRecord(for: circuitID) ?? "Not found")")
-                                .bold()
-                                .foregroundColor(.white)
+                            if dataManager.currentUser.color != "Light"{
+                                Text("Route Length: \(routeLength(for: circuitID) ?? "Not found")")
+                                    .bold()
+                                    .foregroundColor(.white)
+                                Text("Track Record: \(trackRecord(for: circuitID) ?? "Not found")")
+                                    .bold()
+                                    .foregroundColor(.white)
+                            } else {
+                                Text("Route Length: \(routeLength(for: circuitID) ?? "Not found")")
+                                    .bold()
+                                    .foregroundColor(.black)
+                                Text("Track Record: \(trackRecord(for: circuitID) ?? "Not found")")
+                                    .bold()
+                                    .foregroundColor(.black)
+                            }
                             
                             Divider()
                                 .frame(width: 350, height: 3)
                                 .overlay(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"))
                             
-                            //                    Text("Race Results \(selectedYear)")
-                            //                        .bold()
-                            //                        .font(.title2)
-                            //                        .foregroundColor(.white)
-                            Picker("",selection: $selectedTheme){
-                                ForEach(theme,id:\.self){
-                                    Text($0)
-                                }
-                            }
-                            .pickerStyle(.segmented)
+
                             
                             if selectedTheme == "Race Result" {
                                 VStack{
@@ -106,7 +119,7 @@ struct CircuitDetails: View {
                                 .onAppear{
                                     circuitViewModel.fetchFormulaApiResponse("\(selectedYear)/\(selectedRound)","results")
                                 }
-                            } else{
+                            } else if selectedTheme == "Qualifying Result" {
                                 VStack{
                                     if istDatumVergangen(datumString: selectedDate){
                                         
@@ -130,6 +143,7 @@ struct CircuitDetails: View {
                         .onAppear{
                             circuitViewModel.fetchFormulaApiResponse("\(selectedYear)/\(selectedRound)","qualifying")
                         }
+                        .offset(y: -25)
                         
                         
                         

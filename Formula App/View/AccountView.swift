@@ -48,15 +48,39 @@ struct AccountView: View {
                         .font(.largeTitle)
                         .bold()
                     
-                   
-                  
-                    
+                    if dataManager.currentUser.color == "Alfa Romeo" || dataManager.currentUser.color == "Haas" || dataManager.currentUser.color == "Williams" {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 300, height: 150)
+                                .foregroundColor(Color(appColorStyle(for: dataManager.currentUser.color) ?? ""))
+                            
+                            Image("\(dataManager.currentUser.color) 1")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame( width: 280 ,height: 130)
+                                .cornerRadius(20)
+                            }
+                        } else if dataManager.currentUser.color == "McLaren"  {
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: 300, height: 50)
+                                    .foregroundColor(Color(appColorStyle(for: dataManager.currentUser.color) ?? ""))
+                                    
+                                Image("\(dataManager.currentUser.color) 1")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame( width: 280 ,height: 130)
+                                    .offset(y: 5)
+                                
+                            }
+                    }else {
+
                         Image("\(dataManager.currentUser.color) 1")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame( width: 300 ,height: 130)
                             .cornerRadius(20)
-                    
+                    }
                     
                     HStack{
                         Image(systemName: "person.crop.rectangle")
@@ -87,6 +111,9 @@ struct AccountView: View {
                                 if dataManager.currentUser.color == "Red Bull" {
                                     Text(mode[index])
                                         .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color") 2"))
+                                } else if dataManager.currentUser.color == "Aston Martin" || dataManager.currentUser.color == "Alpha Tauri" {
+                                    Text(mode[index])
+                                        .foregroundColor(.white)
                                 } else {
                                     Text(mode[index])
                                         .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
