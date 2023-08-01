@@ -18,7 +18,7 @@ struct AccountInfoView: View {
             Color.clear.edgesIgnoringSafeArea(.all)
             VStack{
                 
-
+                
                 
                 
                 Button{
@@ -51,7 +51,18 @@ struct AccountInfoView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(lineWidth: 2)
                                     .foregroundColor(.white))
-                    } else {
+                    }
+                                        else if dataManager.currentUser.color == "Red Bull" {
+                                            Text("Speichern")
+                                                .bold()
+                                                .frame(width: 200,height: 40)
+                                                .background(
+                                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                                        .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color") 3")], startPoint: .top, endPoint: .bottomTrailing ))
+                                                )
+                                                .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color") 2"))
+                                        }
+                    else  {
                         Text("Speichern")
                             .bold()
                             .frame(width: 200,height: 40)
@@ -63,28 +74,53 @@ struct AccountInfoView: View {
                     }
                 }
                 .padding(.top)
-//                .offset(y: 100)
-                
+                //                .offset(y: 100)
+                                    if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "Haas"{
                 Button{
                     
                     firebaseAuth.signOut()
                     
                     
                 } label: {
-                    if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "Haas"{
-                        Text("Log Out")
-                            .bold()
-                            .frame(width: 200,height: 40)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                    .fill(.linearGradient(colors: [.black,.black], startPoint: .top, endPoint: .bottomTrailing ))
-                            )
-                            .foregroundColor(.white)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(lineWidth: 2)
-                                    .foregroundColor(.white))
-                    } else {
+                    
+                    Text("Log Out")
+                        .bold()
+                        .frame(width: 200,height: 40)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .fill(.linearGradient(colors: [.black,.black], startPoint: .top, endPoint: .bottomTrailing ))
+                        )
+                        .foregroundColor(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 2)
+                                .foregroundColor(.white))
+                }
+            }
+                    else if dataManager.currentUser.color == "Red Bull" {
+                        Button{
+                            
+                            firebaseAuth.signOut()
+                            
+                            
+                        } label: {
+                            Text("Log Out")
+                                .bold()
+                                .frame(width: 200,height: 40)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color") 3")], startPoint: .top, endPoint: .bottomTrailing ))
+                                )
+                                .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color") 2"))
+                        }
+                    }
+                else {
+                    Button{
+                        
+                        firebaseAuth.signOut()
+                        
+                        
+                    } label: {
                         Text("Log Out")
                             .bold()
                             .frame(width: 200,height: 40)
@@ -94,6 +130,7 @@ struct AccountInfoView: View {
                             )
                             .foregroundColor(.white)
                     }
+                  }
                 }
                 .padding(.top)
 //                    .offset(y: 100)
@@ -101,7 +138,7 @@ struct AccountInfoView: View {
             .frame(height: 100)
         }
     }
-}
+//}
 
 struct AccountInfoView_Previews: PreviewProvider {
     static var previews: some View {

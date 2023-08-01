@@ -45,26 +45,31 @@ struct HomeView: View {
                     NavigationStack{
                         ZStack{
                     Color.white.edgesIgnoringSafeArea(.all)
-//                    RoundedRectangle(cornerRadius: 30, style: .continuous)
-//                        .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
-//                        .frame(width:1000, height: 100)
-//                        .rotationEffect(.degrees(135))
-//                        .offset(y: -250)
+                          RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), Color("Red Color")], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:1000, height: 120)
+                        .rotationEffect(.degrees(135))
+                        .offset(y: -120)
+                            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                                .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                .frame(width:1000, height: 100)
+                                .rotationEffect(.degrees(135))
+                                .offset(y: -120)
                             VStack{
                              ZStack{
                                 Image("formula-1-logo")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .cornerRadius(40)
+                                    .cornerRadius(15)
                                     .frame(width: 350)
                                     .padding(-30)
-                                    .offset(y: 20)
+                                    .offset(y: 17)
                                     .overlay{
-                                        RoundedRectangle(cornerRadius: 40)
+                                        RoundedRectangle(cornerRadius: 15)
                                             .stroke(lineWidth: 5)
-                                            .foregroundStyle(Color("Red Color"))
+                                            .foregroundStyle(.linearGradient(colors: [ Color("Red Color"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                                             .frame(width: 350, height: 220)
-                                            .offset(y:20)
+                                            .offset(y:17)
                                         
                                     }
                                     
@@ -99,11 +104,11 @@ struct HomeView: View {
                             Image("rennstrecke")
                                 .resizable()
                                 .frame(width: 350, height: 510)
-                                .cornerRadius(40)
+                                .cornerRadius(15)
                                 .overlay{
-                                    RoundedRectangle(cornerRadius: 40)
+                                    RoundedRectangle(cornerRadius: 15)
                                         .stroke(lineWidth: 5)
-                                        .foregroundStyle(.linearGradient(colors: [.white, Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")")], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                        .foregroundStyle(.linearGradient(colors: [ Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), Color("Red Color")], startPoint: .topLeading, endPoint: .bottomTrailing))
                                     
                                 }
                         
@@ -161,7 +166,7 @@ struct HomeView: View {
                             .frame(width: 350 ,height: 505)
                             
                     }
-                        .offset(y: 40)
+                        .offset(y: 39)
                         VStack{
 
 

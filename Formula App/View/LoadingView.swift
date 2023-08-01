@@ -11,10 +11,16 @@ struct LoadingView: View {
     var body: some View {
         ZStack{
             Color(.black).ignoresSafeArea()
-            
-            Image("F1LOGO 1")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            VStack{
+                Image("F1LOGO 1")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300)
+                    .offset(y: 150)
+                Text("Ergast API")
+                    .foregroundColor(.white)
+                    .position(x: 280, y: 550)
+            }
         }
     }
 }

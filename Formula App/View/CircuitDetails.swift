@@ -112,8 +112,13 @@ struct CircuitDetails: View {
                                         }
                                     } else {
                                         
-                                        Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
-                                            .foregroundColor(.white)
+                                        if dataManager.currentUser.color != "Light" {
+                                            Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
+                                                .foregroundColor(.white)
+                                        } else {
+                                            Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
+                                                .foregroundColor(.black)
+                                        }
                                     }
                                 }
                                 .onAppear{
@@ -127,9 +132,13 @@ struct CircuitDetails: View {
                                             QualiRow(quali: result)
                                         }
                                     } else {
-                                        
-                                        Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
-                                            .foregroundColor(.white)
+                                        if dataManager.currentUser.color != "Light" {
+                                            Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
+                                                .foregroundColor(.white)
+                                        } else {
+                                            Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
+                                                .foregroundColor(.black)
+                                        }
                                     }
                                     
                                     

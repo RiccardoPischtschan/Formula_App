@@ -22,12 +22,16 @@ struct AccountView: View {
             ZStack{
              
                 if dataManager.currentUser.color == "Light"{
-                    Color.white.edgesIgnoringSafeArea(.all)
                     RoundedRectangle(cornerRadius: 30, style: .continuous)
-                        .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .frame(width:1000, height: 100)
-                        .rotationEffect(.degrees(135))
-                        .offset(y: -250)
+                        .foregroundStyle(.linearGradient(colors: [.red, Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")")], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:1000, height: 80)
+                        .rotationEffect(.degrees(180))
+                        .offset(y: -350)
+                    RoundedRectangle(cornerRadius: 30, style: .continuous)
+                        .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width:1000, height: 70)
+                        .rotationEffect(.degrees(180))
+                        .offset(y: -350)
                 } else {
                     Color.black.edgesIgnoringSafeArea(.all)
                     RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -36,11 +40,7 @@ struct AccountView: View {
                         .rotationEffect(.degrees(135))
                         .offset(y: -250)
                 }
-                RoundedRectangle(cornerRadius: 30, style: .continuous)
-                    .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .frame(width:1000, height: 100)
-                    .rotationEffect(.degrees(135))
-                    .offset(y: -250)
+                
                 
                 VStack{
                     Text("Your Settings")
@@ -59,49 +59,79 @@ struct AccountView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame( width: 280 ,height: 130)
                                 .cornerRadius(20)
-                            }
-                        } else if dataManager.currentUser.color == "McLaren"  {
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 15)
-                                    .frame(width: 300, height: 50)
-                                    .foregroundColor(Color(appColorStyle(for: dataManager.currentUser.color) ?? ""))
-                                    
-                                Image("\(dataManager.currentUser.color) 1")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame( width: 280 ,height: 130)
-                                    .offset(y: 5)
-                                
-                            }
+                        }
+                    } else if dataManager.currentUser.color == "McLaren"  {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15)
+                                .frame(width: 300, height: 50)
+                                .foregroundColor(Color(appColorStyle(for: dataManager.currentUser.color) ?? ""))
+                            
+                            Image("\(dataManager.currentUser.color) 1")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame( width: 280 ,height: 130)
+                                .offset(y: 5)
+                            
+                        }
+                    }else if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "F1"{
+                        
+                        Image("formula-1-logo")
+                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
+                            .frame( width: 300 ,height: 130)
+                            .cornerRadius(20)
+                            .offset(y: 15)
                     }else {
-
+                        
                         Image("\(dataManager.currentUser.color) 1")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame( width: 300 ,height: 130)
                             .cornerRadius(20)
                     }
-                    
-                    HStack{
-                        Image(systemName: "person.crop.rectangle")
+                    VStack{
+                        if dataManager.currentUser.color != "Light" {
+                            HStack{
+                                Image(systemName: "person.crop.rectangle")
+                                    .foregroundColor(.white)
+                                
+                                
+                                TextField("", text: $name, prompt: Text(dataManager.currentUser.name).foregroundColor(.white))
+                                    .foregroundColor(.white)
+                                
+                            }
                             .foregroundColor(.white)
-                        
-                        
-                            TextField("", text: $name, prompt: Text(dataManager.currentUser.name).foregroundColor(.white))
-                                .foregroundColor(.white)
-                       
-                    }
-                    .foregroundColor(.white)
-                    .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 2)
-                            .foregroundColor(.white)
-                    )
-                    .frame(width: 300)
-                    .padding()
-//                    .offset(y: 30)
-                    
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 2)
+                                    .foregroundColor(.white)
+                            )
+                            .frame(width: 300)
+                            .padding()
+                            //                    .offset(y: 30)
+                        } else {
+                            HStack{
+                                Image(systemName: "person.crop.rectangle")
+                                    .foregroundColor(.black)
+                                
+                                
+                                TextField("", text: $name, prompt: Text(dataManager.currentUser.name).foregroundColor(.black))
+                                    .foregroundColor(.black)
+                                
+                            }
+                            .foregroundColor(.black)
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 2)
+                                    .foregroundColor(.black)
+                            )
+                            .frame(width: 300)
+                            .padding()
+                            //                    .offset(y: 30)
+                        }
+                }
                     HStack{
                         Text("App Style")
                             .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
@@ -129,7 +159,13 @@ struct AccountView: View {
                     AccountInfoView(selectedMode: $selectedMode, name: $name)
                         .frame(height: 300)
                         .environmentObject(dataManager)
-                   
+                    
+//                    if dataManager.currentUser.color == "Light"{
+                        Divider()
+                            .frame(height: 5)
+                            .overlay( Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"))
+                            .offset(y: -60)
+//                    }
                 }
             }
         }
