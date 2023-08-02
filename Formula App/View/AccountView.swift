@@ -15,23 +15,32 @@ struct AccountView: View {
     @State private var selectedMode = 0
     private let mode = ["F1","Light","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
     @State var name = ""
-    
+  
+    @State private var showCircle = 0
+    @State private var removeInnerFill = 45
+    @State private var showCheckmark = false
+    @State private var rotate3D = -180
     
     var body: some View {
         NavigationView{
-            ZStack{
-             
+            VStack{
+                
                 if dataManager.currentUser.color == "Light"{
                     RoundedRectangle(cornerRadius: 30, style: .continuous)
                         .foregroundStyle(.linearGradient(colors: [.red, Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")")], startPoint: .topLeading, endPoint: .bottomTrailing))
                         .frame(width:1000, height: 80)
                         .rotationEffect(.degrees(180))
-                        .offset(y: -350)
+                        .offset(y: -250)
                     RoundedRectangle(cornerRadius: 30, style: .continuous)
                         .foregroundStyle(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .black], startPoint: .topLeading, endPoint: .bottomTrailing))
                         .frame(width:1000, height: 70)
                         .rotationEffect(.degrees(180))
-                        .offset(y: -350)
+                        .offset(y: -250)
+                    
+                    Text("Your Settings")
+                        .foregroundColor(.black)
+                        .font(.largeTitle)
+                        .bold()
                 } else {
                     Color.black.edgesIgnoringSafeArea(.all)
                     RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -39,57 +48,60 @@ struct AccountView: View {
                         .frame(width:1000, height: 100)
                         .rotationEffect(.degrees(135))
                         .offset(y: -250)
-                }
-                
-                
-                VStack{
+                    
                     Text("Your Settings")
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .bold()
+                }
+                
+                
+                                
+                                    
+                
+                                    if dataManager.currentUser.color == "Alfa Romeo" || dataManager.currentUser.color == "Haas" || dataManager.currentUser.color == "Williams" {
+                                        ZStack{
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .frame(width: 300, height: 130)
+                                                .foregroundColor(Color(appColorStyle(for: dataManager.currentUser.color) ?? ""))
+                
+                                            Image("\(dataManager.currentUser.color) 1")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame( width: 280 ,height: 130)
+                                                .cornerRadius(20)
+                                        }
+                                    } else if dataManager.currentUser.color == "McLaren"  {
+                                        ZStack{
+                                            RoundedRectangle(cornerRadius: 15)
+                                                .frame(width: 300, height: 50)
+                                                .foregroundColor(Color(appColorStyle(for: dataManager.currentUser.color) ?? ""))
+                
+                                            Image("\(dataManager.currentUser.color) 1")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame( width: 280 ,height: 130)
+                                                .offset(y: 5)
+                
+                                        }
+                                    }else if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "F1"{
+                
+                                        Image("formula-1-logo")
+                                            .resizable()
+                //                            .aspectRatio(contentMode: .fit)
+                                            .frame( width: 300 ,height: 130)
+                                            .cornerRadius(20)
+//                                            .offset(y: 15)
+                                    }else {
+                
+                                        Image("\(dataManager.currentUser.color) 1")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame( width: 300 ,height: 130)
+                                            .cornerRadius(20)
+                                    }
+            
                     
-                    if dataManager.currentUser.color == "Alfa Romeo" || dataManager.currentUser.color == "Haas" || dataManager.currentUser.color == "Williams" {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 300, height: 150)
-                                .foregroundColor(Color(appColorStyle(for: dataManager.currentUser.color) ?? ""))
-                            
-                            Image("\(dataManager.currentUser.color) 1")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame( width: 280 ,height: 130)
-                                .cornerRadius(20)
-                        }
-                    } else if dataManager.currentUser.color == "McLaren"  {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 15)
-                                .frame(width: 300, height: 50)
-                                .foregroundColor(Color(appColorStyle(for: dataManager.currentUser.color) ?? ""))
-                            
-                            Image("\(dataManager.currentUser.color) 1")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame( width: 280 ,height: 130)
-                                .offset(y: 5)
-                            
-                        }
-                    }else if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "F1"{
-                        
-                        Image("formula-1-logo")
-                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-                            .frame( width: 300 ,height: 130)
-                            .cornerRadius(20)
-                            .offset(y: 15)
-                    }else {
-                        
-                        Image("\(dataManager.currentUser.color) 1")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame( width: 300 ,height: 130)
-                            .cornerRadius(20)
-                    }
-                    VStack{
                         if dataManager.currentUser.color != "Light" {
                             HStack{
                                 Image(systemName: "person.crop.rectangle")
@@ -131,7 +143,7 @@ struct AccountView: View {
                             .padding()
                             //                    .offset(y: 30)
                         }
-                }
+                
                     HStack{
                         Text("App Style")
                             .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
@@ -155,18 +167,20 @@ struct AccountView: View {
                         .padding()
                     }
                     
+                    AnimationsView(showCircle: $showCircle, removeInnerFill: $removeInnerFill, showCheckmark: $showCheckmark, rotate3D: $rotate3D)
                     
-                    AccountInfoView(selectedMode: $selectedMode, name: $name)
-                        .frame(height: 300)
-                        .environmentObject(dataManager)
-                    
-//                    if dataManager.currentUser.color == "Light"{
+
+                    AccountInfoView(selectedMode: $selectedMode, name: $name, showCircle: $showCircle, removeInnerFill: $removeInnerFill, showCheckmark: $showCheckmark, rotate3D: $rotate3D)
+                                .frame(height: 300)
+                                .environmentObject(dataManager)
+                                .offset(y: -100)
+
                         Divider()
                             .frame(height: 5)
                             .overlay( Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"))
-                            .offset(y: -60)
-//                    }
-                }
+                            .offset(y: -188)
+
+//                }
             }
         }
     }

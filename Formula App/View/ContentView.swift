@@ -25,7 +25,7 @@ struct ContentView: View {
             }
         }
         .onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 isLoading = false
             }
         }

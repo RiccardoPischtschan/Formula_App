@@ -60,6 +60,7 @@
 		99A82B222A544F6F00395DAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99A82B212A544F6F00395DAD /* GoogleService-Info.plist */; };
 		99A82B252A54506E00395DAD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 99A82B242A54506E00395DAD /* FirebaseAuth */; };
 		99A82B272A54506E00395DAD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 99A82B262A54506E00395DAD /* FirebaseFirestore */; };
+		99A8475C2A7A66FC0096ACA1 /* AnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A8475B2A7A66FC0096ACA1 /* AnimationsView.swift */; };
 		99A8DCCF2A5BE1DE004E681F /* RaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A8DCCE2A5BE1DE004E681F /* RaceRow.swift */; };
 		99A9876D2A4AAFB5004B3650 /* RaceResultsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9876C2A4AAFB5004B3650 /* RaceResultsResponse.swift */; };
 		99A9876F2A4AB014004B3650 /* MRResultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9876E2A4AB014004B3650 /* MRResultsData.swift */; };
@@ -161,6 +162,7 @@
 		99A82B1B2A542EC600395DAD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		99A82B1F2A54432D00395DAD /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		99A82B212A544F6F00395DAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99A8475B2A7A66FC0096ACA1 /* AnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsView.swift; sourceTree = "<group>"; };
 		99A8DCCE2A5BE1DE004E681F /* RaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceRow.swift; sourceTree = "<group>"; };
 		99A9876C2A4AAFB5004B3650 /* RaceResultsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsResponse.swift; sourceTree = "<group>"; };
 		99A9876E2A4AB014004B3650 /* MRResultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRResultsData.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				99A6C1222A601C560061E6A9 /* Parallelogramm.swift */,
+				99A8475B2A7A66FC0096ACA1 /* AnimationsView.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				9955B6122A612DE100B489E6 /* ConstructorStandings.swift in Sources */,
 				99AD5FFA2A57FC170050648E /* LoginView.swift in Sources */,
 				991B91B72A42EDC7002367E8 /* RaceTable.swift in Sources */,
+				99A8475C2A7A66FC0096ACA1 /* AnimationsView.swift in Sources */,
 				99A6C1052A5FE4B80061E6A9 /* DriverResponse.swift in Sources */,
 				99A6C1092A5FE5E50061E6A9 /* DriverTable.swift in Sources */,
 				99A6C1172A5FF11A0061E6A9 /* StandingsList.swift in Sources */,

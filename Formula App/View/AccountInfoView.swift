@@ -12,27 +12,63 @@ struct AccountInfoView: View {
     @EnvironmentObject var dataManager : DataManager
     @Binding var selectedMode : Int
     @Binding var name : String
+    
+    @Binding var showCircle : Int
+    @Binding var removeInnerFill : Int
+    @Binding var showCheckmark : Bool
+    @Binding var rotate3D : Int
+    
     private let mode = ["F1","Light","Red Bull","Mercedes","Aston Martin","Ferrari","McLaren","Alpine","Williams","Haas","Alfa Romeo","Alpha Tauri"]
     var body: some View {
+        
         ZStack{
-            Color.clear.edgesIgnoringSafeArea(.all)
+            
+//            Color.clear.edgesIgnoringSafeArea(.all)
             VStack{
-                
-                
+               
+//                AnimationsView(showCircle: $showCircle, removeInnerFill: $removeInnerFill, showCheckmark: $showCheckmark, rotate3D: $rotate3D)
                 
                 
                 Button{
-                    
-                    let selectedModeText = mode[selectedMode]
+                                        let selectedModeText = mode[selectedMode]
                     
                     if name.count != 0 {
                         dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: name, color: selectedModeText)
                         dataManager.fetchUser()
+                        
+                        showCircle = 1
+                        
+                        removeInnerFill  = 4
+                        rotate3D = 180
+                        showCheckmark = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                            showCircle = 0
+                            
+                            removeInnerFill  = 45
+                            rotate3D = -180
+                            showCheckmark = false
+                        }
+
+                        
                     } else if name.count == 0 {
                         let nameSave = dataManager.currentUser.name
                         if nameSave.count != 0 {
                             dataManager.addUserInfo(userInfo: firebaseAuth.user?.uid ?? "", name: nameSave, color: selectedModeText)
                             dataManager.fetchUser()
+                            
+                            showCircle = 1
+                            
+                            removeInnerFill  = 4
+                            rotate3D = 180
+                            showCheckmark = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                                showCircle = 0
+                                
+                                removeInnerFill  = 45
+                                rotate3D = -180
+                                showCheckmark = false
+                            }
+
                         }
                     }
                     
@@ -52,17 +88,18 @@ struct AccountInfoView: View {
                                     .stroke(lineWidth: 2)
                                     .foregroundColor(.white))
                     }
-                                        else if dataManager.currentUser.color == "Red Bull" {
-                                            Text("Speichern")
-                                                .bold()
-                                                .frame(width: 200,height: 40)
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                                        .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color") 3")], startPoint: .top, endPoint: .bottomTrailing ))
+                    
+                    else if dataManager.currentUser.color == "Red Bull" {
+                        Text("Speichern")
+                            .bold()
+                            .frame(width: 200,height: 40)
+                            .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                            .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color") 3")], startPoint: .top, endPoint: .bottomTrailing ))
                                                 )
                                                 .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color") 2"))
-                                        }
-                    else  {
+                            }
+                     else  {
                         Text("Speichern")
                             .bold()
                             .frame(width: 200,height: 40)
@@ -74,12 +111,12 @@ struct AccountInfoView: View {
                     }
                 }
                 .padding(.top)
-                //                .offset(y: 100)
-                                    if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "Haas"{
+          
+                if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "Haas"{
+                    
                 Button{
                     
                     firebaseAuth.signOut()
-                    
                     
                 } label: {
                     
@@ -96,6 +133,7 @@ struct AccountInfoView: View {
                                 .stroke(lineWidth: 2)
                                 .foregroundColor(.white))
                 }
+
             }
                     else if dataManager.currentUser.color == "Red Bull" {
                         Button{
@@ -113,6 +151,7 @@ struct AccountInfoView: View {
                                 )
                                 .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color") 2"))
                         }
+
                     }
                 else {
                     Button{
@@ -126,24 +165,25 @@ struct AccountInfoView: View {
                             .frame(width: 200,height: 40)
                             .background(
                                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                    .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"),.white], startPoint: .top, endPoint: .bottomTrailing ))
+                                    .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .white], startPoint: .top, endPoint: .bottomTrailing ))
                             )
                             .foregroundColor(.white)
                     }
+
                   }
                 }
-                .padding(.top)
-//                    .offset(y: 100)
+               
+
             }
             .frame(height: 100)
         }
     }
-//}
 
-struct AccountInfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        AccountInfoView(selectedMode: .constant(1), name: .constant(""))
+
+//struct AccountInfoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AccountInfoView(selectedMode: .constant(1), name: .constant(""), showCircle: .constant(0), removeInnerFill: constant(45), showCheckmark: constant(false), rotate3D: constant(-180))
 //            .environmentObject(FirebaseAuthService())
-            .environmentObject(DataManager())
-    }
-}
+//            .environmentObject(DataManager())
+//    }
+//}
