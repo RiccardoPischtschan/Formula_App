@@ -65,5 +65,6 @@ struct AnimationsView: View {
 struct AnimationsView_Previews: PreviewProvider {
     static var previews: some View {
         AnimationsView(showCircle: .constant(0), removeInnerFill: .constant(45), showCheckmark: .constant(false), rotate3D: .constant(-180))
+            .environmentObject(DataManager())
     }
 }

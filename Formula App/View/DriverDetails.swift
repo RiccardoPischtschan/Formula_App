@@ -143,10 +143,20 @@ struct DriverDetails: View {
                                         .bold()
                                         .font(.subheadline)
                                 }
+                                
                             }
                         }
                         
                     }
+                }
+                VStack{
+                ScrollView{
+            
+                        Text("\(driverInfo(for: selectedDriverCode) ?? "")")
+                            .foregroundColor(.white)
+                            .frame(width: 360)
+                    }
+                .frame(height: 289)
                 }
             }
             .onAppear{
@@ -158,7 +168,7 @@ struct DriverDetails: View {
 
 struct DriverDetails_Previews: PreviewProvider {
     static var previews: some View {
-        DriverDetails(selectedDriverId: .constant("max_verstappen"), selectedDriverCode: .constant("VER"))
+        DriverDetails(selectedDriverId: .constant("max_verstappen"), selectedDriverCode: .constant("ALB"))
             .environmentObject(FormulaViewModel())
             .environmentObject(DataManager())
     }

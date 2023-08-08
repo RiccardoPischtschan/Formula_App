@@ -113,13 +113,13 @@ struct AccountInfoView: View {
                 .padding(.top)
           
                 if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "Haas"{
-                    
+
                 Button{
-                    
+
                     firebaseAuth.signOut()
-                    
+
                 } label: {
-                    
+
                     Text("Log Out")
                         .bold()
                         .frame(width: 200,height: 40)
@@ -137,10 +137,10 @@ struct AccountInfoView: View {
             }
                     else if dataManager.currentUser.color == "Red Bull" {
                         Button{
-                            
+
                             firebaseAuth.signOut()
-                            
-                            
+
+
                         } label: {
                             Text("Log Out")
                                 .bold()
@@ -153,10 +153,14 @@ struct AccountInfoView: View {
                         }
 
                     }
+                
+                
+
                 else {
                     Button{
+                      
                         
-                        firebaseAuth.signOut()
+                            firebaseAuth.signOut()
                         
                         
                     } label: {
@@ -164,7 +168,7 @@ struct AccountInfoView: View {
                             .bold()
                             .frame(width: 200,height: 40)
                             .background(
-                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                RoundedRectangle(cornerRadius: 10, style: .circular)
                                     .fill(.linearGradient(colors: [Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Red Bull Color")"), .white], startPoint: .top, endPoint: .bottomTrailing ))
                             )
                             .foregroundColor(.white)
