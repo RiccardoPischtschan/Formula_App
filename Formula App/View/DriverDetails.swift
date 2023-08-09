@@ -151,10 +151,23 @@ struct DriverDetails: View {
                 }
                 VStack{
                 ScrollView{
-            
+                    if dataManager.currentUser.color != "Light"{
+                        Text("Karriere")
+                            .foregroundColor(.white)
+                            .bold()
+                            .font(.title)
                         Text("\(driverInfo(for: selectedDriverCode) ?? "")")
                             .foregroundColor(.white)
                             .frame(width: 360)
+                    } else {
+                        Text("Karriere")
+                            .foregroundColor(.black)
+                            .bold()
+                            .font(.title)
+                        Text("\(driverInfo(for: selectedDriverCode) ?? "")")
+                            .foregroundColor(.black)
+                            .frame(width: 360)
+                    }
                     }
                 .frame(height: 289)
                 }

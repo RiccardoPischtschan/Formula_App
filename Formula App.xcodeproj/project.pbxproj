@@ -76,6 +76,7 @@
 		99A987862A4AC658004B3650 /* ConstructorQuali.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987852A4AC658004B3650 /* ConstructorQuali.swift */; };
 		99A9878A2A4AC83C004B3650 /* RaceQualiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987892A4AC83C004B3650 /* RaceQualiResponse.swift */; };
 		99AA468B2A5D51DE001E3854 /* QualiRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA468A2A5D51DE001E3854 /* QualiRow.swift */; };
+		99AAEB6E2A83709600AFE245 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AAEB6D2A83709600AFE245 /* TestView.swift */; };
 		99AB7AA02A52B5CC001DBC27 /* CircuitDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB7A9F2A52B5CC001DBC27 /* CircuitDetails.swift */; };
 		99AB7AA32A52C4A9001DBC27 /* Funktion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB7AA22A52C4A9001DBC27 /* Funktion.swift */; };
 		99ABDE6A2A66935A0074F0A9 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ABDE692A66935A0074F0A9 /* AccountInfoView.swift */; };
@@ -178,6 +179,7 @@
 		99A987852A4AC658004B3650 /* ConstructorQuali.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorQuali.swift; sourceTree = "<group>"; };
 		99A987892A4AC83C004B3650 /* RaceQualiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceQualiResponse.swift; sourceTree = "<group>"; };
 		99AA468A2A5D51DE001E3854 /* QualiRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualiRow.swift; sourceTree = "<group>"; };
+		99AAEB6D2A83709600AFE245 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		99AB7A9F2A52B5CC001DBC27 /* CircuitDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitDetails.swift; sourceTree = "<group>"; };
 		99AB7AA22A52C4A9001DBC27 /* Funktion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funktion.swift; sourceTree = "<group>"; };
 		99ABDE692A66935A0074F0A9 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 				99B976662A49AC9E00491F25 /* ContentView.swift */,
 				991B91792A42D554002367E8 /* Formula_AppApp.swift */,
 				99C222E62A7100D900E036BB /* LoadingView.swift */,
+				99AAEB6D2A83709600AFE245 /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				991B91B32A42ED29002367E8 /* RaceResponse.swift in Sources */,
 				991B917A2A42D554002367E8 /* Formula_AppApp.swift in Sources */,
 				99A6C1072A5FE55D0061E6A9 /* MRDriverData.swift in Sources */,
+				99AAEB6E2A83709600AFE245 /* TestView.swift in Sources */,
 				99C37E512A56D2BF00D91253 /* DataManager.swift in Sources */,
 				99A6C1192A5FF17F0061E6A9 /* DriverStandings.swift in Sources */,
 				99A6C1122A5FEFEE0061E6A9 /* MRDriverStandingData.swift in Sources */,

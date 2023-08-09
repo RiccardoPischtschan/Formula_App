@@ -18,8 +18,16 @@ struct CircuitDetails: View {
     @Binding var selectedDate: String
     @State private var selectedTheme = "Race Result"
     var theme = ["Race Result", "Qualifying Result"]
-    
-   
+    @State private var DriverId: String?
+    @State private var DriverIdBinding: Binding<String>?
+    @State private var DriverCode: String?
+    @State private var DriverCodeBinding: Binding<String>?
+    @State private var DriverIds: String?
+    @State private var DriverIdsBinding: Binding<String>?
+    @State private var DriverCodes: String?
+    @State private var DriverCodesBinding: Binding<String>?
+    @State var isShow = false
+    @State var isShow2 = false
     
     var body: some View {
         NavigationStack{
@@ -107,8 +115,23 @@ struct CircuitDetails: View {
                                 VStack{
                                     if istDatumVergangen(datumString: selectedDate){
                                         ForEach(circuitViewModel.results, id: \.self){ result in
-                                            RaceRow(race: result)
+                                            let driverId = result.Driver.driverId
                                             
+                                            let driverCode = result.Driver.code
+                                            NavigationStack{
+                                                
+                                                RaceRow(race: result)
+                                            }
+                                            .navigationDestination(isPresented: $isShow){
+                                                DriverDetails(selectedDriverId: DriverIdBinding ?? .constant(driverId!), selectedDriverCode: DriverCodeBinding ?? .constant(driverCode!))
+                                            }
+                                            .onTapGesture {
+                                                DriverId = driverId
+                                                DriverIdBinding = Binding<String>(get: { driverId! }, set: { _ in })
+                                                DriverCode = driverCode
+                                                DriverCodeBinding = Binding<String>(get: { driverCode! }, set: { _ in })
+                                                isShow = true
+                                            }
                                         }
                                     } else {
                                         
@@ -120,16 +143,28 @@ struct CircuitDetails: View {
                                                 .foregroundColor(.black)
                                         }
                                     }
-                                }
-                                .onAppear{
-                                    circuitViewModel.fetchFormulaApiResponse("\(selectedYear)/\(selectedRound)","results")
                                 }
                             } else if selectedTheme == "Qualifying Result" {
                                 VStack{
                                     if istDatumVergangen(datumString: selectedDate){
                                         
                                         ForEach(circuitViewModel.quali, id: \.self){ result in
+                                            let driverIds = result.Driver.driverId
+                                            
+                                            let driverCodes = result.Driver.code
+                                            NavigationStack{
                                             QualiRow(quali: result)
+                                            }
+                                            .navigationDestination(isPresented: $isShow2){
+                                                DriverDetails(selectedDriverId: DriverIdsBinding ?? .constant(driverIds!), selectedDriverCode: DriverCodesBinding ?? .constant(driverCodes!))
+                                            }
+                                            .onTapGesture {
+                                                DriverIds = driverIds
+                                                DriverIdsBinding = Binding<String>(get: { driverIds! }, set: { _ in })
+                                                DriverCodes = driverCodes
+                                                DriverCodesBinding = Binding<String>(get: { driverCodes! }, set: { _ in })
+                                                isShow2 = true
+                                            }
                                         }
                                     } else {
                                         if dataManager.currentUser.color != "Light" {
@@ -143,9 +178,7 @@ struct CircuitDetails: View {
                                     
                                     
                                 }
-                                //                        .onAppear{
-                                //                            circuitViewModel.fetchFormulaApiResponse("\(selectedYear)/\(selectedRound)","qualifying")
-                                //                        }
+                              
                             }
                         }
                         .frame(width: 360)
@@ -167,6 +200,9 @@ struct CircuitDetails: View {
                 }
             }
             
+        }
+        .onAppear{
+            circuitViewModel.fetchFormulaApiResponse("\(selectedYear)/\(selectedRound)","results")
         }
     }
 }
