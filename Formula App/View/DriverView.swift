@@ -35,8 +35,7 @@ struct DriverView: View {
                         
                         VStack{
                             Text("Driver Standings")
-                                .font(.largeTitle)
-                                .bold()
+                                .font(.custom("RussoOne-Regular", size: 33))
                                 .foregroundColor(.white)
                                 .offset(y: 40)
                             HStack{
@@ -110,28 +109,27 @@ struct DriverView: View {
                             .offset(y: -250)
                         VStack{
                             Text("Driver Standings")
-                                .font(.largeTitle)
-                                .bold()
+                                .font(.custom("RussoOne-Regular", size: 33))
                                 .foregroundColor(.white)
                                 .offset(y: 40)
                             HStack{
                                 Text("Pos")
-                                    .font(.subheadline)
+                                    .font(.custom("RussoOne-Regular", size: 16))
                                     .foregroundColor(.white)
                                     .padding()
                                     .padding()
                                 Text("Name")
-                                    .font(.subheadline)
+                                    .font(.custom("RussoOne-Regular", size: 16))
                                     .foregroundColor(.white)
                                     .padding()
                                 
                                 Text("Win´s")
-                                    .font(.subheadline)
+                                    .font(.custom("RussoOne-Regular", size: 16))
                                     .foregroundColor(.white)
                                     .padding()
                                     .padding()
                                 Text("Points")
-                                    .font(.subheadline)
+                                    .font(.custom("RussoOne-Regular", size: 16))
                                     .foregroundColor(.white)
                             }
                             .offset(x: -10, y: 10)

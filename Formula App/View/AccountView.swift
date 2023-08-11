@@ -33,10 +33,9 @@ struct AccountView: View {
 //                        .offset(y: -250)
 //                       
                     
-                    Text("Your Settings")
+                    Text("Settings")
                         .foregroundColor(.black)
-                        .font(.largeTitle)
-                        .bold()
+                        .font(.custom("RussoOne-Regular", size: 36))
                 } else {
                     Color.black.edgesIgnoringSafeArea(.all)
 //                    RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -45,10 +44,9 @@ struct AccountView: View {
 //                        .rotationEffect(.degrees(135))
 //                        .offset(y: -250)
                     
-                    Text("Your Settings")
+                    Text("Settings")
                         .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .bold()
+                        .font(.custom("RussoOne-Regular", size: 36))
                 }
                 
                 
@@ -106,6 +104,7 @@ struct AccountView: View {
 
                                 TextField("", text: $name, prompt: Text(dataManager.currentUser.name).foregroundColor(.white))
                                     .foregroundColor(.white)
+                                    .font(.custom("RussoOne-Regular", size: 20))
 
                             }
                             .foregroundColor(.white)
@@ -122,10 +121,12 @@ struct AccountView: View {
                             HStack{
                                 Image(systemName: "person.crop.rectangle")
                                     .foregroundColor(.black)
+                                    
 
 
                                 TextField("", text: $name, prompt: Text(dataManager.currentUser.name).foregroundColor(.black))
                                     .foregroundColor(.black)
+                                    .font(.custom("RussoOne-Regular", size: 36))
 
                             }
                             .foregroundColor(.black)
@@ -143,18 +144,22 @@ struct AccountView: View {
                     HStack{
                         Text("App Style")
                             .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
+                            .font(.custom("RussoOne-Regular", size: 24))
 
                         Picker("", selection: $selectedMode) {
                             ForEach(0 ..< mode.count) { index in
                                 if dataManager.currentUser.color == "Red Bull" {
                                     Text(mode[index])
                                         .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color") 2"))
+                                        .font(.custom("RussoOne-Regular", size: 18))
                                 } else if dataManager.currentUser.color == "Aston Martin" || dataManager.currentUser.color == "Alpha Tauri" {
                                     Text(mode[index])
                                         .foregroundColor(.white)
+                                        .font(.custom("RussoOne-Regular", size: 18))
                                 } else {
                                     Text(mode[index])
                                         .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
+                                        .font(.custom("RussoOne-Regular", size: 18))
                                 }
                             }
                         }

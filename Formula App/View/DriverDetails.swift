@@ -30,12 +30,12 @@ struct DriverDetails: View {
                         HStack{
                             Text(driver.givenName)
                                 .foregroundColor(.white)
-                                .bold()
+                                .font(.custom("RussoOne-Regular", size: 32))
                                 .font(.largeTitle)
                             
                             Text(driver.familyName)
                                 .foregroundColor(.white)
-                                .bold()
+                                .font(.custom("RussoOne-Regular", size: 32))
                                 .font(.largeTitle)
                         }
                         Image("\(driverPic(for: selectedDriverCode) ?? "")_front")
@@ -62,11 +62,11 @@ struct DriverDetails: View {
                                     
                                     Text("Driver Code:")
                                         .foregroundColor(.white)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 14))
                                         .font(.subheadline)
                                     Text(driver.code)
                                         .foregroundColor(.white)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 14))
                                         .font(.subheadline)
                                 }
                             }
@@ -86,11 +86,11 @@ struct DriverDetails: View {
                                
                                     Text("Driver Number:")
                                         .foregroundColor(.white)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 14))
                                         .font(.subheadline)
                                     Text(driver.permanentNumber)
                                         .foregroundColor(.white)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 14))
                                         .font(.subheadline)
                                 }
                             }
@@ -112,11 +112,11 @@ struct DriverDetails: View {
                                     
                                     Text("Date of Birth:")
                                         .foregroundColor(.white)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 14))
                                         .font(.subheadline)
                                     Text(reformatDate(_: driver.dateOfBirth))
                                         .foregroundColor(.white)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 14))
                                         .font(.subheadline)
                                 }
                             }
@@ -136,11 +136,11 @@ struct DriverDetails: View {
                                
                                     Text("Nationality:")
                                         .foregroundColor(.white)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 14))
                                         .font(.subheadline)
                                     Text(driver.nationality)
                                         .foregroundColor(.white)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 14))
                                         .font(.subheadline)
                                 }
                                 
@@ -154,17 +154,19 @@ struct DriverDetails: View {
                     if dataManager.currentUser.color != "Light"{
                         Text("Karriere")
                             .foregroundColor(.white)
-                            .bold()
+                            .font(.custom("RussoOne-Regular", size: 32))
                             .font(.title)
                         Text("\(driverInfo(for: selectedDriverCode) ?? "")")
+                            .font(.custom("RussoOne-Regular", size: 14))
                             .foregroundColor(.white)
                             .frame(width: 360)
                     } else {
                         Text("Karriere")
                             .foregroundColor(.black)
-                            .bold()
+                            .font(.custom("RussoOne-Regular", size: 32))
                             .font(.title)
                         Text("\(driverInfo(for: selectedDriverCode) ?? "")")
+                            .font(.custom("RussoOne-Regular", size: 14))
                             .foregroundColor(.black)
                             .frame(width: 360)
                     }

@@ -28,8 +28,7 @@ struct ConstructorView: View {
                             .offset(y: -330)
                         VStack{
                             Text("Constructor Standings")
-                                .font(.largeTitle)
-                                .bold()
+                                .font(.custom("RussoOne-Regular", size: 33))
                                 .foregroundColor(.white)
                                 .offset(y: 5)
                             HStack{
@@ -73,8 +72,7 @@ struct ConstructorView: View {
                             .offset(y: -250)
                         VStack{
                             Text("Constructor Standings")
-                                .font(.largeTitle)
-                                .bold()
+                                .font(.custom("RussoOne-Regular", size: 33))
                                 .foregroundColor(.white)
                                 .offset(y: 5)
                             HStack{

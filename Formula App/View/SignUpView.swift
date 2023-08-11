@@ -30,25 +30,26 @@ struct SignUpView: View {
                 VStack{
                     Text("Welcome")
                         .foregroundColor(.white)
-                        .font(.system(size: 40,weight: .bold,design: .rounded))
+                        .font(.custom("RussoOne-Regular", size: 36))
                         .offset(x: -100, y: -100)
                     
                     Text("to")
                         .foregroundColor(.white)
-                        .font(.system(size: 40,weight: .bold,design: .rounded))
+                        .font(.custom("RussoOne-Regular", size: 36))
                         .offset( y: -100)
                     
                     Text("Formel 1")
                         .foregroundColor(.white)
-                        .font(.system(size: 40,weight: .bold,design: .rounded))
+                        .font(.custom("RussoOne-Regular", size: 36))
                         .offset(x: +100, y: -100)
                 }
-                .offset(y: 60)
+                .offset(y: 80)
                 HStack{
                     Image(systemName: "mail")
                         .foregroundColor(.white)
                     TextField("", text: $email, prompt: Text("Email").foregroundColor(.white))
                         .foregroundColor(.white)
+                        .font(.custom("RussoOne-Regular", size: 20))
                     
                     
                     if(email.count != 0) {
@@ -75,6 +76,7 @@ struct SignUpView: View {
                         .foregroundColor(.white)
                     SecureField("", text: $password, prompt: Text("Password").foregroundColor(.white))
                         .foregroundColor(.white)
+                        .font(.custom("RussoOne-Regular", size: 20))
                     Spacer()
                     
                     if(password.count != 0) {
@@ -96,6 +98,7 @@ struct SignUpView: View {
                         .foregroundColor(.white)
                     SecureField("", text: $passwordCheck, prompt: Text("Password Check").foregroundColor(.white))
                         .foregroundColor(.white)
+                        .font(.custom("RussoOne-Regular", size: 20))
                     Spacer()
                     
                     if(passwordCheck.count != 0) {
@@ -121,6 +124,7 @@ struct SignUpView: View {
                 }) {
                     Text("Already have an account?")
                         .foregroundColor(.white.opacity(0.7))
+                        .font(.custom("RussoOne-Regular", size: 16))
                 }
                 .offset(y: -50)
                 
@@ -131,7 +135,7 @@ struct SignUpView: View {
                     }
                 } label: {
                     Text("Sign Up")
-                        .bold()
+                        .font(.custom("RussoOne-Regular", size: 20))
                         .frame(width: 200,height: 40)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)

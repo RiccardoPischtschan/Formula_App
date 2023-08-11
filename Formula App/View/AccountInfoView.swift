@@ -76,7 +76,7 @@ struct AccountInfoView: View {
                 } label: {
                     if dataManager.currentUser.color == "Light" || dataManager.currentUser.color == "Haas"{
                         Text("Speichern")
-                            .bold()
+                            .font(.custom("RussoOne-Regular", size: 20))
                             .frame(width: 200,height: 40)
                             .background(
                                 RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -91,7 +91,7 @@ struct AccountInfoView: View {
                     
                     else if dataManager.currentUser.color == "Red Bull" {
                         Text("Speichern")
-                            .bold()
+                            .font(.custom("RussoOne-Regular", size: 20))
                             .frame(width: 200,height: 40)
                             .background(
                                     RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -101,7 +101,7 @@ struct AccountInfoView: View {
                             }
                      else  {
                         Text("Speichern")
-                            .bold()
+                             .font(.custom("RussoOne-Regular", size: 20))
                             .frame(width: 200,height: 40)
                             .background(
                                 RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -121,7 +121,7 @@ struct AccountInfoView: View {
                 } label: {
 
                     Text("Log Out")
-                        .bold()
+                        .font(.custom("RussoOne-Regular", size: 20))
                         .frame(width: 200,height: 40)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -143,7 +143,7 @@ struct AccountInfoView: View {
 
                         } label: {
                             Text("Log Out")
-                                .bold()
+                                .font(.custom("RussoOne-Regular", size: 20))
                                 .frame(width: 200,height: 40)
                                 .background(
                                     RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -165,7 +165,7 @@ struct AccountInfoView: View {
                         
                     } label: {
                         Text("Log Out")
-                            .bold()
+                            .font(.custom("RussoOne-Regular", size: 20))
                             .frame(width: 200,height: 40)
                             .background(
                                 RoundedRectangle(cornerRadius: 10, style: .circular)

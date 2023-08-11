@@ -38,6 +38,7 @@
 		9955B6122A612DE100B489E6 /* ConstructorStandings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9955B6112A612DE100B489E6 /* ConstructorStandings.swift */; };
 		9955B6142A612ECB00B489E6 /* ConstructorStandingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9955B6132A612ECB00B489E6 /* ConstructorStandingList.swift */; };
 		9955B6162A614CCE00B489E6 /* ConstructorStandingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9955B6152A614CCE00B489E6 /* ConstructorStandingsRow.swift */; };
+		999957362A8625CE00A09E08 /* RussoOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 999957352A8625CE00A09E08 /* RussoOne-Regular.ttf */; };
 		99A6C1052A5FE4B80061E6A9 /* DriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C1042A5FE4B80061E6A9 /* DriverResponse.swift */; };
 		99A6C1072A5FE55D0061E6A9 /* MRDriverData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C1062A5FE55D0061E6A9 /* MRDriverData.swift */; };
 		99A6C1092A5FE5E50061E6A9 /* DriverTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C1082A5FE5E50061E6A9 /* DriverTable.swift */; };
@@ -48,7 +49,6 @@
 		99A6C1172A5FF11A0061E6A9 /* StandingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C1162A5FF11A0061E6A9 /* StandingsList.swift */; };
 		99A6C1192A5FF17F0061E6A9 /* DriverStandings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C1182A5FF17F0061E6A9 /* DriverStandings.swift */; };
 		99A6C11B2A5FF3AC0061E6A9 /* DriverInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C11A2A5FF3AC0061E6A9 /* DriverInfo.swift */; };
-		99A6C11D2A5FFBA50061E6A9 /* DriverStandingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C11C2A5FFBA50061E6A9 /* DriverStandingsRow.swift */; };
 		99A6C11F2A6009590061E6A9 /* DriverRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C11E2A6009590061E6A9 /* DriverRaw.swift */; };
 		99A6C1212A600D560061E6A9 /* ConstructorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C1202A600D560061E6A9 /* ConstructorList.swift */; };
 		99A6C1232A601C560061E6A9 /* Parallelogramm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6C1222A601C560061E6A9 /* Parallelogramm.swift */; };
@@ -143,6 +143,8 @@
 		9955B6112A612DE100B489E6 /* ConstructorStandings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandings.swift; sourceTree = "<group>"; };
 		9955B6132A612ECB00B489E6 /* ConstructorStandingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingList.swift; sourceTree = "<group>"; };
 		9955B6152A614CCE00B489E6 /* ConstructorStandingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorStandingsRow.swift; sourceTree = "<group>"; };
+		999957352A8625CE00A09E08 /* RussoOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RussoOne-Regular.ttf"; sourceTree = "<group>"; };
+		999957372A8625ED00A09E08 /* Formula-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Formula-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		99A6C1042A5FE4B80061E6A9 /* DriverResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverResponse.swift; sourceTree = "<group>"; };
 		99A6C1062A5FE55D0061E6A9 /* MRDriverData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRDriverData.swift; sourceTree = "<group>"; };
 		99A6C1082A5FE5E50061E6A9 /* DriverTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTable.swift; sourceTree = "<group>"; };
@@ -153,7 +155,6 @@
 		99A6C1162A5FF11A0061E6A9 /* StandingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsList.swift; sourceTree = "<group>"; };
 		99A6C1182A5FF17F0061E6A9 /* DriverStandings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandings.swift; sourceTree = "<group>"; };
 		99A6C11A2A5FF3AC0061E6A9 /* DriverInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverInfo.swift; sourceTree = "<group>"; };
-		99A6C11C2A5FFBA50061E6A9 /* DriverStandingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStandingsRow.swift; sourceTree = "<group>"; };
 		99A6C11E2A6009590061E6A9 /* DriverRaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRaw.swift; sourceTree = "<group>"; };
 		99A6C1202A600D560061E6A9 /* ConstructorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorList.swift; sourceTree = "<group>"; };
 		99A6C1222A601C560061E6A9 /* Parallelogramm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parallelogramm.swift; sourceTree = "<group>"; };
@@ -252,6 +253,8 @@
 		991B91782A42D554002367E8 /* Formula App */ = {
 			isa = PBXGroup;
 			children = (
+				999957372A8625ED00A09E08 /* Formula-App-Info.plist */,
+				999957342A8625B700A09E08 /* Font */,
 				99A82B212A544F6F00395DAD /* GoogleService-Info.plist */,
 				99A82B1A2A542E9900395DAD /* Extension */,
 				99AB7AA12A52C489001DBC27 /* Funktion */,
@@ -332,12 +335,19 @@
 			children = (
 				9955B6152A614CCE00B489E6 /* ConstructorStandingsRow.swift */,
 				99A6C11E2A6009590061E6A9 /* DriverRaw.swift */,
-				99A6C11C2A5FFBA50061E6A9 /* DriverStandingsRow.swift */,
 				99AA468A2A5D51DE001E3854 /* QualiRow.swift */,
 				99A8DCCE2A5BE1DE004E681F /* RaceRow.swift */,
 				99B976632A49963A00491F25 /* SeasonRow.swift */,
 			);
 			path = RawViews;
+			sourceTree = "<group>";
+		};
+		999957342A8625B700A09E08 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				999957352A8625CE00A09E08 /* RussoOne-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		99A6C1032A5FE4740061E6A9 /* DriverModel */ = {
@@ -582,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				991B91812A42D555002367E8 /* Preview Assets.xcassets in Resources */,
+				999957362A8625CE00A09E08 /* RussoOne-Regular.ttf in Resources */,
 				991B917E2A42D555002367E8 /* Assets.xcassets in Resources */,
 				99A82B222A544F6F00395DAD /* GoogleService-Info.plist in Resources */,
 			);
@@ -625,7 +636,6 @@
 				991B91AF2A42E269002367E8 /* Result.swift in Sources */,
 				99AD5FFD2A57FC7F0050648E /* SignUpView.swift in Sources */,
 				99A6C1232A601C560061E6A9 /* Parallelogramm.swift in Sources */,
-				99A6C11D2A5FFBA50061E6A9 /* DriverStandingsRow.swift in Sources */,
 				99A6C11F2A6009590061E6A9 /* DriverRaw.swift in Sources */,
 				99A987822A4AC005004B3650 /* QualiResults.swift in Sources */,
 				99AB7AA02A52B5CC001DBC27 /* CircuitDetails.swift in Sources */,
@@ -842,6 +852,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Formula App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Formula-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -870,6 +881,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Formula App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Formula-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

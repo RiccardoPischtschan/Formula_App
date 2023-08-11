@@ -26,10 +26,10 @@ struct QualiRow: View {
                 HStack{
                     
                     Text(quali.position ?? "")
-                        .bold()
-                        .font(.largeTitle)
+                        .font(.custom("RussoOne-Regular", size: 36))
                         .foregroundColor(.white)
                         .frame(width: 45)
+                        .offset(y: 2)
                     if driverPic(for: quali.Driver.code ?? "") != nil{
                         Image(driverPic(for: quali.Driver.code ?? "") ?? "")
                             .resizable()
@@ -38,34 +38,45 @@ struct QualiRow: View {
                         
                     } else {
                         Text(quali.Driver.code ?? "")
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
+                            .offset(y: 2)
                         
                     }
                     
                     VStack{
                         Text(quali.Driver.givenName!)
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
+                            .offset(y: 4)
                         
                         Text(quali.Driver.familyName!)
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
-                            .offset(y: -3)
+                            .offset(y: -1)
                     }
                     .frame(width: 120)
                     
                    
                         if quali.Q3 != nil {
                             Text(quali.Q3 ?? "DNF")
+                                .font(.custom("RussoOne-Regular", size: 16))
                                     .foregroundColor(.white)
                                     .frame(width: 120)
+                                    .offset(y: 2)
                            
                         } else if quali.Q2 != nil {
                             Text(quali.Q2 ?? "DNF")
+                                .font(.custom("RussoOne-Regular", size: 16))
                                 .foregroundColor(.white)
                                 .frame(width: 120)
+                                .offset(y: 2)
                         } else if quali.Q1 != nil {
                             Text(quali.Q1 ?? "DNF")
+                                .font(.custom("RussoOne-Regular", size: 16))
                                 .foregroundColor(.white)
                                 .frame(width: 120)
+                                .offset(y: 2)
                         }
                     
                     

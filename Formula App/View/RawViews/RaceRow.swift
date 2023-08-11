@@ -81,10 +81,10 @@ struct RaceRow: View {
                 HStack{
                     
                     Text(race.position ?? "")
-                        .bold()
-                        .font(.largeTitle)
+                        .font(.custom("RussoOne-Regular", size: 36))
                         .foregroundColor(.white)
                         .frame(width: 45)
+                        .offset(y: 2)
                     if driverPic(for: race.Driver.code ?? "") != nil{
                         Image(driverPic(for: race.Driver.code ?? "") ?? "")
                             .resizable()
@@ -93,42 +93,56 @@ struct RaceRow: View {
                         
                     } else {
                         Text(race.Driver.code ?? "")
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
-                        
+                            .offset(y: 2)
+                            
                     }
                     
                     VStack{
                         Text(race.Driver.givenName ?? "")
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
-                        
+                            .offset(y: 4)
                         Text(race.Driver.familyName ?? "")
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
-                            .offset(y: -3)
+                            .offset(y: -1)
                     }
                     .frame(width: 120)
                     
                     if race.status == "Finished" {
                         Text(race.Time?.time ?? "DNF")
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
                             .frame(width: 120)
+                            .offset(y: 2)
                     } else if race.status == "+1 Lap"{
                         Text("+1 Lap")
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
                             .frame(width: 120)
+                            .offset(y: 2)
                     } else if race.status == "+2 Laps"{
                         Text("+2 Laps")
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
                             .frame(width: 120)
+                            .offset(y: 2)
                     }
                     else if race.status == "Retired"{
                         Text("+3 Laps")
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
                             .frame(width: 120)
+                            .offset(y: 2)
                     }
                     else {
                         Text("DNF")
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
                             .frame(width: 120)
+                            .offset(y: 2)
                     }
                 }
                 .frame(width:350, height: 50)

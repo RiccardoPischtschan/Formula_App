@@ -44,8 +44,15 @@ struct CircuitDetails: View {
                         Picker("",selection: $selectedTheme){
                             ForEach(theme, id:\.self){
                                 Text($0)
+                                    .font(.title)
+                                    
+
+                                    
+
                             }
+                            
                         }
+                        .font(.largeTitle)
                         .pickerStyle(.segmented)
                     }
                     ScrollView{
@@ -60,13 +67,13 @@ struct CircuitDetails: View {
                                 
                                 if dataManager.currentUser.color != "Light" {
                                     Text(selectedCountry.uppercased())
-                                        .font(.largeTitle)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 32))
+
                                         .foregroundColor(.white)
                                 } else {
                                     Text(selectedCountry.uppercased())
-                                        .font(.largeTitle)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 32))
+
                                         .foregroundColor(.black)
                                 }
                             }
@@ -91,17 +98,21 @@ struct CircuitDetails: View {
                             }
                             if dataManager.currentUser.color != "Light"{
                                 Text("Route Length: \(routeLength(for: circuitID) ?? "Not found")")
-                                    .bold()
+                                    .font(.custom("RussoOne-Regular", size: 16))
+
                                     .foregroundColor(.white)
                                 Text("Track Record: \(trackRecord(for: circuitID) ?? "Not found")")
-                                    .bold()
+                                    .font(.custom("RussoOne-Regular", size: 16))
+
                                     .foregroundColor(.white)
                             } else {
                                 Text("Route Length: \(routeLength(for: circuitID) ?? "Not found")")
-                                    .bold()
+                                    .font(.custom("RussoOne-Regular", size: 16))
+
                                     .foregroundColor(.black)
                                 Text("Track Record: \(trackRecord(for: circuitID) ?? "Not found")")
-                                    .bold()
+                                    .font(.custom("RussoOne-Regular", size: 16))
+
                                     .foregroundColor(.black)
                             }
                             
@@ -169,9 +180,13 @@ struct CircuitDetails: View {
                                     } else {
                                         if dataManager.currentUser.color != "Light" {
                                             Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
+                                                .font(.custom("RussoOne-Regular", size: 24))
+
                                                 .foregroundColor(.white)
                                         } else {
                                             Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
+                                                .font(.custom("RussoOne-Regular", size: 24))
+
                                                 .foregroundColor(.black)
                                         }
                                     }

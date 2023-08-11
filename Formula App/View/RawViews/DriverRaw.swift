@@ -25,20 +25,21 @@ struct DriverRaw: View {
                
                 HStack{
                     Text(driver.position ?? "")
-                        .font(.largeTitle)
-                        .bold()
+                        .font(.custom("RussoOne-Regular", size: 36))
                         .foregroundColor(.white)
                         .frame(width: 45)
+                        .offset(y: 2)
                     Image(driverPic(for: (driver.Driver.code!) ) ?? "")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30)
                     VStack{
                         Text(driver.Driver.givenName! )
-                            .font(.subheadline)
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
+                            .offset(y: 4)
                         Text(driver.Driver.familyName! )
-                            .font(.subheadline)
+                            .font(.custom("RussoOne-Regular", size: 16))
                             .foregroundColor(.white)
                             .offset(y: -1)
                     }
@@ -47,13 +48,15 @@ struct DriverRaw: View {
                             .frame(width: 20, height: 30)
                             .foregroundColor(Color("\(driver.Constructors[0].name ?? "") Color"))
                     Text(driver.wins ?? "No Win")
-                        .font(.headline)
+                        .font(.custom("RussoOne-Regular", size: 16))
                         .foregroundColor(.white)
                         .frame(width: 40)
+                        .offset(y: 2)
                     Text(driver.points ?? "No Points")
-                        .font(.headline)
+                        .font(.custom("RussoOne-Regular", size: 16))
                         .foregroundColor(.white)
                         .frame(width: 50)
+                        .offset(y: 2)
                     
                     
                 }

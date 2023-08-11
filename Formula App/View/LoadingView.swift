@@ -18,6 +18,7 @@ struct LoadingView: View {
                     .frame(width: 300)
                     .offset(y: 150)
                 Text("Ergast API")
+                    .font(.custom("RussoOne-Regular", size: 20))
                     .foregroundColor(.white)
                     .position(x: 280, y: 550)
             }

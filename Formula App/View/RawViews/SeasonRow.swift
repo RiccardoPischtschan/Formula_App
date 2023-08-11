@@ -26,8 +26,7 @@ struct SeasonRow: View {
                         )
                     
                     Text(formula.round)
-                        .bold()
-                        .font(.title)
+                        .font(.custom("RussoOne-Regular", size: 26))
                         .foregroundColor(.white)
                         .rotationEffect(.degrees(-45))
                 }
@@ -43,7 +42,7 @@ struct SeasonRow: View {
                         )
                     VStack{
                         Text(formula.raceName)
-                            .bold()
+                            .font(.custom("RussoOne-Regular", size: 15))
                             .foregroundColor(.white)
                             .offset(y:5)
                         HStack{
@@ -53,7 +52,7 @@ struct SeasonRow: View {
                                 .frame(width: 20,height: 20)
                                 .offset(y: -5)
                             Text(reformatDate(_: formula.date))
-                                .bold()
+                                .font(.custom("RussoOne-Regular", size: 15))
                                 .foregroundColor(.white)
                                 .offset(y:-5)
                         }

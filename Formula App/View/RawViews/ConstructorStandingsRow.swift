@@ -46,17 +46,15 @@ struct ConstructorStandingsRow: View {
                     HStack{
                         Text(constructor.position ?? "")
                             .foregroundColor(.black)
-                            .font(.title)
-                            .bold()
+                            .font(.custom("RussoOne-Regular", size: 32))
                             .frame(width: 40)
-                            .offset(x: -40, y: 40)
+                            .offset(x: -10, y: 42)
                         
                         Text(constructor.Constructor.name!)
                             .foregroundColor(.black)
-                            .font(.title)
-                            .bold()
-                            .frame(width: 200)
-                            .offset(y: 40)
+                            .font(.custom("RussoOne-Regular", size: 32))
+                            .frame(width: 250)
+                            .offset(y: 42)
                     }
                     Image("\(constructor.Constructor.name ?? "") Car")
                         .resizable()
@@ -68,24 +66,26 @@ struct ConstructorStandingsRow: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 40)
-                            .offset(x: -80, y:25)
+                            .offset(x: -80, y:22)
                             
                         ZStack{
                             RoundedRectangle(cornerRadius: 5)
                                 .foregroundColor(.black)
                                 .frame(width: 70,height: 30)
+                                .offset(y: -5)
                             Text("PTS")
                                 .foregroundColor(.white)
-                                .bold()
-                                .font(.title)
+                                .font(.custom("RussoOne-Regular", size: 26))
+                                .offset(y: -5)
+
                         }
                         .offset( y: 25)
                         
                         Text(constructor.points ?? "")
                             .foregroundColor(.black)
-                            .font(.title)
-                            .bold()
-                            .offset(x: 60, y:25)
+                            .font(.custom("RussoOne-Regular", size: 32))
+
+                            .offset(x: 60, y:22)
                     }
                 }
             }

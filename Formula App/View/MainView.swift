@@ -7,10 +7,13 @@
 
 import SwiftUI
 
+
 struct MainView: View {
    
     @StateObject var homeViewModel = FormulaViewModel()
     @StateObject var dataManager = DataManager()
+    let customFont = UIFont(name: "RussoOne-Regular", size: 10)!
+    
     var body: some View {
         TabView {
             NavigationStack {
@@ -23,8 +26,13 @@ struct MainView: View {
                 }
             }
             .tabItem {
-                Label("Home", systemImage: "flag.checkered")
+
+                Image(systemName: "flag.checkered")
+                    Text("Home")
+                
             }
+            .font(Font(customFont))
+            
             NavigationStack {
                 DriverView()
             }
@@ -49,9 +57,9 @@ struct MainView: View {
             }
         }
    
-        
+        .font(.custom("RussoOne-Regular", size: 10))
         .accentColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
-
+        
         
         
         .frame(height: 810)

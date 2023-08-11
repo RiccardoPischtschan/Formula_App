@@ -79,14 +79,14 @@ struct HomeView: View {
                                 
                                 HStack {
                                     Text("Race Info")
-                                        .font(.title)
-                                        .bold()
+                                        .font(.custom("RussoOne-Regular", size: 36))
                                         .foregroundColor(.white)
                                         .padding()
                                     Picker("", selection: $selectedOption) {
                                         ForEach(0 ..< year.count) { index in
                                            
                                                 Text(year[index])
+                                                .font(.custom("RussoOne-Regular", size: 20))
                                                     .foregroundColor(.white)
                                             
                                         }
@@ -207,17 +207,18 @@ struct HomeView: View {
                       
                         HStack {
                             Text("Race Info")
-                                .font(.title)
-                                .bold()
+                                .font(.custom("RussoOne-Regular", size: 26))
                                 .foregroundColor(.white)
                                 .padding()
                             Picker("", selection: $selectedOption) {
                                 ForEach(0 ..< year.count) { index in
                                     if dataManager.currentUser.color == "Red Bull" {
                                         Text(year[index])
+                                            .font(.custom("RussoOne-Regular", size: 26))
                                             .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color") 2"))
                                     } else {
                                         Text(year[index])
+                                            .font(.custom("RussoOne-Regular", size: 26))
                                             .foregroundColor(Color("\(appColorStyle(for: dataManager.currentUser.color) ?? "Haas F1 Team Color")"))
                                     }
                                 }
