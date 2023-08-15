@@ -134,13 +134,13 @@ struct CircuitDetails: View {
                                                 RaceRow(race: result)
                                             }
                                             .navigationDestination(isPresented: $isShow){
-                                                DriverDetails(selectedDriverId: DriverIdBinding ?? .constant(driverId!), selectedDriverCode: DriverCodeBinding ?? .constant(driverCode!))
+                                                DriverDetails(selectedDriverId: DriverIdBinding ??  .constant(driverId ?? ""), selectedDriverCode: DriverCodeBinding ??  .constant(driverCode ?? ""))
                                             }
                                             .onTapGesture {
                                                 DriverId = driverId
                                                 DriverIdBinding = Binding<String>(get: { driverId! }, set: { _ in })
                                                 DriverCode = driverCode
-                                                DriverCodeBinding = Binding<String>(get: { driverCode! }, set: { _ in })
+                                                DriverCodeBinding = Binding<String>(get: { driverCode ?? "" }, set: { _ in })
                                                 isShow = true
                                             }
                                         }
@@ -148,13 +148,16 @@ struct CircuitDetails: View {
                                         
                                         if dataManager.currentUser.color != "Light" {
                                             Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
+                                                .font(.custom("RussoOne-Regular", size: 26))
                                                 .foregroundColor(.white)
                                         } else {
                                             Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
+                                                .font(.custom("RussoOne-Regular", size: 26))
                                                 .foregroundColor(.black)
                                         }
                                     }
                                 }
+                                
                             } else if selectedTheme == "Qualifying Result" {
                                 VStack{
                                     if istDatumVergangen(datumString: selectedDate){
@@ -167,7 +170,7 @@ struct CircuitDetails: View {
                                             QualiRow(quali: result)
                                             }
                                             .navigationDestination(isPresented: $isShow2){
-                                                DriverDetails(selectedDriverId: DriverIdsBinding ?? .constant(driverIds!), selectedDriverCode: DriverCodesBinding ?? .constant(driverCodes!))
+                                                DriverDetails(selectedDriverId: DriverIdsBinding ?? .constant(driverIds ?? ""), selectedDriverCode: DriverCodesBinding ?? .constant(driverCodes ?? ""))
                                             }
                                             .onTapGesture {
                                                 DriverIds = driverIds
@@ -180,12 +183,11 @@ struct CircuitDetails: View {
                                     } else {
                                         if dataManager.currentUser.color != "Light" {
                                             Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
-                                                .font(.custom("RussoOne-Regular", size: 24))
-
+                                                .font(.custom("RussoOne-Regular", size: 26))
                                                 .foregroundColor(.white)
                                         } else {
                                             Text("\(berechneTageBisRennen(rennenDatumString: selectedDate))")
-                                                .font(.custom("RussoOne-Regular", size: 24))
+                                                .font(.custom("RussoOne-Regular", size: 26))
 
                                                 .foregroundColor(.black)
                                         }

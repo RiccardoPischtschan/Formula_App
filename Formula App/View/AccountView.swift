@@ -126,7 +126,7 @@ struct AccountView: View {
 
                                 TextField("", text: $name, prompt: Text(dataManager.currentUser.name).foregroundColor(.black))
                                     .foregroundColor(.black)
-                                    .font(.custom("RussoOne-Regular", size: 36))
+                                    .font(.custom("RussoOne-Regular", size: 20))
 
                             }
                             .foregroundColor(.black)

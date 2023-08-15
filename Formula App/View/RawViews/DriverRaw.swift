@@ -27,7 +27,7 @@ struct DriverRaw: View {
                     Text(driver.position ?? "")
                         .font(.custom("RussoOne-Regular", size: 36))
                         .foregroundColor(.white)
-                        .frame(width: 45)
+                        .frame(width: 50)
                         .offset(y: 2)
                     Image(driverPic(for: (driver.Driver.code!) ) ?? "")
                         .resizable()

@@ -64,7 +64,6 @@
 		99A8DCCF2A5BE1DE004E681F /* RaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A8DCCE2A5BE1DE004E681F /* RaceRow.swift */; };
 		99A9876D2A4AAFB5004B3650 /* RaceResultsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9876C2A4AAFB5004B3650 /* RaceResultsResponse.swift */; };
 		99A9876F2A4AB014004B3650 /* MRResultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A9876E2A4AB014004B3650 /* MRResultsData.swift */; };
-		99A987712A4AB12B004B3650 /* RaceResultsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987702A4AB12B004B3650 /* RaceResultsTable.swift */; };
 		99A987742A4AB200004B3650 /* RaceResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987732A4AB200004B3650 /* RaceResults.swift */; };
 		99A987762A4AB2A5004B3650 /* CircuitResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987752A4AB2A5004B3650 /* CircuitResults.swift */; };
 		99A987782A4AB2FA004B3650 /* LocationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A987772A4AB2FA004B3650 /* LocationResults.swift */; };
@@ -84,6 +83,7 @@
 		99AD5FFA2A57FC170050648E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD5FF92A57FC170050648E /* LoginView.swift */; };
 		99AD5FFD2A57FC7F0050648E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD5FFC2A57FC7F0050648E /* SignUpView.swift */; };
 		99AD5FFF2A5811350050648E /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD5FFE2A5811350050648E /* AppStorageKeys.swift */; };
+		99B5EAAC2A8B5DC5004513B8 /* RaceResultsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B5EAAB2A8B5DC5004513B8 /* RaceResultsTable.swift */; };
 		99B976642A49963A00491F25 /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B976632A49963A00491F25 /* SeasonRow.swift */; };
 		99B976672A49AC9E00491F25 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B976662A49AC9E00491F25 /* ContentView.swift */; };
 		99BFFB552A45A1DE001554BB /* Pflichtenheft Batch005.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 99BFFB542A45A1DE001554BB /* Pflichtenheft Batch005.pdf */; };
@@ -168,7 +168,6 @@
 		99A8DCCE2A5BE1DE004E681F /* RaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceRow.swift; sourceTree = "<group>"; };
 		99A9876C2A4AAFB5004B3650 /* RaceResultsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsResponse.swift; sourceTree = "<group>"; };
 		99A9876E2A4AB014004B3650 /* MRResultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRResultsData.swift; sourceTree = "<group>"; };
-		99A987702A4AB12B004B3650 /* RaceResultsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RaceResultsTable.swift; path = ../../../../../../../Applications/RaceResultsTable.swift; sourceTree = "<group>"; };
 		99A987732A4AB200004B3650 /* RaceResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResults.swift; sourceTree = "<group>"; };
 		99A987752A4AB2A5004B3650 /* CircuitResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitResults.swift; sourceTree = "<group>"; };
 		99A987772A4AB2FA004B3650 /* LocationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResults.swift; sourceTree = "<group>"; };
@@ -188,6 +187,7 @@
 		99AD5FF92A57FC170050648E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		99AD5FFC2A57FC7F0050648E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		99AD5FFE2A5811350050648E /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
+		99B5EAAB2A8B5DC5004513B8 /* RaceResultsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultsTable.swift; sourceTree = "<group>"; };
 		99B976632A49963A00491F25 /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
 		99B976662A49AC9E00491F25 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		99BFFB542A45A1DE001554BB /* Pflichtenheft Batch005.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Pflichtenheft Batch005.pdf"; sourceTree = "<group>"; };
@@ -427,7 +427,7 @@
 			children = (
 				99A9876C2A4AAFB5004B3650 /* RaceResultsResponse.swift */,
 				99A9876E2A4AB014004B3650 /* MRResultsData.swift */,
-				99A987702A4AB12B004B3650 /* RaceResultsTable.swift */,
+				99B5EAAB2A8B5DC5004513B8 /* RaceResultsTable.swift */,
 				99A987732A4AB200004B3650 /* RaceResults.swift */,
 				991B91AE2A42E269002367E8 /* Result.swift */,
 				99A987752A4AB2A5004B3650 /* CircuitResults.swift */,
@@ -624,7 +624,6 @@
 				99A723652A5EB43D00CDE13C /* ConstructorView.swift in Sources */,
 				991852422A558D2000C175F4 /* FirebaseAuthService.swift in Sources */,
 				99A6C10D2A5FE65D0061E6A9 /* Drivers.swift in Sources */,
-				99A987712A4AB12B004B3650 /* RaceResultsTable.swift in Sources */,
 				99A987802A4ABF64004B3650 /* RaceQuali.swift in Sources */,
 				991B91AB2A42E226002367E8 /* Circuit.swift in Sources */,
 				99A987862A4AC658004B3650 /* ConstructorQuali.swift in Sources */,
@@ -675,6 +674,7 @@
 				99A9878A2A4AC83C004B3650 /* RaceQualiResponse.swift in Sources */,
 				99C222E72A7100D900E036BB /* LoadingView.swift in Sources */,
 				9955B60E2A612CED00B489E6 /* StandingsConstructorTable.swift in Sources */,
+				99B5EAAC2A8B5DC5004513B8 /* RaceResultsTable.swift in Sources */,
 				99ABDE6A2A66935A0074F0A9 /* AccountInfoView.swift in Sources */,
 				991B91A62A42DDF5002367E8 /* FormulaViewModel.swift in Sources */,
 				99AA468B2A5D51DE001E3854 /* QualiRow.swift in Sources */,
