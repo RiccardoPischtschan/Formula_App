@@ -99,6 +99,8 @@ struct AccountView: View {
                         if dataManager.currentUser.color != "Light" {
                             HStack{
                                 Image(systemName: "person.crop.rectangle")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
                                     .foregroundColor(.white)
 
 
@@ -120,7 +122,8 @@ struct AccountView: View {
                         } else {
                             HStack{
                                 Image(systemName: "person.crop.rectangle")
-                                    .foregroundColor(.black)
+                                    .resizable()
+                                    .frame(width: 24, height: 24)                       .foregroundColor(.black)
                                     
 
 

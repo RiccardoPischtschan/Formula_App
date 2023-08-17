@@ -28,7 +28,7 @@ struct QualiRow: View {
                     Text(quali.position ?? "")
                         .font(.custom("RussoOne-Regular", size: 36))
                         .foregroundColor(.white)
-                        .frame(width: 45)
+                        .frame(width: 50)
                         .offset(y: 2)
                     if driverPic(for: quali.Driver.code ?? "") != nil{
                         Image(driverPic(for: quali.Driver.code ?? "") ?? "")

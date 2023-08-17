@@ -83,7 +83,7 @@ struct RaceRow: View {
                     Text(race.position ?? "")
                         .font(.custom("RussoOne-Regular", size: 36))
                         .foregroundColor(.white)
-                        .frame(width: 45)
+                        .frame(width: 50)
                         .offset(y: 2)
                     if driverPic(for: race.Driver.code ?? "") != nil{
                         Image(driverPic(for: race.Driver.code ?? "") ?? "")
