@@ -13,8 +13,7 @@ struct AuthView: View {
     var body: some View {
         if (currentViewShowing == "login") {
             LoginView( currentShowingView: $currentViewShowing)
-                
-                .preferredColorScheme(.light)
+               .preferredColorScheme(.light)
         } else {
             SignUpView(currentShowingView: $currentViewShowing)
                 .preferredColorScheme(.dark)
